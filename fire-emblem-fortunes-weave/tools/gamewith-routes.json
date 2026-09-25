@@ -1,0 +1,1165 @@
+{
+"source": "https://gamewith.jp/fefw/573109",
+"checked": "2026-09-25",
+"note": "各路线出场时期与招募条件；filter 中 male/female 为性别",
+"roster": {
+"eshmel": {
+"jp": "救世主",
+"page": "https://gamewith.jp/fefw/577454",
+"gender": "female",
+"routes": {}
+},
+"cai": {
+"jp": "カイ",
+"page": "https://gamewith.jp/fefw/577325",
+"gender": "male",
+"routes": {}
+},
+"dietrich": {
+"jp": "ディートリヒ",
+"page": "https://gamewith.jp/fefw/577324",
+"gender": "male",
+"routes": {}
+},
+"theodora": {
+"jp": "セオドラ",
+"page": "https://gamewith.jp/fefw/577323",
+"gender": "female",
+"routes": {}
+},
+"leda": {
+"jp": "レダ",
+"page": "https://gamewith.jp/fefw/577322",
+"gender": "female",
+"routes": {}
+},
+"recruit-6": {
+"jp": "ティアラ",
+"page": "https://gamewith.jp/fefw/577321",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部1章",
+"cond": "ストーリー進行中に加入"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9/ カイ外伝 をクリア 交渉 3000G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv10/ カイ外伝 をクリア 交渉 3000G支払う"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8/ カイ外伝 をクリア 交渉 3000G支払う"
+}
+}
+},
+"peter": {
+"jp": "ピーテル",
+"page": "https://gamewith.jp/fefw/577320",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部1章",
+"cond": "ストーリー進行中に加入"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8 交渉 ピーテル の頼みをクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv7 交渉 ピーテル の頼みをクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 ピーテル の頼みをクリア"
+}
+}
+},
+"recruit-8": {
+"jp": "ウルタンド",
+"page": "https://gamewith.jp/fefw/577319",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部6章",
+"cond": "ストーリー進行中に加入"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv5 交渉 ウルタンド の頼みをクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv6 交渉 ウルタンド の頼みをクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章",
+"cond": "支援Lv3/名声Lv8 交渉 ウルタンド の頼みをクリア"
+}
+}
+},
+"fabio": {
+"jp": "ファビオ",
+"page": "https://gamewith.jp/fefw/577318",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部1章",
+"cond": "ストーリー進行中に加入"
+},
+"theodora": {
+"cond": "スカウト対象外"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9/ ディートリヒ外伝 をクリア 交渉 ストーリー11章で ディートリヒ が敗退後、満足する武器を渡す(ド・ミナの籠手で成功を確認)"
+}
+}
+},
+"esmeralda": {
+"jp": "エスメラルダ",
+"page": "https://gamewith.jp/fefw/577317",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv2/名声Lv7 交渉 エスメラルダの頼み をクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部2章",
+"cond": "ストーリー進行中に加入"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 エスメラルダの頼み をクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 エスメラルダの頼み をクリア"
+}
+}
+},
+"recruit-11": {
+"jp": "ミカエラ",
+"page": "https://gamewith.jp/fefw/577316",
+"gender": "female",
+"routes": {
+"cai": {
+"cond": "支援Lv3/名声Lv5 交渉 3000G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章",
+"cond": "ストーリー進行中に加入 交渉 3000G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv8 交渉 3000G支払う"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 3000G支払う"
+}
+}
+},
+"bonaventure": {
+"jp": "ボナパルテ",
+"page": "https://gamewith.jp/fefw/577315",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"cond": "スカウト対象外"
+},
+"theodora": {
+"time": "【セオドラ編】1部1章",
+"cond": "ストーリー進行中に加入"
+},
+"leda": {
+"cond": "スカウト対象外"
+}
+}
+},
+"tobias": {
+"jp": "トビヤス",
+"page": "https://gamewith.jp/fefw/577313",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"cond": "スカウト対象外"
+},
+"theodora": {
+"time": "【セオドラ編】1部1章",
+"cond": "ストーリー進行中に加入"
+},
+"leda": {
+"cond": "スカウト対象外"
+}
+}
+},
+"recruit-14": {
+"jp": "リリアン",
+"page": "https://gamewith.jp/fefw/577314",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv2/名声Lv8 交渉 5000G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv2/名声Lv8 交渉 5000G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部4章",
+"cond": "ストーリー進行中に加入"
+},
+"leda": {
+"time": "【レダ編】1部5章4月",
+"cond": "支援Lv2/名声Lv7 交渉 5000G支払う"
+}
+}
+},
+"recruit-15": {
+"jp": "ライサンダー",
+"page": "https://gamewith.jp/fefw/577312",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8 交渉 鉄の槍 ×5を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 鉄の槍 ×5を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部4章",
+"cond": "ストーリー進行中に加入"
+},
+"leda": {
+"time": "【レダ編】1部5章4月",
+"cond": "支援Lv3/名声Lv7 交渉 鉄の槍 ×5を渡す"
+}
+}
+},
+"recruit-16": {
+"jp": "バッカニア",
+"page": "https://gamewith.jp/fefw/577310",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8/ レダ外伝 をクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv8/ レダ外伝 をクリア"
+},
+"leda": {
+"time": "【レダ編】1部1章",
+"cond": "ストーリー進行中に加入"
+}
+}
+},
+"recruit-17": {
+"jp": "シロッコ",
+"page": "https://gamewith.jp/fefw/577311",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 シロッコの頼み をクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部5章4月",
+"cond": "支援Lv3/名声Lv9 交渉 シロッコの頼み をクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv1/名声Lv5 交渉 シロッコの頼み をクリア"
+},
+"leda": {
+"time": "【レダ編】1部1章",
+"cond": "ストーリー進行中に加入"
+}
+}
+},
+"recruit-18": {
+"jp": "オリンピア",
+"page": "https://gamewith.jp/fefw/577309",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv3/名声Lv8 交渉 オリンピア の頼み1〜3をクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部5章4月",
+"cond": "支援Lv3/名声Lv6 交渉 オリンピア の頼み1〜3をクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 オリンピア の頼み1〜3をクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章",
+"cond": "ストーリー進行中に加入"
+}
+}
+},
+"recruit-19": {
+"jp": "ムウ",
+"page": "https://gamewith.jp/fefw/577308",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 グルマオサ ×3を渡す"
+},
+"dietrich": {
+"cond": "支援Lv3/名声Lv7 交渉 グルマオサ ×3を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 グルマオサ ×3を渡す"
+},
+"leda": {
+"time": "【レダ編】1部1章",
+"cond": "ストーリー進行中に加入"
+}
+}
+},
+"bertrand": {
+"jp": "ベルトラン",
+"page": "https://gamewith.jp/fefw/577593",
+"gender": "male",
+"routes": {}
+},
+"talimun": {
+"jp": "タリムーン",
+"page": "https://gamewith.jp/fefw/577342",
+"gender": "male",
+"routes": {}
+},
+"orchel": {
+"jp": "オルヘル",
+"page": "https://gamewith.jp/fefw/577374",
+"gender": "female",
+"routes": {}
+},
+"anatolia": {
+"jp": "アナトリア",
+"page": "https://gamewith.jp/fefw/577372",
+"gender": "female",
+"routes": {}
+},
+"centurio": {
+"jp": "セントリオン",
+"page": "https://gamewith.jp/fefw/577381",
+"gender": "male",
+"routes": {}
+},
+"troy": {
+"jp": "トロイア",
+"page": "https://gamewith.jp/fefw/577532",
+"gender": "female",
+"routes": {}
+},
+"hong-hua": {
+"jp": "コウカ",
+"page": "https://gamewith.jp/fefw/577535",
+"gender": "female",
+"routes": {}
+},
+"gaitz": {
+"jp": "ゲイツ",
+"page": "https://gamewith.jp/fefw/577373",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10/ ベルトラン外伝 をクリアし本戦で敗退する"
+},
+"theodora": {
+"cond": "スカウト対象外"
+},
+"leda": {
+"cond": "スカウト対象外"
+}
+}
+},
+"recruit-24": {
+"jp": "ウーシュラ",
+"page": "https://gamewith.jp/fefw/577307",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部6章4月",
+"cond": "支援Lv3/名声Lv10/ タリムーン外伝 クリア 交渉 質問全てで「はい」を選択"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7/ タリムーン外伝 クリア 交渉 質問全てで「はい」を選択"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9/ タリムーン外伝 をクリア 交渉 質問全てで「はい」を選択"
+},
+"leda": {
+"cond": "スカウト対象外"
+}
+}
+},
+"diego": {
+"jp": "ディエゴ",
+"page": "https://gamewith.jp/fefw/577306",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10/ オルヘル外伝 をクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9/ オルヘル外伝 をクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv2/名声Lv8/ オルヘル外伝 をクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8/ オルヘル外伝 をクリア"
+}
+}
+},
+"sha-lan": {
+"jp": "サラン",
+"page": "https://gamewith.jp/fefw/577339",
+"gender": "female",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10/ アナトリア外伝 をクリア 交渉 質問で以下の選択肢を選択1個目：わかった2個目：サラミス国3個目：ダ・ミナ4個目：座礁した巨大船"
+},
+"theodora": {
+"cond": "スカウト対象外"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8/ アナトリア外伝 をクリア 交渉 質問で以下の選択肢を選択1個目：わかった2個目：サラミス国3個目：ダ・ミナ4個目：座礁した巨大船"
+}
+}
+},
+"dante": {
+"jp": "ダンテ",
+"page": "https://gamewith.jp/fefw/577305",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv3/名声Lv10 交渉 8000G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv2/名声Lv8 交渉 8000G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv6 交渉 8000G支払う"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 8000G支払う"
+}
+}
+},
+"recruit-28": {
+"jp": "シモン",
+"page": "https://gamewith.jp/fefw/577304",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "支援Lv3/名声Lv8 交渉 コイントスで裏を選択"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7 交渉 コイントスで裏を選択"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv7 交渉 コイントスで裏を選択"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 コイントスで裏を選択"
+}
+}
+},
+"recruit-29": {
+"jp": "ニネ",
+"page": "https://gamewith.jp/fefw/577303",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 カガヤキウオ ×1を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8 交渉 カガヤキウオ ×1を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv6 交渉 カガヤキウオ ×1を渡す"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8 交渉 カガヤキウオ ×1を渡す"
+}
+}
+},
+"recruit-30": {
+"jp": "ナジャ",
+"page": "https://gamewith.jp/fefw/577302",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "支援Lv3/名声Lv6 交渉 砂虫肉 ×3を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 砂虫肉 ×3を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv2/名声Lv6 交渉 砂虫肉 ×3を渡す"
+},
+"leda": {
+"cond": "支援Lv3/名声Lv9 交渉 砂虫肉 ×3を渡す"
+}
+}
+},
+"recruit-31": {
+"jp": "グザラン",
+"page": "https://gamewith.jp/fefw/577301",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "ストーリー進行中に加入"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv8"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv1/名声Lv3"
+}
+}
+},
+"nydine": {
+"jp": "ヌディーヌ",
+"page": "https://gamewith.jp/fefw/577300",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv1/名声Lv6 交渉 青銅の斧 ×2を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv2/名声Lv5 交渉 青銅の斧 ×2を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv5 交渉 鉄の斧 ×3を渡す"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 鉄の斧 ×3を渡す"
+}
+}
+},
+"recruit-33": {
+"jp": "イオ",
+"page": "https://gamewith.jp/fefw/577299",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv3/名声Lv10 交渉 4000G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv2/名声Lv3 交渉 800G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv10 交渉 4000G支払う"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv1/名声Lv6 交渉 1500G支払う"
+}
+}
+},
+"recruit-34": {
+"jp": "カターニャ",
+"page": "https://gamewith.jp/fefw/577298",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv3/名声Lv10"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv1/名声Lv8"
+},
+"theodora": {
+"time": "【セオドラ編】1部6章3月",
+"cond": "支援Lv3/名声Lv7"
+},
+"leda": {
+"time": "【レダ編】1部4章",
+"cond": "支援Lv1/名声Lv2"
+}
+}
+},
+"benditz": {
+"jp": "ベンディッツ",
+"page": "https://gamewith.jp/fefw/577297",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "支援Lv3/名声Lv9"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部5章4月",
+"cond": "支援Lv2/名声Lv7"
+},
+"theodora": {
+"time": "【セオドラ編】1部7章4月",
+"cond": "支援Lv1/名声Lv8"
+},
+"leda": {
+"time": "【レダ編】1部6章5月",
+"cond": "支援Lv3/名声Lv7"
+}
+}
+},
+"alexandra": {
+"jp": "アレキサンドラ",
+"page": "https://gamewith.jp/fefw/577376",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部7章6月",
+"cond": "支援Lv2/名声Lv7"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部7章5月",
+"cond": "支援Lv3/名声Lv8"
+},
+"theodora": {
+"time": "【セオドラ編】1部8章6月",
+"cond": "支援Lv1/名声Lv6"
+},
+"leda": {
+"time": "【レダ編】1部7章5月",
+"cond": "支援Lv3/名声Lv10"
+}
+}
+},
+"noctula": {
+"jp": "ノクチュラ",
+"page": "https://gamewith.jp/fefw/577296",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv1/名声Lv4"
+},
+"dietrich": {
+"cond": "支援Lv1/名声Lv6"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv1/名声Lv3"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8"
+}
+}
+},
+"yang-jie": {
+"jp": "ヨーカイ",
+"page": "https://gamewith.jp/fefw/577295",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv2/名声Lv3 交渉 質問で以下の回答を選択1問目：乾酪2問目：満月の夜3問目：どれでもOK"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "ストーリー進行中に加入"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 質問で以下の回答を選択1問目：乾酪2問目：満月の夜3問目：どれでもOK"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8 交渉 質問で以下の回答を選択1問目：乾酪2問目：満月の夜3問目：どれでもOK"
+}
+}
+},
+"sofia": {
+"jp": "ソフィア",
+"page": "https://gamewith.jp/fefw/577294",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv3/名声Lv9"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv1/名声Lv2"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7"
+}
+}
+},
+"nuzzuo": {
+"jp": "ヌッツォ",
+"page": "https://gamewith.jp/fefw/577380",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部8章7月",
+"cond": "支援Lv2/名声Lv6 交渉 鉄の弓 ×3を渡す"
+},
+"dietrich": {
+"cond": "支援Lv1/名声Lv9 交渉 鉄の弓 ×2を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部9章7月",
+"cond": "支援Lv1/名声Lv6 交渉 鉄の弓 ×3を渡す"
+},
+"leda": {
+"time": "【レダ編】1部10章9月",
+"cond": "支援Lv3/名声Lv9 交渉 鉄の弓 ×3を渡す"
+}
+}
+},
+"majide": {
+"jp": "マジーデ",
+"page": "https://gamewith.jp/fefw/577293",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv2/名声Lv5 交渉 質問全てで「必要だ」を選択"
+},
+"dietrich": {
+"cond": "支援Lv3/名声Lv8 交渉 質問全てで「必要だ」を選択"
+},
+"theodora": {
+"time": "【セオドラ編】1部6章3月",
+"cond": "支援Lv3/名声Lv8 交渉 質問全てで「必要だ」を選択"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9 交渉 質問全てで「必要だ」を選択"
+}
+}
+},
+"zarcone": {
+"jp": "ザーコネ",
+"page": "https://gamewith.jp/fefw/577292",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv3/名声Lv8 交渉 10000G断る→1000G断る→100G断る→10G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7 交渉 10000G断る→1000G断る→100G断る→10G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv1/名声Lv4 交渉 10000G断る→1000G断る→100G断る→10G支払う"
+},
+"leda": {
+"time": "【レダ編】1部4章",
+"cond": "支援Lv2/名声Lv5 交渉 10000G断る→1000G断る→100G断る→10G支払う"
+}
+}
+},
+"recruit-43": {
+"jp": "ゴライアス",
+"page": "https://gamewith.jp/fefw/577291",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7 交渉 巨大肉 ×3を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 巨大肉 ×3を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 巨大肉 ×3を渡す"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 巨大肉 ×3を渡す"
+}
+}
+},
+"jester": {
+"jp": "ジェスター",
+"page": "https://gamewith.jp/fefw/577290",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv3/名声Lv10 交渉 ジェスター の頼み1~3をクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 ジェスター の頼み1~3をクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 ジェスター の頼み1~3をクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 ジェスター の頼み1~3をクリア"
+}
+}
+},
+"ludia": {
+"jp": "ルルディヤー",
+"page": "https://gamewith.jp/fefw/577289",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部6章4月",
+"cond": "支援Lv3/名声Lv9 交渉 ルルディヤー の頼みをクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9 交渉 ルルディヤー の頼みをクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv7 交渉 ルルディヤー の頼みをクリア"
+},
+"leda": {
+"time": "【レダ編】1部5章4月",
+"cond": "支援Lv3/名声Lv7 交渉 ルルディヤー の頼みをクリア"
+}
+}
+},
+"fianna": {
+"jp": "フィアナ",
+"page": "https://gamewith.jp/fefw/577288",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv3/名声Lv8 交渉 3000G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7 交渉 3000G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv9 交渉 3000G支払う"
+},
+"leda": {
+"time": "【レダ編】1部5章4月",
+"cond": "支援Lv3/名声Lv5 交渉 3000G支払う"
+}
+}
+},
+"dadao": {
+"jp": "ダイトウ",
+"page": "https://gamewith.jp/fefw/577336",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部5章3月",
+"cond": "支援Lv3/名声Lv7 交渉 コーシャルーガー ×2を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 コーシャルーガー ×2を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv2/名声Lv5 交渉 コーシャルーガー ×2を渡す"
+},
+"leda": {
+"time": "【レダ編】1部5章4月",
+"cond": "支援Lv2/名声Lv5 交渉 コーシャルーガー ×2を渡す"
+}
+}
+},
+"halvin": {
+"jp": "ハルヴィン",
+"page": "https://gamewith.jp/fefw/577341",
+"gender": "female",
+"routes": {
+"cai": {
+"cond": "支援Lv3/名声Lv5 交渉 デーツ ×10を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9 交渉 デーツ ×10を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv7 交渉 デーツ ×10を渡す"
+},
+"leda": {
+"time": "【レダ編】1部5章4月",
+"cond": "支援Lv3/名声Lv 7 交渉 デーツ ×10を渡す"
+}
+}
+},
+"seteth": {
+"jp": "セテス",
+"page": "https://gamewith.jp/fefw/577340",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv3/名声Lv6 交渉 セテス の頼みをクリア"
+},
+"dietrich": {
+"cond": "スカウト対象外"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv6 交渉 セテス の頼みをクリア"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv10 交渉 セテス の頼みをクリア"
+}
+}
+},
+"recruit-50": {
+"jp": "ロレッタ",
+"page": "https://gamewith.jp/fefw/577378",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部4章3月",
+"cond": "支援Lv3/名声Lv7"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv9"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv3/名声Lv5"
+},
+"leda": {
+"time": "【レダ編】1部4章3月",
+"cond": "支援Lv3/名声Lv5"
+}
+}
+},
+"nathan": {
+"jp": "ネイサン",
+"page": "https://gamewith.jp/fefw/577895",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"time": "【ディートリヒ編】2部3章",
+"cond": "戦闘中に キリーク で ネイサン を倒す"
+},
+"theodora": {
+"cond": "スカウト対象外"
+},
+"leda": {
+"time": "【レダ編】2部3章",
+"cond": "戦闘中に キリーク で ネイサン を倒す"
+}
+}
+},
+"creek": {
+"jp": "キリーク",
+"page": "https://gamewith.jp/fefw/577615",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "スカウト対象外"
+},
+"dietrich": {
+"time": "【ディートリヒ編】2部3章",
+"cond": "1部で発生するサブクエスト「 亡き妹の装身具 」をクリアし、2部2章「アグリス関の死闘」で キリーク を倒すと2部3章で加入"
+},
+"theodora": {
+"cond": "スカウト対象外"
+},
+"leda": {
+"time": "【レダ編】2部3章",
+"cond": "1部で発生するサブクエスト「 亡き妹の装身具 」をクリアし、2部2章「アグリス関の死闘」で キリーク を倒すと2部3章で加入"
+}
+}
+},
+"jasmine": {
+"jp": "ジャスミン",
+"page": "https://gamewith.jp/fefw/577383",
+"gender": "female",
+"routes": {
+"cai": {
+"cond": "支援Lv1/名声Lv8 交渉 2000G支払う"
+},
+"dietrich": {
+"cond": "支援Lv3/名声Lv9 交渉 5000G支払う"
+},
+"theodora": {
+"cond": "支援Lv3/名声Lv8 交渉 5000G支払う"
+},
+"leda": {
+"time": "【レダ編】1部7章5月",
+"cond": "支援Lv2/名声Lv4 交渉 500G支払う"
+}
+}
+},
+"kiroc": {
+"jp": "キロイカ",
+"page": "https://gamewith.jp/fefw/577287",
+"gender": "male",
+"routes": {
+"cai": {
+"cond": "支援Lv3/名声Lv8 交渉 聖水 ×8を渡す"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部6章5月",
+"cond": "支援Lv1/名声Lv4 交渉 聖水 ×3を渡す"
+},
+"theodora": {
+"time": "【セオドラ編】1部7章5月",
+"cond": "支援Lv3/名声Lv10 交渉 聖水 ×8を渡す"
+},
+"leda": {
+"time": "【レダ編】1部7章5月",
+"cond": "支援Lv1/名声Lv4 交渉 聖水 ×3を渡す"
+}
+}
+},
+"inyoni": {
+"jp": "イニオニ",
+"page": "https://gamewith.jp/fefw/577379",
+"gender": "female",
+"routes": {
+"cai": {
+"time": "【カイ編】1部8章7月",
+"cond": "支援Lv3/名声Lv8 交渉 6000G支払う"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部9章8月",
+"cond": "支援Lv3/名声Lv8 交渉 6000G支払う"
+},
+"theodora": {
+"time": "【セオドラ編】1部9章7月",
+"cond": "支援Lv1/名声Lv9 交渉 4000G支払う"
+},
+"leda": {
+"cond": "支援Lv1/名声Lv7 交渉 3000G支払う"
+}
+}
+},
+"recruit-53": {
+"jp": "ペペ",
+"page": "https://gamewith.jp/fefw/577338",
+"gender": "male",
+"routes": {
+"cai": {
+"time": "【カイ編】1部3章2月",
+"cond": "支援Lv1/名声Lv9/ ベルトラン外伝 をクリア"
+},
+"dietrich": {
+"time": "【ディートリヒ編】1部4章3月",
+"cond": "支援Lv3/名声Lv8/ ベルトラン外伝 をクリア"
+},
+"theodora": {
+"time": "【セオドラ編】1部5章3月",
+"cond": "支援Lv2/名声Lv7/ ベルトラン外伝 をクリア"
+},
+"leda": {
+"cond": "スカウト対象外"
+}
+}
+},
+"aswan": {
+"jp": "アスワン",
+"page": "https://gamewith.jp/fefw/577918",
+"gender": "female",
+"routes": {}
+},
+"tahonia": {
+"jp": "タホウニア",
+"page": "https://gamewith.jp/fefw/577917",
+"gender": "female",
+"routes": {}
+},
+"klapka": {
+"jp": "クラプカ",
+"page": "https://gamewith.jp/fefw/577935",
+"gender": "male",
+"routes": {}
+}
+}
+}

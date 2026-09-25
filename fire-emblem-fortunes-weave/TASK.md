@@ -20,3 +20,4 @@
 - 2026-09-25：导入 ChatGPT 生成的静态站点（index.html + JS/CSS + assets），全部为相对路径，可直接由 GitHub Pages 托管；使用说明见 `网站使用说明.md`
 - 2026-09-25：界面优化——强度排行新增默认「综合梯队」视图（`tiers-ui.js`），统一强调色、收紧模型表与资料来源排版（`polish.css`）
 - 2026-09-25：强度排行改为评分标准 2.0——汇总 Game8、GameWith、KeenGamer、Pocket Tactics、アルゲスト、Siliconera 六个来源的共识分，与本站六项量化分各占 50%；数据与计算脚本在 `tools/`，运行 `node tools/build-strength.js` 重新生成 `strength-data.js`
+- 2026-09-25：评分标准 3.0——按角色最优「路线 × 职业」用游戏战斗公式模拟（含凯伊线骑乘成长加成、战车兵翻倍、第一部晚入队扣分），六项权重用外部共识拟合；综合分 = 外部 60% + 本站 40%

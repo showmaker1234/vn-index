@@ -66,6 +66,16 @@
 .tier-source-table{min-width:0}
 .tier-source-table td,.tier-source-table th{padding-block:7px!important}
 
+/* 评分标准 3.0 详情 */
+.tier-best{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0}
+.tier-best>div{border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:var(--surface)}
+.tier-best span{display:block;font-size:12px;color:var(--muted)}
+.tier-best b{font-size:15px}
+.tier-best small{display:block;font-size:11px;color:var(--muted)}
+.tier-best-cell{font-size:13px;white-space:nowrap}
+.tier-best-cell small{color:var(--db-blue)}
+@media(max-width:760px){.tier-best{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* 统一强调色：攻略筛选按钮沿用数据库的蓝色，而不是旧版红色 */
 .filter.active{border-color:var(--accent);background:var(--db-soft);color:var(--accent)}
 ::selection{background:color-mix(in srgb,var(--accent) 35%,transparent)}
