@@ -22,7 +22,6 @@ const PART1_LEVELS=15;      // 其中在第一部获得的升级次数（凯伊�
 const BASE={hp:20,other:5}; // 统一的起点能力，比较只看成长差异
 const PART1_CHAPTERS=10;
 const renownChapter=r=>3+0.5*r;            // 所需名声等级大约在第几章达到（第 4 章开放自由行动后开始积累）
-const CAMPAIGN_SHARE={p1:0.4,p2:0.25,p3:0.35}; // 三部在全流程战斗中的大致占比
 const BLEND={external:0.6,own:0.4};
 const TIERS=[['T0',0.08],['T1',0.25],['T2',0.5],['T3',0.75],['T4',1]];
 const LORD_RANKS={keengamer:{dietrich:1,theodora:2,leda:3,cai:4},gamewith:{dietrich:1,theodora:3,leda:3,cai:3},algest:{leda:1,dietrich:3,theodora:3,cai:3}};
@@ -91,10 +90,8 @@ function routesOf(c){
   return out;
 }
 function availability(r){
-  const p1=r.part===1?clamp((PART1_CHAPTERS-r.ch+1)/PART1_CHAPTERS):0;
-  const p2=r.part===1?1:r.part===2?clamp((6-r.ch)/5):0;
-  const p3=r.part<=2?1:clamp((7-r.ch)/6);
-  return CAMPAIGN_SHARE.p1*p1+CAMPAIGN_SHARE.p2*p2+CAMPAIGN_SHARE.p3*p3;
+  /* 只有第一部可招募的角色按入队章节扣分；第二、三部剧情加入属于正常进度，不扣分 */
+  return r.part===1?clamp((PART1_CHAPTERS-r.ch+1)/PART1_CHAPTERS):1;
 }
 function costPenalty(q){
   if(q.story)return 0;
@@ -292,7 +289,7 @@ const agreement=(()=>{const R=ranked.filter(r=>r.external!=null),er=[...R].sort(
 const out={
   version:'3.0',agreement,checked,generated:new Date().toISOString().slice(0,10),
   weights,prior:PRIOR,fitted:Object.fromEntries(Object.entries(fitted).map(([k,v])=>[k,round(v)])),priorShare:PRIOR_SHARE,featureNames:FEATURE_NAMES,blend:BLEND,tiers:TIERS,fit:{correlation:+fitCorr.toFixed(2),n:fitIds.length,healFactor:HEAL_FACTOR,scan:fitScan},
-  assumptions:{levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,campaignShare:CAMPAIGN_SHARE,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
+  assumptions:{levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
   sources:sources.map(({tiers,...s})=>({...s,count:Object.values(tiers).flat().length})),excluded,rows
 };
 fs.writeFileSync(path.join(root,'strength-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.STRENGTH_DATA='+JSON.stringify(out)+';\n');
