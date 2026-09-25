@@ -1,0 +1,1782 @@
+{
+"source": "https://gamewith.jp/fefw/573109",
+"checked": "2026-09-25",
+"roster": {
+"eshmel": {
+"jp": "救世主",
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 45,
+"speed": 45,
+"dexterity": 45,
+"defense": 35,
+"resistance": 35,
+"luck": 40,
+"charm": 50
+},
+"proficiencies": [
+"spear",
+"authority"
+],
+"joins": [],
+"personal": [
+"周囲2マスにいる敵の「冥府の加護」を無効化する"
+]
+},
+"cai": {
+"jp": "カイ",
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 40,
+"speed": 45,
+"dexterity": 45,
+"defense": 35,
+"resistance": 35,
+"luck": 40,
+"charm": 40
+},
+"proficiencies": [
+"sword",
+"spear",
+"riding",
+"whiteMagic"
+],
+"joins": [
+"【救世主編】3部1区分"
+],
+"personal": [
+"移動力+1"
+]
+},
+"dietrich": {
+"jp": "ディートリヒ",
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 30,
+"speed": 50,
+"dexterity": 60,
+"defense": 40,
+"resistance": 30,
+"luck": 50,
+"charm": 60
+},
+"proficiencies": [
+"sword",
+"infantry"
+],
+"joins": [
+"【救世主編】3部1区分"
+],
+"personal": [
+"先攻での戦闘時、必殺+5"
+]
+},
+"theodora": {
+"jp": "セオドラ",
+"growth": {
+"hp": 70,
+"strength": 50,
+"magic": 30,
+"speed": 40,
+"dexterity": 50,
+"defense": 40,
+"resistance": 30,
+"luck": 30,
+"charm": 50
+},
+"proficiencies": [
+"spear",
+"whiteMagic",
+"authority"
+],
+"joins": [
+"【救世主編】3部1区分"
+],
+"personal": [
+"攻撃された時30%で発動し受けるダメージを半減する"
+]
+},
+"leda": {
+"jp": "レダ",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 35,
+"speed": 65,
+"dexterity": 50,
+"defense": 30,
+"resistance": 35,
+"luck": 25,
+"charm": 55
+},
+"proficiencies": [
+"sword",
+"bow",
+"whiteMagic",
+"infantry"
+],
+"joins": [
+"【救世主編】3部1区分"
+],
+"personal": [
+"先攻での戦闘時、5%で発動し、反撃されなくなる",
+"Lvスキル",
+"ブレイズアーツを使用後、自分がオーバーブレイズ中なら、さらに攻撃できる"
+]
+},
+"recruit-6": {
+"jp": "ティアラ",
+"growth": {
+"hp": 35,
+"strength": 25,
+"magic": 45,
+"speed": 35,
+"dexterity": 40,
+"defense": 20,
+"resistance": 40,
+"luck": 50,
+"charm": 45
+},
+"proficiencies": [
+"blackMagic",
+"whiteMagic",
+"authority"
+],
+"joins": [
+"【カイ編】1部1章",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"味方に使用可能な戦技の射程+1",
+"Lvスキル",
+"先攻での戦闘後、その敵の回避-10 ※1回戦闘すると元に戻る"
+]
+},
+"peter": {
+"jp": "ピーテル",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 20,
+"speed": 45,
+"dexterity": 60,
+"defense": 30,
+"resistance": 25,
+"luck": 35,
+"charm": 30
+},
+"proficiencies": [
+"bow",
+"infantry"
+],
+"joins": [
+"【カイ編】1部1章",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"弓の戦技を使う時、射程+1",
+"Lvスキル",
+"戦闘時、自分の命中率が75%以上なら、命中+20"
+]
+},
+"recruit-8": {
+"jp": "ウルタンド",
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 40,
+"speed": 35,
+"dexterity": 40,
+"defense": 35,
+"resistance": 45,
+"luck": 55,
+"charm": 50
+},
+"proficiencies": [
+"spear",
+"whiteMagic",
+"flying"
+],
+"joins": [
+"【カイ編】1部6章",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章"
+],
+"personal": [
+"隣接する味方の戦闘後、その味方のHPを小回復する",
+"Lvスキル",
+"隣接する味方の必避+20"
+]
+},
+"fabio": {
+"jp": "ファビオ",
+"growth": {
+"hp": 40,
+"strength": 25,
+"magic": 50,
+"speed": 35,
+"dexterity": 40,
+"defense": 30,
+"resistance": 45,
+"luck": 35,
+"charm": 30
+},
+"proficiencies": [
+"blackMagic",
+"authority"
+],
+"joins": [
+"【ディートリヒ編】1部1章",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"隣接する敵の必避-5",
+"Lvスキル",
+"「闇呼び」の効果の範囲が周囲3マスになる"
+]
+},
+"esmeralda": {
+"jp": "エスメラルダ",
+"growth": {
+"hp": 55,
+"strength": 55,
+"magic": 20,
+"speed": 35,
+"dexterity": 35,
+"defense": 45,
+"resistance": 25,
+"luck": 35,
+"charm": 30
+},
+"proficiencies": [
+"spear",
+"axe",
+"heavyArmor"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【ディートリヒ編】1部2章",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"自分が装備している武器、装備品の重さを80%に抑える",
+"Lvスキル",
+"戦闘時、槍を投げて攻撃するなら、命中+20、攻撃力+4"
+]
+},
+"recruit-11": {
+"jp": "ミカエラ",
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 30,
+"speed": 40,
+"dexterity": 35,
+"defense": 40,
+"resistance": 25,
+"luck": 30,
+"charm": 40
+},
+"proficiencies": [
+"axe",
+"bow",
+"infantry"
+],
+"joins": [
+"【ディートリヒ編】1部4章",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"隣接する敵との戦闘時、命中+10",
+"Lvスキル",
+"隣接する敵との戦闘時、攻撃力+3。さらにその攻撃時、30%で攻撃力+3"
+]
+},
+"bonaventure": {
+"jp": "ボナパルテ",
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 45,
+"speed": 40,
+"dexterity": 50,
+"defense": 30,
+"resistance": 40,
+"luck": 35,
+"charm": 40
+},
+"proficiencies": [
+"sword",
+"whiteMagic",
+"blackMagic",
+"authority"
+],
+"joins": [
+"【セオドラ編】1部1章"
+],
+"personal": [
+"隣接する味方の技+3",
+"Lvスキル",
+"隣接する味方の戦闘時、30%で発動。その味方の命中+20"
+]
+},
+"tobias": {
+"jp": "トビヤス",
+"growth": {
+"hp": 55,
+"strength": 60,
+"magic": 15,
+"speed": 25,
+"dexterity": 30,
+"defense": 45,
+"resistance": 20,
+"luck": 40,
+"charm": 35
+},
+"proficiencies": [
+"axe",
+"riding",
+"heavyArmor"
+],
+"joins": [
+"【セオドラ編】1部1章"
+],
+"personal": [
+"戦技での攻撃時、攻撃力+3",
+"Lvスキル",
+"戦技での攻撃時、30%で発動。与えるダメージが1.5倍になる"
+]
+},
+"recruit-14": {
+"jp": "リリアン",
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 30,
+"speed": 40,
+"dexterity": 55,
+"defense": 30,
+"resistance": 35,
+"luck": 50,
+"charm": 25
+},
+"proficiencies": [
+"bow",
+"infantry"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部4章",
+"【レダ編】1部5章4月"
+],
+"personal": [
+"戦闘時、敵が反撃できないなら、命中+10",
+"Lvスキル",
+"攻撃時、自分の命中率が100%なら、攻撃力+5"
+]
+},
+"recruit-15": {
+"jp": "ライサンダー",
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 25,
+"speed": 50,
+"dexterity": 35,
+"defense": 40,
+"resistance": 30,
+"luck": 35,
+"charm": 30
+},
+"proficiencies": [
+"spear",
+"axe",
+"riding",
+"flying"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部4章",
+"【レダ編】1部5章4月"
+],
+"personal": [
+"先攻での戦闘時、回避+15",
+"Lvスキル",
+"敵を倒した時、速さ+2(最大+10) ※マップ終了まで"
+]
+},
+"recruit-16": {
+"jp": "バッカニア",
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 20,
+"speed": 25,
+"dexterity": 40,
+"defense": 45,
+"resistance": 20,
+"luck": 30,
+"charm": 35
+},
+"proficiencies": [
+"spear",
+"axe",
+"riding",
+"heavyArmor"
+],
+"joins": [
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部1章"
+],
+"personal": [
+"攻撃された時、受けるダメージを90%に抑える",
+"Lvスキル",
+"後攻での攻撃時、10％で与えるダメージが1.3倍になる"
+]
+},
+"recruit-17": {
+"jp": "シロッコ",
+"growth": {
+"hp": 40,
+"strength": 40,
+"magic": 40,
+"speed": 45,
+"dexterity": 50,
+"defense": 35,
+"resistance": 35,
+"luck": 50,
+"charm": 45
+},
+"proficiencies": [
+"sword",
+"blackMagic",
+"whiteMagic",
+"authority"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【ディートリヒ編】1部5章4月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"戦闘後、自分のHPを5回復する",
+"Lvスキル",
+"戦闘時、「回避+1」「回避+5」「回避+20」「回避+30」のどれかが発動する"
+]
+},
+"recruit-18": {
+"jp": "オリンピア",
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 50,
+"speed": 35,
+"dexterity": 35,
+"defense": 30,
+"resistance": 40,
+"luck": 40,
+"charm": 40
+},
+"proficiencies": [
+"axe",
+"whiteMagic"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【ディートリヒ編】1部5章4月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章"
+],
+"personal": [
+"魔法を装備中、必殺+10",
+"Lvスキル",
+"リザイアを使う戦闘時、攻撃力+5、必殺+10"
+]
+},
+"recruit-19": {
+"jp": "ムウ",
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 25,
+"speed": 50,
+"dexterity": 50,
+"defense": 40,
+"resistance": 30,
+"luck": 30,
+"charm": 40
+},
+"proficiencies": [
+"sword",
+"axe",
+"gauntlet",
+"whiteMagic"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部1章"
+],
+"personal": [
+"レベルアップした時、基本能力が成長しやすい",
+"Lvスキル",
+"装備する武器の種類によって基本能力が大きく上がる"
+]
+},
+"bertrand": {
+"jp": "ベルトラン",
+"growth": {
+"hp": 50,
+"strength": 55,
+"magic": 15,
+"speed": 45,
+"dexterity": 50,
+"defense": 45,
+"resistance": 20,
+"luck": 30,
+"charm": 50
+},
+"proficiencies": [
+"sword",
+"axe",
+"gauntlet",
+"authority"
+],
+"joins": [
+"【救世主編】3部1区分"
+],
+"personal": [
+"戦闘時、5％で攻速に関係なく追撃する"
+]
+},
+"talimun": {
+"jp": "タリムーン",
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 45,
+"speed": 40,
+"dexterity": 45,
+"defense": 35,
+"resistance": 40,
+"luck": 60,
+"charm": 50
+},
+"proficiencies": [
+"sword",
+"blackMagic",
+"authority"
+],
+"joins": [
+"【救世主編】3部1区分"
+],
+"personal": [
+"幸運+3"
+]
+},
+"orchel": {
+"jp": "オルヘル",
+"growth": {
+"hp": 30,
+"strength": 60,
+"magic": 45,
+"speed": 10,
+"dexterity": 20,
+"defense": 60,
+"resistance": 60,
+"luck": 20,
+"charm": 60
+},
+"proficiencies": [
+"axe",
+"blackMagic"
+],
+"joins": [
+"【救世主編】3部2区分"
+],
+"personal": [
+"守備+5",
+"重装になる",
+"騎兵、飛行の兵種になれない"
+]
+},
+"anatolia": {
+"jp": "アナトリア",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 50,
+"speed": 50,
+"dexterity": 45,
+"defense": 35,
+"resistance": 40,
+"luck": 40,
+"charm": 50
+},
+"proficiencies": [
+"gauntlet",
+"blackMagic",
+"infantry"
+],
+"joins": [
+"【救世主編】3部2区分"
+],
+"personal": [
+"回避+3"
+]
+},
+"centurio": {
+"jp": "セントリオン",
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 25,
+"speed": 40,
+"dexterity": 50,
+"defense": 50,
+"resistance": 30,
+"luck": 30,
+"charm": 30
+},
+"proficiencies": [
+"spear",
+"axe",
+"heavyArmor"
+],
+"joins": [
+"【救世主編】3部2区分"
+],
+"personal": [
+"敵のフェイズ中、1度目の戦闘だけ攻撃で受けるダメージを半減する"
+]
+},
+"troy": {
+"jp": "トロイア",
+"growth": {
+"hp": 40,
+"strength": 45,
+"magic": 45,
+"speed": 50,
+"dexterity": 40,
+"defense": 30,
+"resistance": 30,
+"luck": 30,
+"charm": 30
+},
+"proficiencies": [
+"gauntlet",
+"whiteMagic",
+"blackMagic"
+],
+"joins": [
+"【救世主編】序幕1章"
+],
+"personal": [
+"籠手を装備中、命中+10"
+]
+},
+"hong-hua": {
+"jp": "コウカ",
+"growth": {
+"hp": 40,
+"strength": 30,
+"magic": 45,
+"speed": 45,
+"dexterity": 45,
+"defense": 30,
+"resistance": 45,
+"luck": 30,
+"charm": 40
+},
+"proficiencies": [
+"whiteMagic",
+"blackMagic"
+],
+"joins": [
+"【救世主編】序幕1章"
+],
+"personal": [
+"魔法を装備中、命中+10"
+]
+},
+"gaitz": {
+"jp": "ゲイツ",
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 20,
+"speed": 35,
+"dexterity": 45,
+"defense": 45,
+"resistance": 25,
+"luck": 40,
+"charm": 45
+},
+"proficiencies": [
+"spear",
+"axe",
+"riding"
+],
+"joins": [
+"【ディートリヒ編】1部4章3月"
+],
+"personal": [
+"隣接する味方の守備+3",
+"Lvスキル",
+"攻撃時、20%で発動。攻撃力+7、命中+100"
+]
+},
+"recruit-24": {
+"jp": "ウーシュラ",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 35,
+"speed": 50,
+"dexterity": 50,
+"defense": 35,
+"resistance": 30,
+"luck": 40,
+"charm": 45
+},
+"proficiencies": [
+"sword",
+"bow",
+"gauntlet"
+],
+"joins": [
+"【カイ編】1部6章4月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"自分を含め、周囲2マスにいる味方は道具袋を使用できる",
+"Lvスキル",
+"攻撃時、(幸運÷2)%で発動",
+"与えるダメージが1.5倍になる"
+]
+},
+"diego": {
+"jp": "ディエゴ",
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 20,
+"speed": 45,
+"dexterity": 60,
+"defense": 35,
+"resistance": 20,
+"luck": 35,
+"charm": 30
+},
+"proficiencies": [
+"sword",
+"bow",
+"infantry"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"隣接する味方の戦闘時、5%で発動し、その味方は追撃されなくなる",
+"Lvスキル",
+"追撃時、命中・必殺+10"
+]
+},
+"sha-lan": {
+"jp": "サラン",
+"growth": {
+"hp": 35,
+"strength": 30,
+"magic": 45,
+"speed": 35,
+"dexterity": 50,
+"defense": 30,
+"resistance": 45,
+"luck": 35,
+"charm": 40
+},
+"proficiencies": [
+"spear",
+"whiteMagic",
+"authority"
+],
+"joins": [
+"【ディートリヒ編】1部4章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"「引き寄せ」を使用後、補助魔法を使用できる",
+"Lvスキル",
+"隣接する味方の速さ+4"
+]
+},
+"dante": {
+"jp": "ダンテ",
+"growth": {
+"hp": 30,
+"strength": 30,
+"magic": 45,
+"speed": 40,
+"dexterity": 40,
+"defense": 20,
+"resistance": 40,
+"luck": 45,
+"charm": 30
+},
+"proficiencies": [
+"whiteMagic",
+"authority",
+"blackMagic"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"周囲2マスにいる味方の戦闘時、その味方の(魅力÷2)%で発動し、その味方の必避+10",
+"Lvスキル",
+"「戦場の作劇」発動時、",
+"その味方の命中・必殺+10"
+]
+},
+"recruit-28": {
+"jp": "シモン",
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 20,
+"speed": 35,
+"dexterity": 40,
+"defense": 40,
+"resistance": 25,
+"luck": 50,
+"charm": 35
+},
+"proficiencies": [
+"sword",
+"axe",
+"infantry"
+],
+"joins": [
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"自分のHPが2以上で、HPが0になるようなダメージを受けた時、幸運％で発動し、HPが1残る",
+"Lvスキル",
+"敵を倒した時、幸運+2(最大+10) ※マップ終了まで"
+]
+},
+"recruit-29": {
+"jp": "ニネ",
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 35,
+"speed": 35,
+"dexterity": 45,
+"defense": 35,
+"resistance": 45,
+"luck": 50,
+"charm": 40
+},
+"proficiencies": [
+"spear",
+"whiteMagic",
+"riding"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"戦闘時、敵が魔法なら命中・回避+10",
+"Lvスキル",
+"周囲2マスにいる味方に",
+"「精霊の声」を付与する"
+]
+},
+"recruit-30": {
+"jp": "ナジャ",
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 25,
+"speed": 45,
+"dexterity": 50,
+"defense": 35,
+"resistance": 25,
+"luck": 30,
+"charm": 25
+},
+"proficiencies": [
+"sword",
+"gauntlet",
+"infantry"
+],
+"joins": [
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"先攻での攻撃時、50%で発動し攻撃力+3",
+"Lvスキル",
+"「先手必勝」発動後の攻撃時、50%で発動、攻撃力+5"
+]
+},
+"recruit-31": {
+"jp": "グザラン",
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 20,
+"speed": 50,
+"dexterity": 45,
+"defense": 35,
+"resistance": 20,
+"luck": 45,
+"charm": 30
+},
+"proficiencies": [
+"sword",
+"gauntlet",
+"infantry"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"戦闘時、命中・回避・必殺のどれかが+10",
+"Lvスキル",
+"「気分屋」の効果の能力上昇が+20になる"
+]
+},
+"nydine": {
+"jp": "ヌディーヌ",
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 30,
+"speed": 45,
+"dexterity": 40,
+"defense": 30,
+"resistance": 25,
+"luck": 35,
+"charm": 35
+},
+"proficiencies": [
+"axe",
+"blackMagic",
+"flying",
+"riding"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"【騎兵】敵のいるマスを通過して移動できる(自分が大型ユニットなら無効)",
+"Lvスキル",
+"【騎兵】移動時、",
+"地形の移動コスト-2",
+"(1より小さくならない)"
+]
+},
+"recruit-33": {
+"jp": "イオ",
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 25,
+"speed": 35,
+"dexterity": 45,
+"defense": 40,
+"resistance": 25,
+"luck": 35,
+"charm": 35
+},
+"proficiencies": [
+"spear",
+"axe",
+"riding"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"【騎兵】先行での戦闘時、防御力+3 必避+30",
+"Lvスキル",
+"【騎兵】先攻での戦闘時、命中+10、攻撃力+3"
+]
+},
+"recruit-34": {
+"jp": "カターニャ",
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 35,
+"speed": 55,
+"dexterity": 50,
+"defense": 30,
+"resistance": 35,
+"luck": 40,
+"charm": 45
+},
+"proficiencies": [
+"sword",
+"spear",
+"flying"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部6章3月",
+"【レダ編】1部4章"
+],
+"personal": [
+"戦闘時、自分の攻速が敵より3以上大きければ、命中+20",
+"Lvスキル",
+"戦闘時、自分の攻速が敵より5以上大きければ、攻撃力+3、8以上大きければ回避+20"
+]
+},
+"benditz": {
+"jp": "ベンディッツ",
+"growth": {
+"hp": 50,
+"strength": 35,
+"magic": 20,
+"speed": 35,
+"dexterity": 50,
+"defense": 35,
+"resistance": 25,
+"luck": 30,
+"charm": 35
+},
+"proficiencies": [
+"bow",
+"authority",
+"riding"
+],
+"joins": [
+"【ディートリヒ編】1部5章4月",
+"【セオドラ編】1部7章4月",
+"【レダ編】1部6章5月"
+],
+"personal": [
+"【騎兵】自分が「戦車兵」なら命中+20",
+"Lvスキル",
+"自分が「戦車兵」なら、",
+"猛撃の回数+2"
+]
+},
+"alexandra": {
+"jp": "アレキサンドラ",
+"growth": {
+"hp": 30,
+"strength": 35,
+"magic": 35,
+"speed": 55,
+"dexterity": 45,
+"defense": 35,
+"resistance": 40,
+"luck": 50,
+"charm": 50
+},
+"proficiencies": [
+"sword",
+"spear",
+"flying"
+],
+"joins": [
+"【カイ編】1部7章6月",
+"【ディートリヒ編】1部7章5月",
+"【セオドラ編】1部8章6月",
+"【レダ編】1部7章5月"
+],
+"personal": [
+"隣接する味方1人につき、自分の命中・回避+5",
+"Lvスキル",
+"自分が歩行不可の地形にいる時、攻速+5"
+]
+},
+"noctula": {
+"jp": "ノクチュラ",
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 20,
+"speed": 45,
+"dexterity": 40,
+"defense": 40,
+"resistance": 20,
+"luck": 35,
+"charm": 30
+},
+"proficiencies": [
+"axe",
+"gauntlet",
+"infantry"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"戦闘後、回避+3",
+"※次の自分のフェイズまで",
+"Lvスキル",
+"「集中」発動時、20%で発動し、回避+10 ※次の自分のフェイズまで"
+]
+},
+"yang-jie": {
+"jp": "ヨーカイ",
+"growth": {
+"hp": 50,
+"strength": 35,
+"magic": 40,
+"speed": 35,
+"dexterity": 35,
+"defense": 30,
+"resistance": 40,
+"luck": 40,
+"charm": 25
+},
+"proficiencies": [
+"axe",
+"whiteMagic"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"敵を倒した時、(幸運÷2)%で発動、自分のHPを最大HP分回復する",
+"Lvスキル",
+"攻撃された時、(自分の残りHP)%で発動し、防御力+5"
+]
+},
+"sofia": {
+"jp": "ソフィア",
+"growth": {
+"hp": 35,
+"strength": 30,
+"magic": 45,
+"speed": 30,
+"dexterity": 40,
+"defense": 20,
+"resistance": 40,
+"luck": 30,
+"charm": 40
+},
+"proficiencies": [
+"bow",
+"whiteMagic"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"魔法で味方を回復する時、回復量+10",
+"Lvスキル",
+"回復魔法の射程+2"
+]
+},
+"nuzzuo": {
+"jp": "ヌッツォ",
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 15,
+"speed": 55,
+"dexterity": 45,
+"defense": 20,
+"resistance": 15,
+"luck": 25,
+"charm": 35
+},
+"proficiencies": [
+"sword",
+"bow"
+],
+"joins": [
+"【カイ編】1部8章7月",
+"【セオドラ編】1部9章7月",
+"【レダ編】1部10章9月"
+],
+"personal": [
+"戦闘時、自分の攻撃が敵に有効・特効なら、攻撃力+3",
+"Lvスキル",
+"戦闘時、自分の攻撃が",
+"敵に有効・特効なら、命中+20"
+]
+},
+"majide": {
+"jp": "マジーデ",
+"growth": {
+"hp": 65,
+"strength": 50,
+"magic": 15,
+"speed": 20,
+"dexterity": 30,
+"defense": 40,
+"resistance": 10,
+"luck": 25,
+"charm": 5
+},
+"proficiencies": [
+"axe",
+"gauntlet"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【セオドラ編】1部6章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"斧を装備中、力+3",
+"Lvスキル",
+"先攻での戦闘時、攻撃力+6 回避-30"
+]
+},
+"zarcone": {
+"jp": "ザーコネ",
+"growth": {
+"hp": 40,
+"strength": 30,
+"magic": 20,
+"speed": 35,
+"dexterity": 60,
+"defense": 30,
+"resistance": 25,
+"luck": 30,
+"charm": 15
+},
+"proficiencies": [
+"sword",
+"axe"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章"
+],
+"personal": [
+"斧を装備中、命中+10",
+"Lvスキル",
+"戦闘時、敵の残りHPが半分以下なら、命中+20、攻撃力+3"
+]
+},
+"recruit-43": {
+"jp": "ゴライアス",
+"growth": {
+"hp": 55,
+"strength": 60,
+"magic": 5,
+"speed": 15,
+"dexterity": 30,
+"defense": 70,
+"resistance": 15,
+"luck": 35,
+"charm": 25
+},
+"proficiencies": [
+"axe",
+"heavyArmor"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"騎兵、飛行の兵種になれない体格+5",
+"Lvスキル",
+"隣接する敵の移動力-5"
+]
+},
+"jester": {
+"jp": "ジェスター",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 15,
+"speed": 60,
+"dexterity": 45,
+"defense": 35,
+"resistance": 25,
+"luck": 40,
+"charm": 40
+},
+"proficiencies": [
+"sword",
+"infantry",
+"bow"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"「入れ替え」を使用後、守備+3 ※次の自分のフェイズまで",
+"Lvスキル",
+"自分が攻撃を回避した戦闘中、攻撃力+5"
+]
+},
+"ludia": {
+"jp": "ルルディヤー",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 20,
+"speed": 55,
+"dexterity": 45,
+"defense": 30,
+"resistance": 20,
+"luck": 30,
+"charm": 30
+},
+"proficiencies": [
+"sword",
+"spear",
+"infantry"
+],
+"joins": [
+"【カイ編】1部6章4月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部5章4月"
+],
+"personal": [
+"先攻での戦闘時、攻速+3",
+"Lvスキル",
+"戦闘時、自分が追撃可能なら、",
+"回避+20"
+]
+},
+"fianna": {
+"jp": "フィアナ",
+"growth": {
+"hp": 30,
+"strength": 35,
+"magic": 55,
+"speed": 30,
+"dexterity": 40,
+"defense": 20,
+"resistance": 45,
+"luck": 25,
+"charm": 40
+},
+"proficiencies": [
+"whiteMagic",
+"blackMagic",
+"riding"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"魔法で味方を回復する時、幸運％で発動し魔法の回数が減らなくなる",
+"Lvスキル",
+"魔法の味方を回復する時、幸運%で発動",
+"回復量+30"
+]
+},
+"dadao": {
+"jp": "ダイトウ",
+"growth": {
+"hp": 50,
+"strength": 55,
+"magic": 20,
+"speed": 30,
+"dexterity": 35,
+"defense": 45,
+"resistance": 20,
+"luck": 25,
+"charm": 30
+},
+"proficiencies": [
+"axe",
+"heavyArmor"
+],
+"joins": [
+"【カイ編】1部5章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部5章4月"
+],
+"personal": [
+"戦闘時、自分も敵も追撃できないなら自分の攻撃力+5",
+"Lvスキル",
+"攻撃時、(力÷2)%で発動し、与えるダメージが1.5倍になる"
+]
+},
+"halvin": {
+"jp": "ハルヴィン",
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 30,
+"speed": 45,
+"dexterity": 60,
+"defense": 30,
+"resistance": 25,
+"luck": 40,
+"charm": 35
+},
+"proficiencies": [
+"bow",
+"riding"
+],
+"joins": [
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部5章4月"
+],
+"personal": [
+"戦闘後、命中が+2(最大+30)される ※マップ終了まで",
+"Lvスキル",
+"先攻での戦闘後、敵の速さ-3 ※1回戦闘すると元に戻る"
+]
+},
+"seteth": {
+"jp": "セテス",
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 30,
+"speed": 40,
+"dexterity": 45,
+"defense": 40,
+"resistance": 35,
+"luck": 30,
+"charm": 50
+},
+"proficiencies": [
+"spear",
+"axe",
+"authority",
+"flying"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"敵のフェイズ中、1度目の戦闘時に50%で発動し、自身が先攻になる",
+"Lvスキル",
+"「天秤の天冠」の発動時、攻撃力+7"
+]
+},
+"recruit-50": {
+"jp": "ロレッタ",
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 35,
+"speed": 55,
+"dexterity": 40,
+"defense": 30,
+"resistance": 40,
+"luck": 30,
+"charm": 30
+},
+"proficiencies": [
+"sword",
+"spear",
+"flying"
+],
+"joins": [
+"【カイ編】1部4章3月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月",
+"【レダ編】1部4章3月"
+],
+"personal": [
+"戦闘時、自分のHPが半分以上なら、回避+10",
+"Lvスキル",
+"戦闘時、自分のHPが最大なら、",
+"攻撃力+3 回避+10"
+]
+},
+"nathan": {
+"jp": "ネイサン",
+"growth": {
+"hp": 55,
+"strength": 60,
+"magic": 15,
+"speed": 25,
+"dexterity": 60,
+"defense": 45,
+"resistance": 15,
+"luck": 25,
+"charm": 30
+},
+"proficiencies": [
+"spear",
+"riding"
+],
+"joins": [
+"【ディートリヒ編】2部3章",
+"【レダ編】2部3章"
+],
+"personal": [
+"先攻での戦闘時、攻速+3、命中+10"
+]
+},
+"creek": {
+"jp": "キリーク",
+"growth": {
+"hp": 45,
+"strength": 50,
+"magic": 15,
+"speed": 60,
+"dexterity": 50,
+"defense": 35,
+"resistance": 20,
+"luck": 30,
+"charm": 35
+},
+"proficiencies": [
+"sword",
+"riding"
+],
+"joins": [
+"【ディートリヒ編】2部3章",
+"【レダ編】2部3章"
+],
+"personal": [
+"後攻での戦闘時、攻速+3、回避+10"
+]
+},
+"jasmine": {
+"jp": "ジャスミン",
+"growth": {
+"hp": 50,
+"strength": 40,
+"magic": 20,
+"speed": 30,
+"dexterity": 45,
+"defense": 45,
+"resistance": 25,
+"luck": 40,
+"charm": 45
+},
+"proficiencies": [
+"spear",
+"heavyArmor"
+],
+"joins": [
+"【レダ編】1部7章5月"
+],
+"personal": [
+"後攻での戦闘時、命中+20",
+"Lvスキル",
+"後攻での戦闘時、攻撃力+3、必殺+10"
+]
+},
+"kiroc": {
+"jp": "キロイカ",
+"growth": {
+"hp": 55,
+"strength": 40,
+"magic": 15,
+"speed": 55,
+"dexterity": 50,
+"defense": 30,
+"resistance": 15,
+"luck": 30,
+"charm": 25
+},
+"proficiencies": [
+"bow"
+],
+"joins": [
+"【ディートリヒ編】1部6章5月",
+"【セオドラ編】1部7章5月",
+"【レダ編】1部7章5月"
+],
+"personal": [
+"戦闘時、敵が状態異常なら、攻撃力+3、必殺+10",
+"Lvスキル",
+"戦闘時、20%で発動し、敵の必避を半減させる。"
+]
+},
+"inyoni": {
+"jp": "イニオニ",
+"growth": {
+"hp": 40,
+"strength": 50,
+"magic": 20,
+"speed": 35,
+"dexterity": 40,
+"defense": 40,
+"resistance": 30,
+"luck": 40,
+"charm": 30
+},
+"proficiencies": [
+"axe",
+"bow"
+],
+"joins": [
+"【カイ編】1部8章7月",
+"【ディートリヒ編】1部9章8月",
+"【セオドラ編】1部9章7月"
+],
+"personal": [
+"弓を装備中、力+3",
+"Lvスキル",
+"弓の戦技での攻撃時、攻撃力+4、必殺+10"
+]
+},
+"recruit-53": {
+"jp": "ペペ",
+"growth": {
+"hp": 30,
+"strength": 30,
+"magic": 25,
+"speed": 60,
+"dexterity": 45,
+"defense": 30,
+"resistance": 30,
+"luck": 45,
+"charm": 30
+},
+"proficiencies": [
+"sword",
+"bow",
+"infantry"
+],
+"joins": [
+"【カイ編】1部3章2月",
+"【ディートリヒ編】1部4章3月",
+"【セオドラ編】1部5章3月"
+],
+"personal": [
+"敵フェイズ中の戦闘時、敵がダメージを受けているなら30%で発動し、自分が先攻になる",
+"Lvスキル",
+"戦闘時、敵がダメージを受けているなら攻撃力+4、必殺+10"
+]
+},
+"aswan": {
+"jp": "アスワン",
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 10,
+"speed": 40,
+"dexterity": 50,
+"defense": 30,
+"resistance": 15,
+"luck": 30,
+"charm": 20
+},
+"proficiencies": [
+"bow",
+"authority",
+"infantry"
+],
+"joins": [
+"【救世主編】3部5区分"
+],
+"personal": [
+"弓を装備中、命中+20"
+]
+},
+"tahonia": {
+"jp": "タホウニア",
+"growth": {
+"hp": 65,
+"strength": 50,
+"magic": 5,
+"speed": 20,
+"dexterity": 40,
+"defense": 45,
+"resistance": 35,
+"luck": 20,
+"charm": 40
+},
+"proficiencies": [
+"sword",
+"axe",
+"gauntlet",
+"authority",
+"infantry"
+],
+"joins": [
+"【救世主編】3部5区分"
+],
+"personal": [
+"籠手の戦技を使う戦闘時、15%で発動",
+"攻速に関係なく追撃する"
+]
+},
+"klapka": {
+"jp": "クラプカ",
+"growth": {
+"hp": 40,
+"strength": 40,
+"magic": 10,
+"speed": 25,
+"dexterity": 45,
+"defense": 50,
+"resistance": 15,
+"luck": 25,
+"charm": 35
+},
+"proficiencies": [
+"spear",
+"whiteMagic",
+"authority",
+"infantry"
+],
+"joins": [
+"【救世主編】3部6区分"
+],
+"personal": [
+"戦闘後、守備％で発動、守備+1(最大+10) ※マップ終了まで"
+]
+}
+}
+}

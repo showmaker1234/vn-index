@@ -1,0 +1,507 @@
+{
+ "checked": "2026-09-25",
+ "lords": [
+  "eshmel",
+  "cai",
+  "dietrich",
+  "theodora",
+  "leda"
+ ],
+ "sources": [
+  {
+   "id": "game8",
+   "name": "Game8（日/英）",
+   "url": "https://game8.jp/fe-banshisenko/816563",
+   "altUrl": "https://game8.co/games/Fire-Emblem-Fortunes-Weave/archives/624024",
+   "date": "2026-09-25",
+   "scale": [
+    "SS",
+    "S",
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "weight": 1,
+   "kind": "tier",
+   "method": "普通+困难两种难度评估后取平均；按推荐职业、成长、个人技能、血印、焰技与加入时期综合评定。英文版与日文版为同一编辑部，合并为一票，以更新更晚、口径更完整的日文版为准。",
+   "tiers": {
+    "SS": [
+     "eshmel",
+     "cai",
+     "dietrich",
+     "theodora",
+     "leda",
+     "recruit-17",
+     "orchel"
+    ],
+    "S": [
+     "fabio",
+     "esmeralda",
+     "recruit-19",
+     "bertrand",
+     "talimun",
+     "recruit-29",
+     "anatolia",
+     "recruit-30",
+     "recruit-31",
+     "recruit-34",
+     "sofia",
+     "inyoni"
+    ],
+    "A": [
+     "peter",
+     "recruit-8",
+     "bonaventure",
+     "recruit-14",
+     "recruit-18",
+     "recruit-28",
+     "diego",
+     "benditz",
+     "alexandra",
+     "creek",
+     "yang-jie",
+     "noctula",
+     "recruit-50",
+     "recruit-43",
+     "halvin",
+     "zarcone",
+     "kiroc",
+     "nuzzuo"
+    ],
+    "B": [
+     "recruit-6",
+     "recruit-11",
+     "tobias",
+     "recruit-15",
+     "recruit-16",
+     "gaitz",
+     "dante",
+     "recruit-24",
+     "sha-lan",
+     "hong-hua",
+     "troy",
+     "recruit-53",
+     "jester",
+     "ludia",
+     "centurio"
+    ],
+    "C": [
+     "aswan",
+     "nathan",
+     "seteth",
+     "dadao",
+     "fianna",
+     "majide",
+     "jasmine"
+    ],
+    "D": [
+     "klapka",
+     "tahonia",
+     "recruit-33",
+     "nydine"
+    ]
+   }
+  },
+  {
+   "id": "gamewith",
+   "name": "GameWith",
+   "url": "https://gamewith.jp/fefw/575250",
+   "date": "2026-09-25",
+   "scale": [
+    "Tier 1",
+    "Tier 2",
+    "Tier 3",
+    "Tier 4",
+    "Tier 5"
+   ],
+   "weight": 1,
+   "kind": "tier",
+   "method": "同定位内比较成长率，并评估个人技能与 Lv 技能；不考虑招募难度。",
+   "tiers": {
+    "Tier 1": [
+     "eshmel",
+     "cai",
+     "dietrich",
+     "theodora",
+     "leda",
+     "bertrand",
+     "orchel",
+     "anatolia"
+    ],
+    "Tier 2": [
+     "peter",
+     "esmeralda",
+     "recruit-17",
+     "recruit-18",
+     "recruit-19",
+     "talimun",
+     "troy",
+     "diego",
+     "recruit-31",
+     "recruit-34",
+     "sofia",
+     "nuzzuo",
+     "recruit-43",
+     "ludia",
+     "recruit-50",
+     "creek",
+     "kiroc",
+     "aswan"
+    ],
+    "Tier 3": [
+     "recruit-6",
+     "recruit-8",
+     "fabio",
+     "recruit-11",
+     "bonaventure",
+     "tobias",
+     "recruit-14",
+     "recruit-15",
+     "recruit-16",
+     "centurio",
+     "hong-hua",
+     "gaitz",
+     "dante",
+     "recruit-29",
+     "recruit-30",
+     "alexandra",
+     "noctula",
+     "yang-jie",
+     "jasmine",
+     "inyoni"
+    ],
+    "Tier 4": [
+     "recruit-24",
+     "sha-lan",
+     "recruit-28",
+     "nydine",
+     "recruit-33",
+     "benditz",
+     "jester",
+     "fianna",
+     "dadao",
+     "halvin",
+     "seteth",
+     "nathan",
+     "recruit-53",
+     "tahonia",
+     "klapka"
+    ],
+    "Tier 5": [
+     "majide",
+     "zarcone"
+    ]
+   }
+  },
+  {
+   "id": "keengamer",
+   "name": "KeenGamer",
+   "url": "https://www.keengamer.com/articles/guides/fire-emblem-fortunes-weave-tier-list-best-characters-ranked-for-every-route/",
+   "date": "2026-09-25",
+   "scale": [
+    "S",
+    "A",
+    "B",
+    "C"
+   ],
+   "weight": 1,
+   "kind": "tier",
+   "method": "成长率、个人技能、团队定位、最易路线、招募成本五项；只覆盖第一部可招募的 46 人，主角另排。",
+   "tiers": {
+    "S": [
+     "recruit-19",
+     "dante",
+     "recruit-18",
+     "recruit-17"
+    ],
+    "A": [
+     "recruit-29",
+     "halvin",
+     "esmeralda",
+     "fabio",
+     "recruit-28",
+     "recruit-24",
+     "recruit-31",
+     "noctula",
+     "recruit-34",
+     "dadao",
+     "tobias"
+    ],
+    "B": [
+     "recruit-11",
+     "seteth",
+     "recruit-15",
+     "recruit-14",
+     "recruit-16",
+     "yang-jie",
+     "jasmine",
+     "kiroc",
+     "jester",
+     "gaitz",
+     "recruit-43",
+     "recruit-30",
+     "ludia",
+     "recruit-50",
+     "zarcone",
+     "peter",
+     "recruit-33",
+     "alexandra",
+     "nydine",
+     "sha-lan",
+     "fianna",
+     "sofia",
+     "recruit-6",
+     "recruit-8",
+     "bonaventure",
+     "diego"
+    ],
+    "C": [
+     "majide",
+     "recruit-53",
+     "benditz",
+     "inyoni",
+     "nuzzuo"
+    ]
+   },
+   "lordOrder": [
+    "dietrich",
+    "theodora",
+    "leda",
+    "cai"
+   ]
+  },
+  {
+   "id": "pockettactics",
+   "name": "Pocket Tactics",
+   "url": "https://www.pockettactics.com/fire-emblem-fortunes-weave/tier-list",
+   "date": "2026-09-24",
+   "scale": [
+    "S",
+    "A",
+    "B",
+    "C"
+   ],
+   "weight": 1,
+   "kind": "tier",
+   "method": "作者约 150 小时实机游玩后的综合评价，未公布量化权重；不含主角。",
+   "tiers": {
+    "S": [
+     "esmeralda",
+     "fabio",
+     "recruit-31",
+     "recruit-17",
+     "sofia"
+    ],
+    "A": [
+     "peter",
+     "recruit-6",
+     "bonaventure",
+     "talimun",
+     "orchel",
+     "anatolia",
+     "bertrand",
+     "recruit-19",
+     "recruit-14",
+     "hong-hua",
+     "dante",
+     "diego",
+     "recruit-34",
+     "gaitz",
+     "recruit-8",
+     "alexandra",
+     "creek",
+     "recruit-18",
+     "nathan",
+     "nuzzuo",
+     "recruit-43",
+     "aswan",
+     "inyoni",
+     "jasmine",
+     "troy"
+    ],
+    "B": [
+     "seteth",
+     "tobias",
+     "recruit-24",
+     "recruit-28",
+     "ludia",
+     "halvin",
+     "recruit-16",
+     "fianna",
+     "recruit-30",
+     "recruit-29",
+     "recruit-11",
+     "kiroc",
+     "dadao",
+     "jester",
+     "yang-jie",
+     "recruit-33",
+     "noctula",
+     "nydine",
+     "recruit-53",
+     "recruit-50",
+     "recruit-15",
+     "sha-lan",
+     "centurio",
+     "tahonia"
+    ],
+    "C": [
+     "zarcone",
+     "majide",
+     "benditz"
+    ]
+   }
+  },
+  {
+   "id": "algest",
+   "name": "アルゲスト",
+   "url": "https://al-gest.com/fe-banshisenkou/fe-banshisenkou-saikyo/",
+   "date": "2026-09-25",
+   "scale": [
+    "SS",
+    "S",
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "weight": 0.5,
+   "kind": "tier",
+   "method": "站方标注为暂定版，同档内按成长率合计排序；口径偏成长，权重减半。",
+   "tiers": {
+    "SS": [
+     "leda"
+    ],
+    "S": [
+     "dietrich",
+     "eshmel",
+     "theodora",
+     "cai",
+     "orchel",
+     "bertrand",
+     "sofia"
+    ],
+    "A": [
+     "talimun",
+     "anatolia",
+     "recruit-17",
+     "recruit-34",
+     "esmeralda",
+     "recruit-31",
+     "recruit-16",
+     "recruit-43"
+    ],
+    "B": [
+     "alexandra",
+     "recruit-19",
+     "troy",
+     "recruit-18",
+     "recruit-11",
+     "halvin",
+     "recruit-14",
+     "recruit-6",
+     "diego",
+     "fabio",
+     "recruit-50",
+     "tobias",
+     "inyoni",
+     "recruit-15",
+     "peter",
+     "kiroc",
+     "nuzzuo",
+     "ludia"
+    ],
+    "C": [
+     "recruit-8",
+     "recruit-29",
+     "gaitz",
+     "recruit-24",
+     "seteth",
+     "hong-hua",
+     "bonaventure",
+     "recruit-28",
+     "centurio",
+     "sha-lan",
+     "jasmine",
+     "jester",
+     "noctula",
+     "recruit-30",
+     "recruit-33",
+     "yang-jie",
+     "nydine",
+     "recruit-53",
+     "dante",
+     "fianna",
+     "benditz",
+     "dadao"
+    ],
+    "D": [
+     "zarcone",
+     "majide"
+    ]
+   }
+  },
+  {
+   "id": "siliconera",
+   "name": "Siliconera",
+   "url": "https://www.siliconera.com/who-are-the-best-fire-emblem-fortunes-weave-characters/",
+   "date": "2026-09-17",
+   "scale": [
+    "Rec"
+   ],
+   "weight": 0.5,
+   "kind": "picks",
+   "method": "发售日的推荐名单（编辑评测期间游玩），只列推荐、不给档位；只作正面信号，权重减半。",
+   "tiers": {
+    "Rec": [
+     "anatolia",
+     "dante",
+     "esmeralda",
+     "fabio",
+     "halvin",
+     "recruit-19",
+     "recruit-29",
+     "recruit-18",
+     "orchel",
+     "recruit-28",
+     "recruit-17",
+     "recruit-6",
+     "recruit-24"
+    ]
+   }
+  }
+ ],
+ "excluded": [
+  {
+   "name": "Games With James",
+   "url": "https://gameswithjames.substack.com/p/fortunes-weave-character-tierlist",
+   "date": "2026-09-19",
+   "reason": "明确把人设、剧情与支援对话计入排名，不是强度榜。"
+  },
+  {
+   "name": "Gamerch 攻略 Wiki",
+   "url": "https://gamerch.com/aacsa/1002983",
+   "date": "2026-09-17",
+   "reason": "按路线列推荐队友，没有全员档位。"
+  },
+  {
+   "name": "游民星空 / 小红书《全角色浅分析》",
+   "url": "https://www.gamersky.com/handbook/202609/2214415.shtml",
+   "date": "2026-09-22",
+   "reason": "作者注明只看成长率与个人技能，正文为图片，未给档位。"
+  },
+  {
+   "name": "Game8 英文版",
+   "url": "https://game8.co/games/Fire-Emblem-Fortunes-Weave/archives/624024",
+   "date": "2026-09-25",
+   "reason": "与日文版同一编辑部、档位基本一致，合并为一票避免重复计算。"
+  },
+  {
+   "name": "TierMaker 社区投票 / Reddit / 宁静之森论坛",
+   "url": "https://tiermaker.com/categories/fire-emblem/fortunes-weave-character-tier-list-829686",
+   "date": "—",
+   "reason": "页面有反爬验证，本次无法读取原始数据。"
+  }
+ ]
+}
