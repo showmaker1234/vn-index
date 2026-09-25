@@ -1,0 +1,88 @@
+/* 界面优化：综合梯队视图，以及统一强调色、收紧表格与资料列表的排版。 */
+:root{--tier-t1:#e0a93b;--tier-t2:#9b7cf2;--tier-t3:#4f86f7;--tier-t4:#2fa58a;--tier-t5:#8a94a6;--tier-lord:#dc6063;--tier-pending:#8a94a6}
+[data-theme=light]{--tier-t1:#b7801a;--tier-t2:#7351d6;--tier-t3:#2f63d6;--tier-t4:#1d8067;--tier-t5:#667085;--tier-lord:#b8404a;--tier-pending:#667085}
+
+/* 综合梯队 */
+.tier-intro{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 17px;border:1px solid var(--line);border-left:3px solid var(--tier-t1);border-radius:6px;background:var(--surface);margin-bottom:12px}
+.tier-intro strong{font-size:16px}
+.tier-intro strong>span{font-size:12px;margin-left:8px;padding:3px 6px;background:color-mix(in srgb,var(--tier-t1) 16%,transparent);color:var(--tier-t1);border-radius:3px}
+.tier-intro p{margin:5px 0 0;color:var(--muted);font-size:14px;line-height:1.8;max-width:720px}
+.tier-legend{display:grid;grid-template-columns:auto auto;gap:6px 8px;align-items:center;font-size:12px;color:var(--muted);flex-shrink:0}
+.tier-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.tier-stats>div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 14px;display:flex;align-items:baseline;gap:8px}
+.tier-stats b{font-size:22px;font-variant-numeric:tabular-nums}
+.tier-stats span{font-size:13px;color:var(--muted)}
+.tier-disputes{border:1px solid var(--line);border-radius:6px;background:var(--surface);margin-bottom:12px}
+.tier-disputes summary{padding:12px 16px;cursor:pointer;font-size:14px}
+.tier-disputes summary span{font-size:12px;color:var(--muted);margin-left:10px}
+.tier-disputes ul{list-style:none;margin:0;padding:0 16px 12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tier-disputes li{border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.tier-disputes li p{margin:6px 0 0;font-size:13px;line-height:1.7;color:var(--muted)}
+.tier-disputes .entry-name{font-size:15px}
+.tier-split{display:inline-flex;gap:4px;margin-left:8px;vertical-align:middle}
+.tier-toolbar{display:flex;gap:16px;align-items:center;padding:12px 0;flex-wrap:wrap}
+.tier-toolbar .model-search{background:var(--surface)}
+.tier-toggle{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--muted);cursor:pointer}
+.tier-count{margin-left:auto;font-size:13px;color:var(--muted)}
+.tier-board{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.tier-row{--c:var(--tier-t5);display:grid;grid-template-columns:150px minmax(0,1fr);border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.tier-t1{--c:var(--tier-t1)}.tier-t2{--c:var(--tier-t2)}.tier-t3{--c:var(--tier-t3)}.tier-t4{--c:var(--tier-t4)}.tier-t5{--c:var(--tier-t5)}.tier-lord{--c:var(--tier-lord)}.tier-pending{--c:var(--tier-pending)}
+.tier-label{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:14px 16px;background:color-mix(in srgb,var(--c) 13%,var(--surface));border-right:3px solid var(--c)}
+.tier-label>b{font-size:30px;line-height:1;color:var(--c);font-weight:800;letter-spacing:.02em}
+.tier-label strong{display:block;font-size:15px}
+.tier-label span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.tier-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:8px;padding:10px;align-content:start}
+.tier-card{display:flex;flex-direction:column;gap:3px;text-align:left;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);cursor:pointer;min-width:0;transition:border-color .15s,transform .15s}
+.tier-card:hover,.tier-card:focus-visible{border-color:var(--c);transform:translateY(-1px)}
+.tier-card-top{display:flex;align-items:center;gap:6px;min-width:0}
+.tier-card-top strong{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tier-card-tags{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.6}
+.tier-card-foot{display:flex;align-items:center;gap:4px;margin-top:3px}
+.tier-card-score{margin-left:auto;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 6px;line-height:20px}
+.tier-legend .tier-card-score{margin-left:0;justify-self:start}
+.tier-src{--s:var(--tier-t5);font-size:11px;font-weight:700;line-height:20px;padding:0 6px;border-radius:4px;color:var(--s);background:color-mix(in srgb,var(--s) 14%,transparent);white-space:nowrap}
+.tier-src-s{--s:var(--tier-t1)}.tier-src-a{--s:var(--tier-t3)}.tier-src-b{--s:var(--tier-t4)}.tier-src-c{--s:var(--tier-t5)}
+.tier-src-none{color:var(--muted);background:transparent;border:1px dashed var(--line);font-weight:500}
+.tier-flag{font-size:11px;line-height:18px;padding:0 5px;border-radius:3px;flex-shrink:0}
+.tier-flag.agree{color:var(--db-success);background:color-mix(in srgb,var(--db-success) 14%,transparent)}
+.tier-flag.single{color:var(--muted);border:1px solid var(--line)}
+.tier-flag.lord{color:var(--tier-lord);background:color-mix(in srgb,var(--tier-lord) 12%,transparent)}
+.tier-lord-card{flex-direction:row;align-items:center;gap:10px;padding:8px 10px}
+.tier-lord-card img{width:46px;height:46px;border-radius:6px;object-fit:cover;object-position:top;background:var(--surface2);flex-shrink:0}
+.tier-lord-card>span{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.tier-row-lords .tier-cards{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+
+/* 统一强调色：攻略筛选按钮沿用数据库的蓝色，而不是旧版红色 */
+.filter.active{border-color:var(--accent);background:var(--db-soft);color:var(--accent)}
+::selection{background:color-mix(in srgb,var(--accent) 35%,transparent)}
+
+/* 模型表：降低行高，让一屏能看到更多角色 */
+.model-table th,.model-table td{padding-block:9px!important}
+.model-table .model-score{font-size:20px;line-height:1.3}
+.model-table .model-range{font-size:11px}
+.model-table .entry-name small{line-height:1.5}
+
+/* 资料来源：宽屏三列、内边距收紧，缩短整页长度 */
+.source-list{gap:12px}
+.source-item{padding:15px 18px}
+@media(min-width:1400px){.source-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+@media(max-width:1100px){
+  .tier-disputes ul{grid-template-columns:1fr}
+  .tier-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .tier-intro{flex-direction:column;align-items:flex-start;gap:10px}
+  .tier-legend{grid-template-columns:repeat(6,auto)}
+  .tier-row{grid-template-columns:1fr}
+  .tier-label{flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;padding:10px 12px;border-right:0;border-bottom:3px solid var(--c)}
+  .tier-label>b{font-size:24px}
+  .tier-cards{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px;gap:6px}
+  .tier-row-lords .tier-cards{grid-template-columns:1fr}
+  .tier-card{padding:8px 9px}
+  .tier-card-top strong{font-size:14px}
+  .tier-toolbar{gap:10px}
+  .tier-toolbar .model-search{max-width:none;flex-basis:100%}
+  .tier-count{margin-left:0}
+  .source-item{padding:14px}
+}
