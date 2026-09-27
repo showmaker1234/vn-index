@@ -30,6 +30,22 @@
 .bd-mini b{grid-column:1/-1;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--db-blue) var(--w),var(--line) var(--w))}
 .tier-pill.tier-lord{--c:var(--tier-lord)}
 
+/* 多套方案 */
+.bd-section>h2 small{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
+.bd-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0 0 14px}
+.bd-tab{display:flex;flex-direction:column;gap:2px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);text-decoration:none}
+.bd-tab:hover{border-color:var(--db-blue)}
+.bd-tab.on{border-color:var(--db-blue);background:color-mix(in srgb,var(--db-blue) 9%,var(--surface));box-shadow:inset 0 0 0 1px var(--db-blue)}
+.bd-tab strong{font-size:14px}
+.bd-tab small{font-size:12px;color:var(--muted)}
+.bd-tag{align-self:flex-start;font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;color:var(--muted);background:var(--surface2)}
+.bd-tag.t-主流{color:var(--db-blue);background:color-mix(in srgb,var(--db-blue) 12%,transparent)}
+.bd-tag.t-实战可选{color:var(--db-success);background:color-mix(in srgb,var(--db-success) 12%,transparent)}
+.bd-tag.t-路线专属{color:var(--tier-t0);background:color-mix(in srgb,var(--tier-t0) 14%,transparent)}
+.bd-route-need{font-size:13px;margin:0 0 10px;color:var(--muted)}
+.bd-route-need.warn{color:var(--tier-lord)}
+.bd-more{font-style:normal;font-size:11.5px;color:var(--db-blue);margin-left:6px}
+
 /* 详情页 */
 .bd-crumbs{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;margin:0 0 14px}
 .bd-crumbs a{color:var(--db-blue);text-decoration:none}

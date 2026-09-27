@@ -39,7 +39,7 @@ function buildSorted(ids){
 function buildCard(id){
   const g=BG.chars[id],c=buildChar(id);
   const bars=g.keyStats.slice(0,3).map(k=>'<span class="bd-mini"><i>'+buildStatShort[k]+'</i><b style="--w:'+Math.min(100,(g.growth[k]||0)/70*100)+'%"></b><em>'+buildFmt(g.growth[k])+'</em></span>').join('');
-  return '<a class="bd-card" href="#builds/'+id+'">'+buildAvatar(id,c.name)+'<span class="bd-card-body"><span class="bd-card-top"><strong>'+esc(c.name)+'</strong>'+buildTierPill(g)+(g.lord?'':'<small>#'+g.rank+'</small>')+'</span><span class="bd-card-role">'+esc(g.role)+'</span><span class="bd-card-path">'+esc(buildPathText(g))+'</span><span class="bd-minis">'+bars+'</span></span></a>';
+  return '<a class="bd-card" href="#builds/'+id+'">'+buildAvatar(id,c.name)+'<span class="bd-card-body"><span class="bd-card-top"><strong>'+esc(c.name)+'</strong>'+buildTierPill(g)+(g.lord?'':'<small>#'+g.rank+'</small>')+'</span><span class="bd-card-role">'+esc(g.role)+'</span><span class="bd-card-path">'+esc(buildPathText(g))+(g.builds.length>1?'<em class="bd-more">+'+(g.builds.length-1)+' 套</em>':'')+'</span><span class="bd-minis">'+bars+'</span></span></a>';
 }
 function buildListPage(){
   const ids=buildSorted(buildIds().filter(buildMatches));
@@ -60,29 +60,32 @@ function buildGrowthBlock(g){
   return '<div class="bd-growth">'+rows+'</div><p class="bd-legend">加粗为「'+buildRoleNames[g.roleKey]+'」定位的关键属性。成长率为角色本身数值，不含职业修正；排名为 63 人中的名次。</p>'
     +'<div class="bd-profs"><div><span>得意技能</span>'+chips(g.profs,'good')+'</div><div><span>苦手技能</span>'+chips(g.banes,'bad')+'</div></div>';
 }
-function buildPlanBlock(g){
-  const steps=g.stages.map((s,i)=>'<li class="bd-step'+(i===g.stages.length-1?' final':'')+'"><span class="bd-step-tier">'+esc(s.tier||'')+'</span><strong>'+esc(s.zh)+'</strong><small>'+esc(s.jp)+'</small><em>'+(s.lv?'推荐 Lv'+s.lv+' · 名声 '+s.renown:esc(s.note||'加入时职业'))+'</em>'+(s.unlockRoute?'<em>'+esc(s.unlockRoute)+'解锁</em>':'')+'</li>').join('');
-  const mounted=g.stages.some(s=>s.mounted);
-  return (steps?'<ol class="bd-steps">'+steps+'</ol>':'<p class="bd-muted">不能转职，按加入时的职业使用。</p>')
-    +'<div class="bd-plan"><div class="bd-plan-main"><h3>为什么这样练</h3><p>'+esc(g.why)+'</p><p class="bd-weapon"><span>主武器</span>'+esc(g.weapon||'—')+'</p></div>'
-    +'<div class="bd-plan-side"><h3>培养要点</h3><ul>'+g.keys.map(k=>'<li>'+esc(k)+'</li>').join('')+'</ul></div></div>'
-    +(g.altZh.length?'<div class="bd-alts"><h3>备选方案</h3>'+g.altZh.map(a=>'<div class="bd-alt"><strong>'+esc(a.zh)+'</strong><p>'+esc(a.why)+'</p></div>').join('')+'</div>':'')
-    +(mounted?'<p class="bd-note">凯伊线可以捕获和饲养骑乘动物：骑兵、飞行职业配备后成长率额外 +25（战车兵翻倍），推荐在凯伊线走骑乘路线。</p>':'')
-    +(g.simBest?'<p class="bd-note subtle">本站模拟的最优组合：'+esc(g.simBest.route)+' · '+esc(g.simBest.cls)+(g.simBest.mount?'（含凯伊线骑乘加成）':'')+'。'+(g.simBest.cls===g.finalZh?'和主流方案的目标职业一致。':'和主流方案不同，以主流方案为准，模拟结果供参考。')+'</p>':'');
+function buildTabs(g,id,idx){
+  if(g.builds.length<2)return '';
+  return '<div class="bd-tabs" role="tablist" aria-label="培养方案">'+g.builds.map((b,i)=>'<a role="tab" href="#builds/'+id+'/'+i+'" aria-selected="'+(i===idx)+'" class="bd-tab'+(i===idx?' on':'')+'"><span class="bd-tag t-'+esc(b.tag)+'">'+esc(b.tag)+'</span><strong>'+esc(b.name)+'</strong><small>'+esc(b.weapon||'')+(b.routeWanted?' · '+esc(b.routeWanted):'')+'</small></a>').join('')+'</div>';
 }
-function buildGoalsBlock(g){
-  const keys=g.keyStats;
+function buildPlanBlock(g,b){
+  const steps=b.stages.map((s,i)=>'<li class="bd-step'+(i===b.stages.length-1?' final':'')+'"><span class="bd-step-tier">'+esc(s.tier||'')+'</span><strong>'+esc(s.zh)+'</strong><small>'+esc(s.jp)+'</small><em>'+(s.lv?'推荐 Lv'+s.lv+' · 名声 '+s.renown:esc(s.note||'加入时职业'))+'</em>'+(s.unlockRoute?'<em>'+esc(s.unlockRoute)+'解锁</em>':'')+'</li>').join('');
+  return (b.routeWanted?'<p class="bd-route-need'+(b.routeOk?'':' warn')+'">适用路线：'+esc(b.routeWanted)+(b.routeOk?'':'（该角色在这条路线不能招募，模拟改用其可招募路线）')+'</p>':'')
+    +(steps?'<ol class="bd-steps">'+steps+'</ol>':'<p class="bd-muted">不能转职，按加入时的职业使用。</p>')
+    +'<div class="bd-plan"><div class="bd-plan-main"><h3>为什么这样练</h3><p>'+esc(b.why)+'</p><p class="bd-weapon"><span>主武器</span>'+esc(b.weapon||'—')+'</p></div>'
+    +'<div class="bd-plan-side"><h3>培养要点</h3>'+(b.keys.length?'<ul>'+b.keys.map(k=>'<li>'+esc(k)+'</li>').join('')+'</ul>':'<p class="bd-muted">见「主流」方案的要点。</p>')+'</div></div>'
+    +(b.mounted&&b.routeWanted!=='凯伊篇'?'<p class="bd-note">凯伊线可以捕获和饲养骑乘动物：骑兵、飞行职业配备后成长率额外 +25（战车兵翻倍）。在凯伊线走骑乘路线会更强。</p>':'')
+    +(b.tag==='主流'&&g.simBest?'<p class="bd-note subtle">本站模拟的最优组合：'+esc(g.simBest.route)+' · '+esc(g.simBest.cls)+(g.simBest.mount?'（含凯伊线骑乘加成）':'')+'。'+(g.simBest.cls===b.finalZh?'和主流方案的目标职业一致。':'和主流方案不同，以主流方案为准，模拟结果供参考。')+'</p>':'');
+}
+function buildGoalsBlock(g,b){
+  const keys=b.keyStats||g.keyStats;
   const head='<tr><th>阶段</th>'+keys.map(k=>'<th>'+buildStatShort[k]+'</th>').join('')+'</tr>';
-  const body=g.stages.map(s=>'<tr><th scope="row">'+esc(s.zh)+'<small>'+esc(s.tier||'')+'</small></th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(s.gain[k])+'<small>'+buildFmt(s.eff[k])+'%</small></td>').join('')+'</tr>').join('');
-  const total=g.stages.length?'<tr class="bd-total"><th scope="row">合计</th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(g.stages.reduce((a,s)=>a+s.gain[k],0))+'</td>').join('')+'</tr>':'';
-  const s=g.sim;
+  const body=b.stages.map(s=>'<tr><th scope="row">'+esc(s.zh)+'<small>'+esc(s.tier||'')+'</small></th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(s.gain[k])+'<small>'+buildFmt(s.eff[k])+'%</small></td>').join('')+'</tr>').join('');
+  const total=b.stages.length?'<tr class="bd-total"><th scope="row">合计</th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(b.stages.reduce((a,s)=>a+s.gain[k],0))+'</td>').join('')+'</tr>':'';
+  const s=b.sim;
   const sim=s?'<div class="bd-kpis"><div><span>后期攻速</span><strong>'+buildFmt(s.as)+'</strong><small>追击标准敌人需 ≥ '+buildFmt(s.doubleNeed)+(s.as>=s.doubleNeed?' · 达标':' · 未达标')+'</small></div>'
     +(s.weapon!=='治疗'?'<div><span>对持枪敌人</span><strong>'+s.vsPhysical.hit+'% · '+buildFmt(s.vsPhysical.dmg)+'</strong><small>命中 · 单次伤害'+(s.vsPhysical.doubles?' · 可追击':'')+'</small></div><div><span>对魔法敌人</span><strong>'+s.vsMagic.hit+'% · '+buildFmt(s.vsMagic.dmg)+'</strong><small>命中 · 单次伤害'+(s.vsMagic.doubles?' · 可追击':'')+'</small></div>':'')
     +'<div><span>每次受伤</span><strong>'+buildFmt(s.vsPhysical.taken)+' / '+buildFmt(s.vsMagic.taken)+'</strong><small>持枪 / 魔法敌人，生命 '+buildFmt(s.stats.hp)+'</small></div>'
     +(s.healing?'<div><span>单次治疗</span><strong>'+s.healing+'</strong><small>治愈 10 + 魔力 ÷ 3 + 职业加成</small></div>':'')+'</div>'
     +'<p class="bd-legend">按「'+esc(s.route)+' · '+esc(s.cls)+' · '+esc(s.weapon)+'」和标准敌人（58 人成长中位数 + 上级职修正）用游戏战斗公式模拟；能力起点统一，只比较成长差异'+(s.mountBonus?'；已计入凯伊线骑乘加成':'')+'。</p>':'';
   const skills=g.skills.length?'<ol class="bd-skills">'+g.skills.map(k=>'<li><span>'+esc(k.level||'习得')+'</span><div><strong>'+esc(k.name)+'</strong><p>'+esc(k.desc)+(k.trigger?'<small>条件：'+esc(k.trigger)+'</small>':'')+'</p></div></li>').join('')+'</ol>':'<p class="bd-muted">技能资料未收录。</p>';
-  return (g.stages.length?'<h3>各阶段属性预期（每阶段 '+BG.stageLevels+' 级）</h3><div class="data-table-wrap"><table class="data-table bd-goals"><thead>'+head+'</thead><tbody>'+body+total+'</tbody></table></div><p class="bd-legend">大号数字为该阶段 '+BG.stageLevels+' 次升级的期望提升，小号为「角色成长 + 职业修正」后的成长率。阶段门槛：初级 Lv5 / 名声 1，中级 Lv20 / 名声 4，上级 Lv35 / 名声 8，最上级在第三部救世篇开放。</p>':'')
+  return (b.stages.length?'<h3>各阶段属性预期（每阶段 '+BG.stageLevels+' 级）</h3><div class="data-table-wrap"><table class="data-table bd-goals"><thead>'+head+'</thead><tbody>'+body+total+'</tbody></table></div><p class="bd-legend">大号数字为该阶段 '+BG.stageLevels+' 次升级的期望提升，小号为「角色成长 + 职业修正」后的成长率。阶段门槛：初级 Lv5 / 名声 1，中级 Lv20 / 名声 4，上级 Lv35 / 名声 8，最上级在第三部救世篇开放。</p>':'')
     +(sim?'<h3>练成后的战斗表现</h3>'+sim:'')
     +'<h3>技能节点</h3>'+skills;
 }
@@ -94,8 +97,9 @@ function buildRecruitBlock(g,id){
     +'<p class="bd-legend">'+esc(g.routeNote)+(g.costNote?' '+esc(g.costNote):'')+'</p>'
     +(DB.recruits.some(r=>r.id===id)?'<button class="button" data-entry="recruit:'+id+'">查看完整招募档案 ↗</button>':'');
 }
-function buildDetailPage(id){
+function buildDetailPage(id,idx){
   const g=BG.chars[id],c=buildChar(id);if(!g||!c)return buildListPage();
+  idx=Math.min(Math.max(0,idx|0),g.builds.length-1);const b=g.builds[idx];
   const ids=buildSorted(buildIds()),i=ids.indexOf(id),prev=ids[i-1],next=ids[i+1];
   const srcRow=(typeof SD!=='undefined')?SD.rows.find(r=>r.id===id):null;
   const chips=srcRow?srcRow.sources.map(s=>'<span class="bd-src"><i>'+(tierSourceName[s.id]||s.id)+'</i><b>'+esc(tierSourceTier(s.id,s.tier))+'</b></span>').join(''):'';
@@ -104,8 +108,8 @@ function buildDetailPage(id){
     +'<header class="bd-hero">'+buildAvatar(id,c.name,'lg')+'<div class="bd-hero-main"><div class="bd-hero-title"><h1>'+esc(c.name)+'</h1>'+buildTierPill(g)+'</div><p class="bd-hero-sub">'+esc(c.originalName)+' · '+esc(g.role)+(g.finalZh?' · 目标职业 '+esc(g.finalZh):'')+'</p><p class="bd-hero-path">'+esc(buildPathText(g))+'</p></div>'
     +'<div class="bd-hero-kpis">'+(g.lord?kpi('主角排名','第 '+g.rank+' 位','各榜主角排名平均'):kpi('综合排名','#'+g.rank,'共 58 人 · '+g.tier))+(g.lord?'':kpi('综合分',buildFmt(g.composite),'外部 '+buildFmt(g.external)+' · 本站 '+buildFmt(g.own)))+kpi('GameWith 评级',g.gwRank||'—','')+'</div></header>'
     +'<div class="bd-layout"><div class="bd-col">'
-    +buildSection('培养方案',buildPlanBlock(g))
-    +buildSection('预期目标',buildGoalsBlock(g))
+    +buildSection('培养方案'+(g.builds.length>1?' <small>共 '+g.builds.length+' 套</small>':''),buildTabs(g,id,idx)+buildPlanBlock(g,b))
+    +buildSection('预期目标 <small>'+esc(b.name)+'</small>',buildGoalsBlock(g,b))
     +'</div><aside class="bd-col side">'
     +buildSection('强度排名','<div class="bd-srcs">'+chips+'</div><button class="button" data-strength-character="'+id+'">查看评分拆解 ↗</button>')
     +buildSection('基础成长率',buildGrowthBlock(g))
@@ -116,17 +120,18 @@ function buildDetailPage(id){
 
 const beforeBuildsRender=render;
 render=function(){
-  const [route,id]=location.hash.slice(1).split('/');
+  const [route,id,bi]=location.hash.slice(1).split('/');
   document.body.classList.toggle('builds-page',route==='builds');
   if(route!=='builds')return beforeBuildsRender();
   const c=id?buildChar(id):null;
-  $('#main').innerHTML='<div class="bd-page">'+(c?buildDetailPage(id):buildListPage())+'</div>';
+  const prevId=document.querySelector('.bd-page')?.dataset.id;
+  $('#main').innerHTML='<div class="bd-page" data-id="'+(c?id:'')+'">'+(c?buildDetailPage(id,+bi||0):buildListPage())+'</div>';
   $('#crumb').textContent=c?'培养方案 / '+c.name:'培养方案';
   document.title=(c?c.name+' 培养方案':'角色培养方案')+' · 万缕千丝 · 纹章战术室';
   document.body.classList.add('database-page');
   document.querySelectorAll('nav[data-main-nav] a').forEach(a=>{const yes=a.dataset.route==='builds';a.classList.toggle('active',yes);if(yes)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   $('#sidebar').classList.remove('open');$('#menu-toggle').setAttribute('aria-expanded','false');
-  if(c)window.scrollTo(0,0);
+  if(c&&prevId!==id)window.scrollTo(0,0);
 };
 names.builds='培养方案';
 const buildNav=document.createElement('a');buildNav.href='#builds';buildNav.dataset.route='builds';buildNav.innerHTML='<span>✦</span>培养方案';
