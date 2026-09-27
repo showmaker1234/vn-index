@@ -153,7 +153,7 @@ const enemyStats=Object.fromEntries(G.map(s=>[s,(s==='hp'?BASE.hp:BASE.other)+(m
 const ENEMIES={physical:combatant(enemyStats,WEAPONS.spear),magic:combatant(enemyStats,WEAPONS.blackMagic)};
 
 const HIT_RE={sword:/剣命中\+(\d+)/g,spear:/槍命中\+(\d+)/g,axe:/斧命中\+(\d+)/g,bow:/弓命中\+(\d+)/g,gauntlet:/格闘命中\+(\d+)/g,blackMagic:/魔法命中\+(\d+)/g};
-function simulate(c,g,k,route,forced){
+function simulate(c,g,k,route,forced,override){
   const p=profsOf(c),usable=(k.weapons||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
   const cai=route==='cai';
   let best=null;
@@ -163,7 +163,7 @@ function simulate(c,g,k,route,forced){
     const skill=base.skill||wc;
     if(!usable.includes(skill)||(!p.includes(skill)&&!forced))continue;
     const w={...base,sword:wc==='sword'||!!base.sword};
-    const {st,mounted,armor,mountBonus}=statsFor(g,k,{cai,magic:!!w.magic});
+    const sf=statsFor(g,k,{cai,magic:!!w.magic});const {mounted,armor,mountBonus}=sf;const st=override?override(sf.st.build):sf.st;
     const extra={hit:classBonus(k,HIT_RE[skill]||HIT_RE[wc])+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:skill==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:skill==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
     const me=combatant(st,w,extra);
     const off=['physical','magic'].map(e=>{const s=strike(me,ENEMIES[e]);return{...s,kill:clamp(s.exp/ENEMIES[e].hp,0,1.5)}});
@@ -171,7 +171,7 @@ function simulate(c,g,k,route,forced){
     if(!best||offense>best.offense)best={weapon:wc,st,me,off,offense,mounted,armor,mountBonus};
   }
   if(!best){ // 纯治疗职业：无攻击武器，只算承伤与治疗
-    const {st,mounted,armor,mountBonus}=statsFor(g,k,{cai,magic:true});
+    const sf=statsFor(g,k,{cai,magic:true});const {mounted,armor,mountBonus}=sf;const st=override?override(sf.st.build):sf.st;
     best={weapon:null,st,me:combatant(st,{mt:0,wt:0,hit:0}),off:[{kill:0,hit:0,dmg:0},{kill:0,hit:0,dmg:0}],offense:0,mounted,armor,mountBonus};
   }
   const tank={...best.me,def:best.me.def+classBonus(k,/後攻守備\+(\d+)/g)};
@@ -324,12 +324,19 @@ for(const c of chars){
   const row=rows.find(r=>r.id===c.id),g=detail[c.id].growth;
   const role=roleOf(gd),keys=KEY_STATS[role];
   const routeIds=routesOf(c).map(r=>r.route);
-  const makeStages=(pth,fin)=>[...pth,fin].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).map(n=>{const k=classByName[n];const t=k?TIER_STAGE[k.tier]||{}:{};const eff=Object.fromEntries(G.map((st,i)=>[st,g[st]+(k?k.growth[i]:0)]));
+  /* 凯伊线骑乘加成：中级、上级（第一部）阶段的骑乘职业，按方案打法把 +25（战车兵 ×2）加在 力或魔 · 速 · 技（4:4:2） */
+  const makeStages=(pth,fin,rt,magicBuild)=>[...pth,fin].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).map(n=>{const k=classByName[n];const t=k?TIER_STAGE[k.tier]||{}:{};
+    const riding=rt==='cai'&&!!k&&k.traits.some(x=>/騎兵|飛行/.test(x))&&['中級職','上級職'].includes(k.tier);
+    const mb=riding?Object.fromEntries((magicBuild?['magic','speed','dexterity']:['strength','speed','dexterity']).map((st,i)=>[st,MOUNT.bonus*(k.name==='戦車兵'?MOUNT.chariotMultiplier:1)*[0.4,0.4,0.2][i]])):{};
+    const eff=Object.fromEntries(G.map((st,i)=>[st,g[st]+(k?k.growth[i]:0)+(mb[st]||0)]));
     return{jp:n,zh:CLASS_ZH[n]||n,tier:t.label||(k?k.tier:''),lv:t.lv??null,renown:t.renown??null,note:t.note||'',unlockRoute:k?.unlockRoute?ROUTE_NAME[{カイ:'cai',ディートリヒ:'dietrich',セオドラ:'theodora',レダ:'leda'}[k.unlockRoute]]:null,
-      mounted:!!k&&k.traits.some(t=>/騎兵|飛行/.test(t)),move:k?parseInt(k.move)||0:0,eff,gain:Object.fromEntries(G.map(st=>[st,round(Math.max(0,eff[st])*STAGE_LEVELS/100)]))}});
-  const simFor=(fin,routeWanted,wk)=>{const finalK=fin?classByName[fin]:null;if(!finalK)return null;
+      mounted:!!k&&k.traits.some(t=>/騎兵|飛行/.test(t)),riding,move:k?parseInt(k.move)||0:0,eff,gain:Object.fromEntries(G.map(st=>[st,round(Math.max(0,eff[st])*STAGE_LEVELS/100)]))}});
+  /* 方案模拟：能力按整条职业路线逐阶段累加（与阶段表一致），再缩放到与强度模型相同的 LEVELS 次升级 */
+  const simFor=(fin,routeWanted,wk,stages)=>{const finalK=fin?classByName[fin]:null;if(!finalK)return null;
+    const lv=STAGE_LEVELS*Math.max(1,stages.length);
+    const override=stages.length?build=>{const st={};for(const k of G)st[k]=(k==='hp'?BASE.hp:BASE.other)+stages.reduce((a,x)=>a+Math.max(0,x.eff[k]),0)*STAGE_LEVELS/100*LEVELS/lv;st.build=build;return st}:undefined;
     const routeId=routeWanted&&routeIds.includes(routeWanted)?routeWanted:(row?.best?.route||routeIds[0]);
-    const forced=wk&&wk!=='heal'?wk:undefined;const s2=simulate(c,g,finalK,routeId,forced);
+    const forced=wk&&wk!=='heal'?wk:undefined;const s2=simulate(c,g,finalK,routeId,forced,override);
     return{route:ROUTE_NAME[routeId],routeId,cls:CLASS_ZH[finalK.name]||finalK.name,weapon:WEAPON_ZH[s2.weapon]||'治疗',
     stats:Object.fromEntries([...G,'build'].map(k=>[k,round(s2.st[k])])),as:round(s2.me.as),enemyAs:round(ENEMIES.physical.as),doubleNeed:round(ENEMIES.physical.as+4),
     vsPhysical:{hit:Math.round((s2.off[0].hit||0)*100),dmg:round(s2.off[0].dmg||0),doubles:!!s2.off[0].doubles,taken:round(s2.taken[0].exp)},
@@ -337,7 +344,7 @@ for(const c of chars){
   const rawBuilds=[{name:'主流 · '+(gd.final?(CLASS_ZH[gd.final]||gd.final):'固定职业'),tag:'主流',path:gd.path,final:gd.final,weapon:gd.weapon,why:gd.why,keys:gd.keys},
     ...(gd.alt||[]).map(a=>({name:CLASS_ZH[a.cls]||a.cls,tag:'备选',path:gd.path,final:a.cls,weapon:gd.weapon,why:a.why,keys:[]})),
     ...((guidesSrc.extraBuilds||{})[c.id]||[])];
-  const builds=rawBuilds.map(b=>{const st=makeStages(b.path||[],b.final);const sim=simFor(b.final,b.route,b.weaponKey);
+  const builds=rawBuilds.map(b=>{const magicBuild=['thunderSword','blackMagic'].includes(b.weaponKey)||(!b.weaponKey&&(role==='magic'||role==='healer'));const st=makeStages(b.path||[],b.final,b.route,magicBuild);const sim=simFor(b.final,b.route,b.weaponKey,st);
     const bk=['thunderSword','blackMagic'].includes(b.weaponKey)?KEY_STATS.magic:['sword','spear','axe','bow','gauntlet'].includes(b.weaponKey)&&role!=='tank'?KEY_STATS.physical:keys;
     return{keyStats:bk,name:b.name,tag:b.tag,routeWanted:b.route?ROUTE_NAME[b.route]:null,routeOk:!b.route||routeIds.includes(b.route),weapon:b.weapon,why:b.why,keys:b.keys||[],final:b.final,finalZh:b.final?(CLASS_ZH[b.final]||b.final):null,stages:st,sim,mounted:st.some(x=>x.mounted)}});
   const stages=builds[0].stages,sim=builds[0].sim;
