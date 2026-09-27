@@ -31,6 +31,8 @@ const FEATURE_NAMES={contribution:'主要贡献（输出或治疗取高）',dura
 const PRIOR_SHARE=0.5; // 最终权重 = 50% 先验 + 50% 外部共识拟合，避免权重被少数样本带偏
 /* 标准武器：取站内武器库中各类型 C 级的达米纳系列（黑魔法用博尔加农，命中未收录按 80 计） */
 const WEAPONS={sword:{mt:12,wt:4,hit:90},spear:{mt:13,wt:7,hit:80},axe:{mt:16,wt:10,hit:65},bow:{mt:12,wt:6,hit:70,range:2},gauntlet:{mt:11,wt:4,hit:90},blackMagic:{mt:10,wt:8,hit:80,magic:true}};
+/* 只在培养方案里按指定武器模拟：雷之剑按魔法攻击结算（GameWith：威力 12、命中 70、重量 8、射程 1–2） */
+const EXTRA_WEAPONS={thunderSword:{mt:12,wt:8,hit:70,magic:true,sword:true,skill:'sword'}};
 const HEAL_MT=10; // 治愈
 const BUILD={base:6,armor:3,mounted:2}; // 体格未公开，按兵种特性假设
 const MOUNT={bonus:25,chariotMultiplier:2,flat:5};
@@ -39,8 +41,8 @@ const G=['hp','strength','magic','speed','dexterity','defense','resistance','luc
 const SKILL_CODE={'剣術':'sword','槍術':'spear','斧術':'axe','弓術':'bow','格闘術':'gauntlet','黒魔術':'blackMagic','白魔術':'whiteMagic','指揮術':'authority','歩兵術':'infantry','馬術':'riding','重装術':'heavyArmor','飛行術':'flying'};
 const RANK={S:6,A:5,B:4,C:3,D:2,E:1,F:0};
 const ROUTE_NAME={cai:'凯伊篇',dietrich:'迪托利希篇',theodora:'赛奥朵拉篇',leda:'蕾达篇',savior:'救世主篇'};
-const CLASS_ZH={'剣士':'剑士','ブリガンド':'山贼','セスタス':'拳斗士','アーチャー':'弓兵','ローグ':'盗贼','重装歩兵':'重装步兵','軽騎兵':'轻骑兵','戦車兵':'战车兵','騎甲駝兵':'甲驼骑兵','シャーマン':'萨满','プリースト':'祭司','天翼兵':'天翼兵','シドー':'士道','ウォーリアー':'勇士','スナイパー':'狙击手','フォレストナイト':'森林骑士','ヘヴィアーマー':'重甲兵','バーディンガー':'巴丁格骑士','ウァテス':'先知','ビショップ':'主教','カラドリオス':'卡拉德里奥斯','ガーディアン':'守护者','踊り子':'舞娘','ドラグーン':'龙骑兵','トルバドール':'游吟骑士','カタフラクト':'铁甲骑兵','レンジャー':'游侠','戦象兵':'战象兵','バトルマスター':'战斗大师','マスターアーチ':'弓圣','シャドーシーカー':'影猎者','ホーリーランサー':'圣枪兵','フォートレス':'要塞','オリハルディア':'奥里哈尔骑士','ドラゴンマスター':'龙主','ドルイド':'德鲁伊','ワイズマン':'贤者','バトルモンク':'武僧','聖天翼兵':'圣天翼兵','グレートナイト':'巨骑士','ソードマスター':'剑圣','ハイエピタフ':'碑文骑士','ボウナイト':'弓骑士','ヴァルキュリウム':'女武神'};
-const WEAPON_ZH={sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
+const CLASS_ZH={'平民':'平民','貴族':'贵族','闘士':'斗士','猟兵':'猎兵','兵士':'士兵','飛駝兵':'飞驼兵','呪い師':'咒术师','剣士':'剑士','ブリガンド':'山贼','セスタス':'拳斗士','アーチャー':'弓兵','ローグ':'盗贼','重装歩兵':'重装步兵','軽騎兵':'轻骑兵','戦車兵':'战车兵','騎甲駝兵':'甲驼骑兵','シャーマン':'萨满','プリースト':'祭司','天翼兵':'天翼兵','シドー':'士道','ウォーリアー':'勇士','スナイパー':'狙击手','フォレストナイト':'森林骑士','ヘヴィアーマー':'重甲兵','バーディンガー':'巴丁格骑士','ウァテス':'先知','ビショップ':'主教','カラドリオス':'卡拉德里奥斯','ガーディアン':'守护者','踊り子':'舞娘','ドラグーン':'龙骑兵','トルバドール':'游吟骑士','カタフラクト':'铁甲骑兵','レンジャー':'游侠','戦象兵':'战象兵','バトルマスター':'战斗大师','マスターアーチ':'弓圣','シャドーシーカー':'影猎者','ホーリーランサー':'圣枪兵','フォートレス':'要塞','オリハルディア':'奥里哈尔骑士','ドラゴンマスター':'龙主','ドルイド':'德鲁伊','ワイズマン':'贤者','バトルモンク':'武僧','聖天翼兵':'圣天翼兵','グレートナイト':'巨骑士','ソードマスター':'剑圣','ハイエピタフ':'碑文骑士','ボウナイト':'弓骑士','ヴァルキュリウム':'女武神'};
+const WEAPON_ZH={thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
 
 const mid=r=>Array.isArray(r)?(r[0]+r[1])/2:r;
 const timeZh=t=>String(t||'').replace(/【(.+?)編】/,(_,n)=>({'カイ':'凯伊','ディートリヒ':'迪托利希','セオドラ':'赛奥朵拉','レダ':'蕾达','救世主':'救世主'}[n]||n)+'篇 ').replace(/1部(\d+)章/,'第一部第$1章').replace(/2部(\d+)章/,'第二部第$1章').replace(/3部(\d+)区分/,'第三部第$1节').replace(/序幕(\d+)章/,'序幕第$1章').replace(/(\d+)月$/,' $1月').trim();
@@ -151,15 +153,18 @@ const enemyStats=Object.fromEntries(G.map(s=>[s,(s==='hp'?BASE.hp:BASE.other)+(m
 const ENEMIES={physical:combatant(enemyStats,WEAPONS.spear),magic:combatant(enemyStats,WEAPONS.blackMagic)};
 
 const HIT_RE={sword:/剣命中\+(\d+)/g,spear:/槍命中\+(\d+)/g,axe:/斧命中\+(\d+)/g,bow:/弓命中\+(\d+)/g,gauntlet:/格闘命中\+(\d+)/g,blackMagic:/魔法命中\+(\d+)/g};
-function simulate(c,g,k,route){
+function simulate(c,g,k,route,forced){
   const p=profsOf(c),usable=(k.weapons||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
   const cai=route==='cai';
   let best=null;
-  for(const wc of Object.keys(WEAPONS)){
-    if(!usable.includes(wc)||!p.includes(wc))continue;
-    const w={...WEAPONS[wc],sword:wc==='sword'};
+  const cands=forced?[forced]:Object.keys(WEAPONS);
+  for(const wc of cands){
+    const base=WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
+    const skill=base.skill||wc;
+    if(!usable.includes(skill)||(!p.includes(skill)&&!forced))continue;
+    const w={...base,sword:wc==='sword'||!!base.sword};
     const {st,mounted,armor,mountBonus}=statsFor(g,k,{cai,magic:!!w.magic});
-    const extra={hit:classBonus(k,HIT_RE[wc])+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:wc==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:wc==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
+    const extra={hit:classBonus(k,HIT_RE[skill]||HIT_RE[wc])+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:skill==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:skill==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
     const me=combatant(st,w,extra);
     const off=['physical','magic'].map(e=>{const s=strike(me,ENEMIES[e]);return{...s,kill:clamp(s.exp/ENEMIES[e].hp,0,1.5)}});
     const offense=(off[0].kill+off[1].kill)/2;
@@ -297,3 +302,57 @@ const count={};rows.forEach(r=>count[r.tier]=(count[r.tier]||0)+1);
 {const R=ranked.filter(r=>r.external!=null),er=[...R].sort((a,b)=>b.external-a.external).map(r=>r.id);const d=R.map(r=>Math.abs(er.indexOf(r.id)+1-r.rank));console.log('composite vs external r =',round(corr(R.map(r=>r.composite),R.map(r=>r.external))*100)/100,'mean |rank diff| =',round(d.reduce((a,v)=>a+v,0)/d.length),'max',Math.max(...d));}
 console.log('heal scan',JSON.stringify(fitScan),'h =',HEAL_FACTOR);console.log('combos',combos.length,'fitted',JSON.stringify(Object.fromEntries(Object.entries(fitted).map(([k,v])=>[k,round(v)]))),'weights',JSON.stringify(weights),'fit r =',round(fitCorr*100)/100,count);
 for(const r of [...ranked,...rows.filter(r=>r.lord).sort((a,b)=>a.rank-b.rank)])console.log(String(r.rank).padStart(2),r.tier,r.name.padEnd(6,'　'),'综合',r.composite,'外',r.external,'站',r.own,'|',r.best?.routeName,r.best?.clsZh,r.best?.weaponZh,r.best?.mountBonus?'骑乘加成':'','入队',r.best?.joinPart+'-'+r.best?.joinChapter);
+
+/* ---------- 培养方案：builds-data.js ---------- */
+const guidesSrc=require('./builds-zh.json');
+const gwChars=fs.existsSync(path.join(__dirname,'gamewith-chars.json'))?require('./gamewith-chars.json'):{};
+const TIER_STAGE={'初級職':{lv:5,renown:1,label:'初级'},'中級職':{lv:20,renown:4,label:'中级'},'上級職':{lv:35,renown:8,label:'上级'},'最上級職':{lv:null,renown:null,label:'最上级',note:'第三部救世篇开放，部分需完成任务'}};
+const classByName=Object.fromEntries(classes.map(k=>[k.name,k]));
+const STAGE_LEVELS=15;
+function roleOf(gd){
+  const w=gd.weapon||'',r=gd.role||'';
+  if(/坦克|重甲/.test(r))return'tank';
+  if(/治疗/.test(r)&&!/黑魔法/.test(w))return'healer';
+  if(/魔法/.test(w)&&!/剑|枪|斧|弓|拳套/.test(w.replace(/（.*?）/g,'')))return'magic';
+  if(/魔法输出|魔法主炮/.test(r))return'magic';
+  return'physical';
+}
+const KEY_STATS={physical:['strength','speed','dexterity','hp','defense'],magic:['magic','speed','dexterity','resistance','hp'],healer:['magic','resistance','speed','hp','luck'],tank:['hp','defense','strength','resistance','speed']};
+const guideOut={};
+for(const c of chars){
+  const gd=guidesSrc.guides[c.id];if(!gd)continue;
+  const row=rows.find(r=>r.id===c.id),g=detail[c.id].growth;
+  const role=roleOf(gd),keys=KEY_STATS[role];
+  const routeIds=routesOf(c).map(r=>r.route);
+  const makeStages=(pth,fin)=>[...pth,fin].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).map(n=>{const k=classByName[n];const t=k?TIER_STAGE[k.tier]||{}:{};const eff=Object.fromEntries(G.map((st,i)=>[st,g[st]+(k?k.growth[i]:0)]));
+    return{jp:n,zh:CLASS_ZH[n]||n,tier:t.label||(k?k.tier:''),lv:t.lv??null,renown:t.renown??null,note:t.note||'',unlockRoute:k?.unlockRoute?ROUTE_NAME[{カイ:'cai',ディートリヒ:'dietrich',セオドラ:'theodora',レダ:'leda'}[k.unlockRoute]]:null,
+      mounted:!!k&&k.traits.some(t=>/騎兵|飛行/.test(t)),move:k?parseInt(k.move)||0:0,eff,gain:Object.fromEntries(G.map(st=>[st,round(Math.max(0,eff[st])*STAGE_LEVELS/100)]))}});
+  const simFor=(fin,routeWanted,wk)=>{const finalK=fin?classByName[fin]:null;if(!finalK)return null;
+    const routeId=routeWanted&&routeIds.includes(routeWanted)?routeWanted:(row?.best?.route||routeIds[0]);
+    const forced=wk&&wk!=='heal'?wk:undefined;const s2=simulate(c,g,finalK,routeId,forced);
+    return{route:ROUTE_NAME[routeId],routeId,cls:CLASS_ZH[finalK.name]||finalK.name,weapon:WEAPON_ZH[s2.weapon]||'治疗',
+    stats:Object.fromEntries([...G,'build'].map(k=>[k,round(s2.st[k])])),as:round(s2.me.as),enemyAs:round(ENEMIES.physical.as),doubleNeed:round(ENEMIES.physical.as+4),
+    vsPhysical:{hit:Math.round((s2.off[0].hit||0)*100),dmg:round(s2.off[0].dmg||0),doubles:!!s2.off[0].doubles,taken:round(s2.taken[0].exp)},
+    vsMagic:{hit:Math.round((s2.off[1].hit||0)*100),dmg:round(s2.off[1].dmg||0),doubles:!!s2.off[1].doubles,taken:round(s2.taken[1].exp)},healing:s2.healing,mountBonus:!!s2.mountBonus}};
+  const rawBuilds=[{name:'主流 · '+(gd.final?(CLASS_ZH[gd.final]||gd.final):'固定职业'),tag:'主流',path:gd.path,final:gd.final,weapon:gd.weapon,why:gd.why,keys:gd.keys},
+    ...(gd.alt||[]).map(a=>({name:CLASS_ZH[a.cls]||a.cls,tag:'备选',path:gd.path,final:a.cls,weapon:gd.weapon,why:a.why,keys:[]})),
+    ...((guidesSrc.extraBuilds||{})[c.id]||[])];
+  const builds=rawBuilds.map(b=>{const st=makeStages(b.path||[],b.final);const sim=simFor(b.final,b.route,b.weaponKey);
+    const bk=['thunderSword','blackMagic'].includes(b.weaponKey)?KEY_STATS.magic:['sword','spear','axe','bow','gauntlet'].includes(b.weaponKey)&&role!=='tank'?KEY_STATS.physical:keys;
+    return{keyStats:bk,name:b.name,tag:b.tag,routeWanted:b.route?ROUTE_NAME[b.route]:null,routeOk:!b.route||routeIds.includes(b.route),weapon:b.weapon,why:b.why,keys:b.keys||[],final:b.final,finalZh:b.final?(CLASS_ZH[b.final]||b.final):null,stages:st,sim,mounted:st.some(x=>x.mounted)}});
+  const stages=builds[0].stages,sim=builds[0].sim;
+  /* 技能节点：站内中文技能 + GameWith 标注的习得等级（按等级顺序对应） */
+  const abil=(c.abilities||[]).filter(a=>a.nameZh);
+  const lvList=(gwChars[c.id]?.levelSkills||[]).map(x=>x[1]).map(v=>/^\d+$/.test(v)?+v:v).sort((a,b)=>(typeof a==='number'?a:0)-(typeof b==='number'?b:0));
+  const lvOf=(a,i)=>{if(i===0)return'个人技能';if(lvList.length===abil.length-1)return typeof lvList[i-1]==='number'?'Lv'+lvList[i-1]:'初始';if(lvList.some(v=>v==='初期'))return'初始';return /\+$/.test(a.nameZh)?'Lv35':'Lv20'};
+  const skills=abil.map((a,i)=>({name:a.nameZh,desc:a.description||'',trigger:a.trigger||'',level:lvOf(a,i)}));
+  const recruit=Object.entries(c.availability?.costByRoute||{}).map(([r,v])=>{const gwT=gwRoutes[c.id]?.routes?.[{凯伊:'cai',迪托利希:'dietrich',赛奥朵拉:'theodora',蕾达:'leda'}[r]]?.time;
+    return{route:r+'篇',available:v.available!==false,story:v.status==='story',support:v.supportLevel,renown:v.renownLevel,gold:v.gold,items:(v.items||[]).length,quests:v.questCount,paralogues:(v.paralogues||[]).length,appear:gwT?timeZh(gwT).replace(/^.+?篇 /,''):null}});
+  guideOut[c.id]={...gd,builds,roleKey:null,finalZh:gd.final?(CLASS_ZH[gd.final]||gd.final):null,altZh:(gd.alt||[]).map(a=>({...a,zh:CLASS_ZH[a.cls]||a.cls})),roleKey:role,keyStats:keys,stages,sim,skills,recruit,
+    routeNote:c.availability?.routeNote||'',costNote:c.availability?.costNote||'',profs:(gwChars[c.id]?.profs||[]),banes:(gwChars[c.id]?.bane||[]),gwRank:gwChars[c.id]?.gwRank||null,
+    growth:g,growthRank:null,tier:row?.tier,rank:row?.rank,lord:row?.lord,composite:row?.composite,external:row?.external,own:row?.own,simBest:row?.best?{route:row.best.routeName,cls:row.best.clsZh,mount:row.best.mountBonus}:null};
+}
+/* 成长率全员排名（1 = 最高） */
+for(const st of G){const vals=Object.values(guideOut).map(x=>x.growth[st]).sort((a,b)=>b-a);for(const x of Object.values(guideOut)){x.growthRank=x.growthRank||{};x.growthRank[st]=vals.indexOf(x.growth[st])+1}}
+fs.writeFileSync(path.join(root,'builds-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.BUILD_GUIDES='+JSON.stringify({version:'1.0',checked,stageLevels:STAGE_LEVELS,sources:guidesSrc.sources,enemy:{as:round(ENEMIES.physical.as),hp:round(ENEMIES.physical.hp)},chars:guideOut})+';\n');
+console.log('guides',Object.keys(guideOut).length);
