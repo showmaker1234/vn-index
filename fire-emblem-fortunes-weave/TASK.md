@@ -22,3 +22,4 @@
 - 2026-09-25：强度排行改为评分标准 2.0——汇总 Game8、GameWith、KeenGamer、Pocket Tactics、アルゲスト、Siliconera 六个来源的共识分，与本站六项量化分各占 50%；数据与计算脚本在 `tools/`，运行 `node tools/build-strength.js` 重新生成 `strength-data.js`
 - 2026-09-25：评分标准 3.0——按角色最优「路线 × 职业」用游戏战斗公式模拟（含凯伊线骑乘成长加成、战车兵翻倍、第一部晚入队扣分），六项权重用外部共识拟合；综合分 = 外部 60% + 本站 40%
 - 2026-09-25：入队时机只对第一部可招募角色扣分（第二、三部加入不扣）；index.html 的脚本与样式加版本号（`?v=`），每次发布需更新，避免浏览器混用新旧文件
+- 2026-09-27：新增「培养方案」板块（`builds-ui.js` / `builds.css`，数据 `builds-data.js` 由 `tools/build-strength.js` 从 `tools/builds-zh.json` 与 `tools/gamewith-chars.json` 生成）；全站界面优化（`ui.css`：统一无衬线数字、提高小字可读性、统一卡片与表格；`shell-ui.js`：侧栏导航分组）
