@@ -76,16 +76,16 @@ function buildPlanBlock(g,b){
 function buildGoalsBlock(g,b){
   const keys=b.keyStats||g.keyStats;
   const head='<tr><th>阶段</th>'+keys.map(k=>'<th>'+buildStatShort[k]+'</th>').join('')+'</tr>';
-  const body=b.stages.map(s=>'<tr><th scope="row">'+esc(s.zh)+'<small>'+esc(s.tier||'')+'</small></th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(s.gain[k])+'<small>'+buildFmt(s.eff[k])+'%</small></td>').join('')+'</tr>').join('');
+  const body=b.stages.map(s=>'<tr><th scope="row">'+esc(s.zh)+'<small>'+esc(s.tier||'')+(s.riding?' · 含骑乘加成':'')+'</small></th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(s.gain[k])+'<small>'+buildFmt(s.eff[k])+'%</small></td>').join('')+'</tr>').join('');
   const total=b.stages.length?'<tr class="bd-total"><th scope="row">合计</th>'+keys.map(k=>'<td class="numeric">+'+buildFmt(b.stages.reduce((a,s)=>a+s.gain[k],0))+'</td>').join('')+'</tr>':'';
   const s=b.sim;
   const sim=s?'<div class="bd-kpis"><div><span>后期攻速</span><strong>'+buildFmt(s.as)+'</strong><small>追击标准敌人需 ≥ '+buildFmt(s.doubleNeed)+(s.as>=s.doubleNeed?' · 达标':' · 未达标')+'</small></div>'
     +(s.weapon!=='治疗'?'<div><span>对持枪敌人</span><strong>'+s.vsPhysical.hit+'% · '+buildFmt(s.vsPhysical.dmg)+'</strong><small>命中 · 单次伤害'+(s.vsPhysical.doubles?' · 可追击':'')+'</small></div><div><span>对魔法敌人</span><strong>'+s.vsMagic.hit+'% · '+buildFmt(s.vsMagic.dmg)+'</strong><small>命中 · 单次伤害'+(s.vsMagic.doubles?' · 可追击':'')+'</small></div>':'')
     +'<div><span>每次受伤</span><strong>'+buildFmt(s.vsPhysical.taken)+' / '+buildFmt(s.vsMagic.taken)+'</strong><small>持枪 / 魔法敌人，生命 '+buildFmt(s.stats.hp)+'</small></div>'
     +(s.healing?'<div><span>单次治疗</span><strong>'+s.healing+'</strong><small>治愈 10 + 魔力 ÷ 3 + 职业加成</small></div>':'')+'</div>'
-    +'<p class="bd-legend">按「'+esc(s.route)+' · '+esc(s.cls)+' · '+esc(s.weapon)+'」和标准敌人（58 人成长中位数 + 上级职修正）用游戏战斗公式模拟；能力起点统一，只比较成长差异'+(s.mountBonus?'；已计入凯伊线骑乘加成':'')+'。</p>':'';
+    +'<p class="bd-legend">按「'+esc(s.route)+' · '+esc(s.cls)+' · '+esc(s.weapon)+'」和标准敌人（58 人成长中位数 + 上级职修正）用游戏战斗公式模拟；能力按上表整条职业路线逐阶段累加（统一起点，折算为 35 次升级），只比较成长差异'+(s.mountBonus?'；已计入凯伊线骑乘加成':'')+'。</p>':'';
   const skills=g.skills.length?'<ol class="bd-skills">'+g.skills.map(k=>'<li><span>'+esc(k.level||'习得')+'</span><div><strong>'+esc(k.name)+'</strong><p>'+esc(k.desc)+(k.trigger?'<small>条件：'+esc(k.trigger)+'</small>':'')+'</p></div></li>').join('')+'</ol>':'<p class="bd-muted">技能资料未收录。</p>';
-  return (b.stages.length?'<h3>各阶段属性预期（每阶段 '+BG.stageLevels+' 级）</h3><div class="data-table-wrap"><table class="data-table bd-goals"><thead>'+head+'</thead><tbody>'+body+total+'</tbody></table></div><p class="bd-legend">大号数字为该阶段 '+BG.stageLevels+' 次升级的期望提升，小号为「角色成长 + 职业修正」后的成长率。阶段门槛：初级 Lv5 / 名声 1，中级 Lv20 / 名声 4，上级 Lv35 / 名声 8，最上级在第三部救世篇开放。</p>':'')
+  return (b.stages.length?'<h3>各阶段属性预期（每阶段 '+BG.stageLevels+' 级）</h3><div class="data-table-wrap"><table class="data-table bd-goals"><thead>'+head+'</thead><tbody>'+body+total+'</tbody></table></div><p class="bd-legend">大号数字为该阶段 '+BG.stageLevels+' 次升级的期望提升，小号为「角色成长 + 职业修正」后的成长率。阶段门槛：初级 Lv5 / 名声 1，中级 Lv20 / 名声 4，上级 Lv35 / 名声 8，最上级在第三部救世篇开放。凯伊线方案的中级、上级骑乘阶段已计入骑乘成长加成。</p>':'')
     +(sim?'<h3>练成后的战斗表现</h3>'+sim:'')
     +'<h3>技能节点</h3>'+skills;
 }
