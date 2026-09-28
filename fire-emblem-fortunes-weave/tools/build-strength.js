@@ -363,3 +363,55 @@ for(const c of chars){
 for(const st of G){const vals=Object.values(guideOut).map(x=>x.growth[st]).sort((a,b)=>b-a);for(const x of Object.values(guideOut)){x.growthRank=x.growthRank||{};x.growthRank[st]=vals.indexOf(x.growth[st])+1}}
 fs.writeFileSync(path.join(root,'builds-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.BUILD_GUIDES='+JSON.stringify({version:'1.0',checked,stageLevels:STAGE_LEVELS,sources:guidesSrc.sources,enemy:{as:round(ENEMIES.physical.as),hp:round(ENEMIES.physical.hp)},chars:guideOut})+';\n');
 console.log('guides',Object.keys(guideOut).length);
+
+/* ---------- 招募图：四条主角线 × 章节，生成 recruit-data.js ---------- */
+{
+  const LORD_ROUTES=['cai','dietrich','theodora','leda'];
+  const rowOf=Object.fromEntries(rows.map(r=>[r.id,r]));
+  const jpZh=Object.fromEntries(Object.entries(gwRoutes).filter(([id])=>rowOf[id]).map(([id,v])=>[v.jp,rowOf[id].name]));
+  const ITEM_ZH={'巨大肉':'巨型肉','カガヤキウオ':'辉光鱼','砂虫肉':'沙虫肉','コーシャルーガー':'科夏鲁格','鉄の槍':'铁之枪','グルマオサ':'格尔马奥萨','鉄の弓':'铁之弓','デーツ':'椰枣','青銅の斧':'青铜之斧','鉄の斧':'铁之斧','聖水':'圣水'};
+  const nm=s=>jpZh[s.trim()]||s.trim();
+  function condZh(s){
+    s=(s||'').replace(/支援Lv\d\/?|名声Lv ?\d+\/?|ストーリー進行中に加入/g,'').trim();
+    const out=[];
+    s=s.replace(/1部で発生するサブクエスト「 ?(.+?) ?」をクリアし、2部2章「(.+?)」で (\S+) を倒すと2部3章で加入/,(_,q,b,w)=>{out.push('第一部完成支线「亡妹的饰物」，并在第二部第2章「阿格里斯关死斗」击败'+nm(w));return''});
+    s=s.replace(/戦闘中に (\S+) で (\S+) を倒す/,(_,a,b)=>{out.push('战斗中用'+nm(a)+'击败'+nm(b));return''});
+    s=s.replace(/(\S+?) ?外伝 ?(?:を)?クリア(し本戦で敗退する)?/g,(_,n,lose)=>{out.push('通关'+nm(n)+'外传'+(lose?'，并在正赛中落败':''));return''});
+    s=s.replace(/ストーリー11章で (\S+) が敗退後、満足する武器を渡す\(ド・ミナの籠手で成功を確認\)/,(_,n)=>{out.push('交涉：第11章'+nm(n)+'落败后交付满意的武器（达·米纳手甲可成功）');return''});
+    s=s.replace(/10000G断る→1000G断る→100G断る→10G支払う/,()=>{out.push('交涉：依次拒绝 10000G、1000G、100G，再支付 10G');return''});
+    s=s.replace(/(\d+)G支払う/,(_,g)=>{out.push('交涉：支付 '+g+'G');return''});
+    s=s.replace(/(\S+) ×(\d+)を渡す/,(_,it,n)=>{out.push('交涉：交付'+(ITEM_ZH[it]||it)+' ×'+n);return''});
+    s=s.replace(/(\S+?) ?の頼み(1[~〜]3)? ?をクリア/,(_,n,r)=>{out.push('交涉：完成'+nm(n)+'的委托'+(r?'（1–3）':''));return''});
+    s=s.replace(/コイントスで裏を選択/,()=>{out.push('交涉：抛硬币选背面');return''});
+    s=s.replace(/質問全てで「必要だ」を選択/,()=>{out.push('交涉：所有问题都选「需要」');return''});
+    s=s.replace(/質問全てで「はい」を選択/,()=>{out.push('交涉：所有问题都选「是」');return''});
+    s=s.replace(/質問で以下の回答を選択1問目：乾酪2問目：満月の夜3問目：どれでもOK/,()=>{out.push('交涉：问答依次选 乾酪 → 满月之夜 → 任意');return''});
+    s=s.replace(/質問で以下の選択肢を選択1個目：わかった2個目：サラミス国3個目：ダ・ミナ4個目：座礁した巨大船/,()=>{out.push('交涉：问答依次选 明白了 → 萨拉米斯国 → 达·米纳 → 搁浅的巨船');return''});
+    s=s.replace(/交渉/g,'').trim();
+    if(s)out.push(s); // 未翻译的原文保留，便于核对
+    return out;
+  }
+  const entries=[];
+  for(const c of pool){
+    const r=rowOf[c.id];if(!r)continue;
+    const base={id:c.id,name:r.name,tier:r.tier,rank:r.rank,bestRoute:r.best?.route||null};
+    const gr=gwRoutes[c.id]?.routes||{};
+    let any=false;
+    for(const lr of LORD_ROUTES){
+      const v=gr[lr];if(!v||!v.cond||/スカウト対象外/.test(v.cond))continue;
+      any=true;
+      const q=parseCond(v.cond),t=v.time?parseTime(v.time):null,month=(v.time||'').match(/(\d+)月$/);
+      const est=!t;const part=t?.part??1,ch=t?t.ch:Math.min(PART1_CHAPTERS,Math.ceil(renownChapter(q.renown)));
+      entries.push({...base,route:lr,part,ch,month:month?+month[1]:null,est,story:q.story,support:q.support||null,renown:q.renown||null,cond:condZh(v.cond)});
+    }
+    if(!any){
+      const joins=(gwRoster[c.id]?.joins||[]).map(j=>({j,t:parseTime(j)})).filter(x=>x.t).sort((a,b)=>a.t.part-b.t.part||a.t.ch-b.t.ch);
+      const first=joins[0];if(!first)continue;
+      entries.push({...base,route:'all',part:first.t.part,ch:first.t.ch,month:null,est:false,story:true,support:null,renown:null,
+        cond:/序幕/.test(first.j)?['救世主篇序幕客串，第三部剧情加入']:['救世主篇剧情加入']});
+    }
+  }
+  const lordsOut=LORD_ROUTES.map(id=>({id,name:rowOf[id].name,route:ROUTE_NAME[id]}));
+  fs.writeFileSync(path.join(root,'recruit-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.RECRUIT_DATA='+JSON.stringify({version:'1.0',checked,source:require('./gamewith-routes.json').source,renownRule:'出场时间未收录的角色按「名声等级 r 约在第 3 + 0.5r 章达到」估算',lords:lordsOut,entries})+';\n');
+  console.log('recruit entries',entries.length);
+}

@@ -24,3 +24,4 @@
 - 2026-09-25：入队时机只对第一部可招募角色扣分（第二、三部加入不扣）；index.html 的脚本与样式加版本号（`?v=`），每次发布需更新，避免浏览器混用新旧文件
 - 2026-09-27：新增「培养方案」板块（`builds-ui.js` / `builds.css`，数据 `builds-data.js` 由 `tools/build-strength.js` 从 `tools/builds-zh.json` 与 `tools/gamewith-chars.json` 生成）；全站界面优化（`ui.css`：统一无衬线数字、提高小字可读性、统一卡片与表格；`shell-ui.js`：侧栏导航分组）
 - 2026-09-27：培养方案支持一名角色多套方案（主流 / 备选 / 实战可选 / 路线专属 / 模拟参考），`tools/builds-zh.json` 的 `extraBuilds` 可继续补充；雷之剑按魔法攻击单独模拟（不影响强度排行）
+- 2026-09-27：新增「招募图」页面（#recruit）：横轴四位主角路线、纵轴章节，格内为该章出场可加入的角色，默认只显示 T0–T2 推荐角色，可切换全部角色与单条路线；数据由 tools/build-strength.js 生成 recruit-data.js。
