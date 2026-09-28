@@ -1,60 +1,207 @@
 {
 "source": [
+"https://game8.jp/fe-banshisenko/818754",
 "https://gamewith.jp/fefw/574424",
 "https://gamewith.jp/fefw/573032",
 "https://game8.co/games/Fire-Emblem-Fortunes-Weave/archives/620393"
 ],
 "checked": "2026-09-28",
+"note": "法表以 Game8 各魔法页「習得キャラ」为准（比 GameWith 完整）；数值取 Game8",
 "effective": {
 "x": 2,
 "plus": 3
 },
 "spells": {
-"ファイアー": {
-"kind": "黒魔法",
-"mt": 3,
-"hit": 90,
-"crit": 0,
-"wt": 5,
+"アイスブレード": {
+"kind": "黒魔術",
+"mt": 12,
+"hit": 75,
+"crit": 5,
+"wt": 10,
 "range": "1-2",
-"uses": 10,
-"effect": "火球で攻撃する炎の初級魔法",
+"uses": 6,
+"effect": "氷結の刃が敵を襲う氷の上級魔法",
 "learners": [
-"cai",
-"recruit-6",
-"recruit-8",
-"talimun",
-"orchel",
-"anatolia",
-"sofia",
-"fianna"
+"bonaventure",
+"recruit-18"
 ],
 "effective": [],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818785"
+},
+"アロー": {
+"kind": "黒魔術",
+"mt": 13,
+"hit": 100,
+"crit": 0,
+"wt": 12,
+"range": "1-2",
+"uses": 3,
+"effect": "鋭い魔力の矢が敵を襲う魔法",
+"learners": [
+"bonaventure"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818784"
 },
 "ウィンド": {
-"kind": "黒魔法",
+"kind": "黒魔術",
 "mt": 3,
 "hit": 100,
 "crit": 0,
 "wt": 3,
 "range": "1-2",
 "uses": 10,
-"effect": "真空の刃で攻撃する風の初級魔法。 飛行有効",
+"effect": "真空の刃で攻撃する風の初級魔法。飛行有効",
 "learners": [
-"recruit-6",
-"bonaventure",
 "recruit-17",
+"bonaventure",
+"recruit-8",
+"yang-jie",
+"recruit-6",
+"peter",
 "dante",
-"yang-jie"
+"recruit-34",
+"sha-lan",
+"benditz"
 ],
 "effective": [
 "flying"
 ],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818783"
 },
-"スライムB": {
-"kind": "黒魔法",
+"硝子の車輪": {
+"kind": "黒魔術",
+"mt": 12,
+"hit": 90,
+"crit": 0,
+"wt": 7,
+"range": "1-2",
+"uses": 14,
+"effect": "超硬質な硝子の矢で敵を攻撃する。敵の耐物でダメージ計算する。飛行有効",
+"learners": [
+"anatolia"
+],
+"effective": [
+"flying"
+],
+"vsDef": true,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818782"
+},
+"裁きの剣": {
+"kind": "黒魔術",
+"mt": 6,
+"hit": 80,
+"crit": 0,
+"wt": 10,
+"range": "1-2",
+"uses": 4,
+"effect": "自律行動する巨剣で対象を攻撃する。2回連続で攻撃する。敵の耐物でダメージ計算する",
+"learners": [
+"anatolia"
+],
+"effective": [],
+"vsDef": true,
+"brave": true,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818781"
+},
+"彷徨える壁": {
+"kind": "黒魔術",
+"mt": null,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1",
+"uses": 10,
+"effect": "任意の場所に壁を生み出す",
+"learners": [
+"hong-hua",
+"sha-lan",
+"anatolia"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818780"
+},
+"サンダー": {
+"kind": "黒魔術",
+"mt": 5,
+"hit": 75,
+"crit": 0,
+"wt": 7,
+"range": "1-2",
+"uses": 8,
+"effect": "局地的な落雷を起こす雷の初級魔法",
+"learners": [
+"recruit-17",
+"recruit-18",
+"yang-jie",
+"dante",
+"nydine",
+"anatolia",
+"talimun"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818779"
+},
+"シェイバー": {
+"kind": "黒魔術",
+"mt": 7,
+"hit": 95,
+"crit": 5,
+"wt": 8,
+"range": "1-2",
+"uses": 8,
+"effect": "空気の刃が襲い掛かる風の上級魔法。飛行有効",
+"learners": [
+"recruit-17",
+"bonaventure",
+"yang-jie",
+"recruit-6",
+"dante"
+],
+"effective": [
+"flying"
+],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818778"
+},
+"スライムΒ": {
+"kind": "黒魔術",
 "mt": 3,
 "hit": 70,
 "crit": 0,
@@ -63,220 +210,80 @@
 "uses": 5,
 "effect": "疑似生命体の消化液を用いた攻撃",
 "learners": [
-"fabio",
-"recruit-17"
+"fabio"
 ],
 "effective": [],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818777"
 },
-"サンダー": {
-"kind": "黒魔法",
-"mt": 5,
-"hit": 76,
+"ダークスパイクΤ": {
+"kind": "黒魔術",
+"mt": 20,
+"hit": 60,
 "crit": 0,
-"wt": 7,
+"wt": 20,
 "range": "1-2",
-"uses": 8,
-"effect": "局地的な落雷を起こす雷の初級魔法",
+"uses": 2,
+"effect": "対騎兵に特化した性能を誇る魔法。騎兵特効",
 "learners": [
-"recruit-17",
-"yang-jie"
+"fabio"
 ],
-"effective": [],
-"vsDef": false
+"effective": [
+"cavalry+"
+],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818776"
 },
-"硝子の車輪": {
-"kind": "黒魔法",
-"mt": 12,
+"大地の顎": {
+"kind": "黒魔術",
+"mt": 17,
 "hit": 90,
 "crit": 0,
-"wt": 7,
-"range": "1-2",
-"uses": 7,
-"effect": "超硬質な硝子の矢で敵を攻撃する 敵の耐物でダメージ計算する 飛行有効",
-"learners": [
-"anatolia"
-],
-"effective": [
-"flying"
-],
-"vsDef": true
-},
-"ブリザー": {
-"kind": "黒魔法",
-"mt": 4,
-"hit": 80,
-"crit": 5,
-"wt": 6,
-"range": "1-2",
-"uses": 7,
-"effect": "対象を氷結させる氷の初級魔法",
-"learners": [
-"bonaventure",
-"sofia"
-],
-"effective": [],
-"vsDef": false
-},
-"ボルガノン": {
-"kind": "黒魔法",
-"mt": 10,
-"hit": 85,
-"crit": 0,
-"wt": 8,
-"range": "1-2",
-"uses": 10,
-"effect": "付近を焼き尽くす炎の上級魔法",
-"learners": [
-"hong-hua"
-],
-"effective": [],
-"vsDef": false
-},
-"ライブ": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "傷を少し癒す回復魔法 味方のHPを回復する",
-"learners": [
-"cai",
-"recruit-6",
-"recruit-8",
-"fabio",
-"bonaventure",
-"recruit-17",
-"recruit-18",
-"recruit-19",
-"talimun",
-"orchel",
-"anatolia",
-"troy"
-],
-"effective": [],
-"vsDef": false
-},
-"リザイア": {
-"kind": "白魔法",
-"mt": 1,
-"hit": 80,
-"crit": 0,
-"wt": 8,
-"range": "1-2",
-"uses": 8,
-"effect": "対象の生命力を吸収する神聖魔法 与えたダメージの半分HP回復する",
-"learners": [
-"recruit-18"
-],
-"effective": [],
-"vsDef": false
-},
-"エマージス": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "致命的な一撃から守護する神聖魔法 味方の必避+30 (次の自分のフェイズまで)",
-"learners": [
-"recruit-18"
-],
-"effective": [],
-"vsDef": false
-},
-"彷徨える壁": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "任意の場所に壁を生み出す",
+"wt": 25,
+"range": "3-10",
+"uses": 2,
+"effect": "巨大な顎がすべてを噛み砕く。敵の耐物でダメージ計算する",
 "learners": [
 "anatolia"
 ],
 "effective": [],
-"vsDef": false
+"vsDef": true,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818775"
 },
-"エンジェル": {
-"kind": "白魔法",
-"mt": 10,
+"デスΓ": {
+"kind": "黒魔術",
+"mt": 15,
 "hit": 75,
-"crit": 0,
-"wt": 10,
+"crit": 20,
+"wt": 13,
 "range": "1-2",
-"uses": 3,
-"effect": "清浄なる光で攻撃する神聖魔法 冥魔有効",
+"uses": 5,
+"effect": "人工の死神が対象を死に誘う。必殺が高い",
 "learners": [
-"orchel"
-],
-"effective": [
-"infernal"
-],
-"vsDef": false
-},
-"レスト": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "身体を正常な状態に戻す神聖魔法。 味方の状態異常を解除する",
-"learners": [
-"recruit-17"
+"fabio"
 ],
 "effective": [],
-"vsDef": false
-},
-"ライア": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "味方のHPを少し回復する 稀に、回復量+100",
-"learners": [],
-"effective": [],
-"vsDef": false
-},
-"リブロー": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "遠くの味方のHPを回復する",
-"learners": [],
-"effective": [],
-"vsDef": false
-},
-"リカバー": {
-"kind": "白魔法",
-"mt": null,
-"hit": null,
-"crit": null,
-"wt": null,
-"range": null,
-"uses": null,
-"effect": "味方のHPを大きく回復する ファイアーエムブレム万紫千紅の関連記事 [img:ファイアーエムブレム万紫千紅の攻略トップペ",
-"learners": [],
-"effective": [],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818774"
 },
 "ドーラΔ": {
-"kind": "闇魔法",
+"kind": "黒魔術",
 "mt": 5,
 "hit": 80,
 "crit": 0,
@@ -288,79 +295,15 @@
 "fabio"
 ],
 "effective": [],
-"vsDef": false
-},
-"デスｒ": {
-"kind": "闇魔法",
-"mt": 15,
-"hit": 75,
-"crit": 20,
-"wt": 13,
-"range": "1-2",
-"uses": 5,
-"effect": "人工の死神が対象を死に誘う。 必殺が高い",
-"learners": [
-"recruit-17"
-],
-"effective": [],
-"vsDef": false
-},
-"バンシーΘ": {
-"kind": "闇魔法",
-"mt": 8,
-"hit": 50,
-"crit": 0,
-"wt": 23,
-"range": "1-3",
-"uses": 2,
-"effect": "命中させた時、敵を移動不能状態にする",
-"learners": [],
-"effective": [],
-"vsDef": false
-},
-"ダークスパイクΤ": {
-"kind": "闇魔法",
-"mt": 20,
-"hit": 60,
-"crit": 0,
-"wt": 20,
-"range": "1-2",
-"uses": 2,
-"effect": "対騎兵に特化した性能を誇る魔法。 騎兵特効 ファイアーエムブレム万紫千紅の関連記事 [img:ファイアーエムブレム万紫千",
-"learners": [],
-"effective": [
-"cavalry+"
-],
-"vsDef": false
-},
-"オーラ": {
-"kind": "白魔法",
-"mt": 22,
-"hit": 70,
-"crit": 0,
-"wt": 18,
-"range": "1-2",
-"uses": 3,
-"effect": "足元からの光で敵を焼き尽くす神聖魔法",
-"learners": [],
-"effective": [],
-"vsDef": false
-},
-"アロー": {
-"kind": "黒魔法",
-"mt": 13,
-"hit": 100,
-"crit": 0,
-"wt": 12,
-"range": "1-2",
-"uses": 3,
-"effect": "鋭い威力の矢が敵を襲う魔法",
-"learners": [],
-"effective": [],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818773"
 },
 "トロン": {
-"kind": "黒魔法",
+"kind": "黒魔術",
 "mt": 20,
 "hit": 55,
 "crit": 5,
@@ -368,22 +311,495 @@
 "range": "1-3",
 "uses": 4,
 "effect": "強力な電撃が敵を貫く雷の上級魔法",
-"learners": [],
+"learners": [
+"recruit-17",
+"recruit-18",
+"yang-jie"
+],
 "effective": [],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818772"
 },
-"アイスブレード": {
-"kind": "黒魔法",
-"mt": 12,
-"hit": 75,
+"ファイアー": {
+"kind": "黒魔術",
+"mt": 3,
+"hit": 90,
+"crit": 0,
+"wt": 5,
+"range": "1-2",
+"uses": 10,
+"effect": "火球で攻撃する炎の初級魔法",
+"learners": [
+"sofia",
+"recruit-14",
+"theodora",
+"recruit-31",
+"recruit-8",
+"cai",
+"recruit-6",
+"fianna",
+"anatolia",
+"orchel",
+"talimun"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818771"
+},
+"ブリザー": {
+"kind": "黒魔術",
+"mt": 4,
+"hit": 80,
 "crit": 5,
+"wt": 6,
+"range": "1-2",
+"uses": 7,
+"effect": "対象を氷結させる氷の初級魔法",
+"learners": [
+"sofia",
+"dietrich",
+"bonaventure",
+"recruit-18"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818770"
+},
+"ボルガノン": {
+"kind": "黒魔術",
+"mt": 10,
+"hit": 85,
+"crit": 0,
+"wt": 8,
+"range": "1-2",
+"uses": 5,
+"effect": "付近を焼き尽くす炎の上級魔法",
+"learners": [
+"sofia",
+"recruit-8",
+"recruit-6",
+"hong-hua",
+"anatolia",
+"talimun"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818769"
+},
+"ルナΛ": {
+"kind": "黒魔術",
+"mt": 1,
+"hit": 50,
+"crit": 0,
+"wt": 20,
+"range": "1-2",
+"uses": 3,
+"effect": "対象を内側から破壊する強力な攻撃。敵の魔防を無視する",
+"learners": [
+"fabio"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": true,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818768"
+},
+"エマージス": {
+"kind": "白魔術",
+"mt": null,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1-10",
+"uses": 2,
+"effect": "致命的な一撃から守護する神聖魔法。味方の必避+30（次の自分のフェイズまで）",
+"learners": [
+"recruit-18",
+"recruit-8"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818767"
+},
+"エンジェル": {
+"kind": "白魔術",
+"mt": 10,
+"hit": 75,
+"crit": 0,
 "wt": 10,
 "range": "1-2",
+"uses": 3,
+"effect": "清浄なる光で攻撃する神聖魔法。冥魔有効",
+"learners": [
+"theodora",
+"recruit-8",
+"fianna",
+"orchel"
+],
+"effective": [
+"infernal"
+],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818766"
+},
+"オーラ": {
+"kind": "白魔術",
+"mt": 22,
+"hit": 70,
+"crit": 0,
+"wt": 18,
+"range": "1-2",
 "uses": 6,
-"effect": "氷結の刃が敵を襲う氷の上級魔法",
-"learners": [],
+"effect": "足元からの光で灼き尽くす神聖魔法",
+"learners": [
+"sofia",
+"yang-jie"
+],
 "effective": [],
-"vsDef": false
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818765"
+},
+"サイレス": {
+"kind": "白魔術",
+"mt": null,
+"hit": 60,
+"crit": 0,
+"wt": 0,
+"range": "1-10",
+"uses": 2,
+"effect": "魔道を封じる神聖魔法。敵を魔封状態にする",
+"learners": [
+"bonaventure",
+"recruit-18"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818764"
+},
+"スターライト": {
+"kind": "白魔術",
+"mt": 13,
+"hit": 90,
+"crit": 0,
+"wt": 30,
+"range": "1-3",
+"uses": 6,
+"effect": "星の光が対象を薙ぎ払う神聖魔法。冥魔有効",
+"learners": [
+"orchel"
+],
+"effective": [
+"infernal"
+],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818763"
+},
+"トーチ": {
+"kind": "白魔術",
+"mt": null,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "--",
+"uses": 5,
+"effect": "暗闇を光で照らす神聖魔法。視界+3（次の自分のフェイズまで）",
+"learners": [
+"bonaventure"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818762"
+},
+"バサーク": {
+"kind": "白魔術",
+"mt": null,
+"hit": 60,
+"crit": 0,
+"wt": 0,
+"range": "1-10",
+"uses": 2,
+"effect": "思考に影響を及ぼす神聖魔法。敵を混乱状態にする",
+"learners": [
+"recruit-18"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818761"
+},
+"マジックシールド": {
+"kind": "白魔術",
+"mt": null,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1",
+"uses": 6,
+"effect": "魔道の影響から味方を守る神聖魔法。味方の魔防+10（次の自分のフェイズまで）",
+"learners": [
+"fabio",
+"recruit-8"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818760"
+},
+"ライア": {
+"kind": "白魔術",
+"mt": 3,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1",
+"uses": 15,
+"effect": "傷を少し癒す神聖魔法。味方のHPを少し回復する。稀に、回復量+100",
+"learners": [
+"recruit-31",
+"esmeralda",
+"peter",
+"nydine",
+"benditz",
+"klapka"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": true,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818759"
+},
+"ライブ": {
+"kind": "白魔術",
+"mt": 10,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1",
+"uses": 20,
+"effect": "傷を少し癒す神聖魔法。味方のHPを回復する",
+"learners": [
+"recruit-17",
+"sofia",
+"fabio",
+"dietrich",
+"recruit-19",
+"recruit-14",
+"theodora",
+"bonaventure",
+"recruit-18",
+"recruit-8",
+"yang-jie",
+"cai",
+"recruit-6",
+"dante",
+"recruit-34",
+"troy",
+"recruit-29",
+"fianna",
+"sha-lan",
+"anatolia",
+"orchel",
+"talimun"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": true,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818758"
+},
+"リカバー": {
+"kind": "白魔術",
+"mt": 30,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1",
+"uses": 10,
+"effect": "傷を大きく癒す神聖魔法。味方のHPを大きく回復する",
+"learners": [
+"recruit-17",
+"sofia",
+"fabio",
+"bonaventure",
+"yang-jie",
+"recruit-6",
+"dante",
+"fianna",
+"sha-lan",
+"orchel"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": true,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818757"
+},
+"リザーブ": {
+"kind": "白魔術",
+"mt": 20,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1-5",
+"uses": 4,
+"effect": "広域な味方の傷を癒す神聖魔法。範囲にいる味方のHPを回復する",
+"learners": [
+"recruit-17"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": true,
+"area": true,
+"url": "https://game8.jp/fe-banshisenko/818756"
+},
+"リザイア": {
+"kind": "白魔術",
+"mt": 1,
+"hit": 80,
+"crit": 0,
+"wt": 8,
+"range": "1-2",
+"uses": 16,
+"effect": "対象の生命力を吸収する神聖魔法。与えたダメージの半分HP回復する",
+"learners": [
+"sofia",
+"fabio",
+"recruit-19",
+"recruit-18",
+"yang-jie",
+"cai",
+"dante",
+"recruit-29",
+"sha-lan"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818755"
+},
+"リブロー": {
+"kind": "白魔術",
+"mt": 8,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1-10",
+"uses": 10,
+"effect": "遠くの味方の傷を癒す神聖魔法。遠くの味方のHPを回復する",
+"learners": [
+"sofia",
+"recruit-18",
+"yang-jie",
+"recruit-6",
+"orchel"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": true,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818754"
+},
+"レスト": {
+"kind": "白魔術",
+"mt": null,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1-3",
+"uses": 20,
+"effect": "身体を正常な状態に戻す神聖魔法。味方の状態異常を解除する",
+"learners": [
+"recruit-17",
+"esmeralda"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818753"
+},
+"ワープ": {
+"kind": "白魔術",
+"mt": null,
+"hit": null,
+"crit": 0,
+"wt": 0,
+"range": "1",
+"uses": 2,
+"effect": "対象を離れた場所に移動させる魔法。味方を周囲5マス以内のマスに移動させる",
+"learners": [
+"recruit-17"
+],
+"effective": [],
+"vsDef": false,
+"brave": false,
+"ignoreRes": false,
+"heal": false,
+"area": false,
+"url": "https://game8.jp/fe-banshisenko/818752"
 }
 },
 "arts": {

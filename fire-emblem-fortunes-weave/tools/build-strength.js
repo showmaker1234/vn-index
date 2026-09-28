@@ -42,12 +42,12 @@ const PRIOR_SHARE=0.5; // 最终权重 = 50% 先验 + 50% 外部共识拟合，�
 const WEAPONS={sword:{mt:12,wt:4,hit:90},spear:{mt:13,wt:7,hit:80},axe:{mt:16,wt:10,hit:65},bow:{mt:12,wt:6,hit:70,range:2},gauntlet:{mt:11,wt:4,hit:90},blackMagic:{mt:10,wt:8,hit:80,magic:true}};
 /* 只在培养方案里按指定武器模拟：雷之剑按魔法攻击结算（GameWith：威力 12、命中 70、重量 8、射程 1–2） */
 /* 角色专属的攻击型白魔法（GameWith 白魔法一览「習得キャラ」）：职业能用白魔术即可施放，不看是否擅长 */
-/* 法表：每人只算自己会学的攻击魔法（GameWith 魔法一览「習得キャラ」）；典籍魔法不计。会黑魔术却没收录法表的按火焰算 */
-const SPELL_ZH={'ファイアー':'火焰','ウィンド':'风','スライムB':'史莱姆B','サンダー':'雷','硝子の車輪':'玻璃之轮','ブリザー':'冰','ボルガノン':'博尔加农','リザイア':'吸血','エンジェル':'炽天使','ドーラΔ':'多拉Δ','デスｒ':'死神r','バンシーΘ':'女妖Θ','ダークスパイクΤ':'暗刺Τ'};
+/* 法表：每人只算自己会学的攻击魔法（Game8 各魔法页「習得キャラ」，比 GameWith 完整）；典籍魔法不计。会黑魔术却没收录法表的按火焰算 */
+const SPELL_ZH={'ダークスパイクΤ':'暗刺Τ','スライムΒ':'史莱姆Β','デスΓ':'死神Γ','シェイバー':'风刃','アロー':'魔箭','トロン':'雷霆','オーラ':'光环','アイスブレード':'冰刃','裁きの剣':'裁决之剑','大地の顎':'大地之颚','ルナΛ':'月光Λ','スターライト':'星光','リカバー':'痊愈','リブロー':'远程治愈','リザーブ':'范围回复','ライブ':'回复','ライア':'小回复','ファイアー':'火焰','ウィンド':'风','スライムB':'史莱姆B','サンダー':'雷','硝子の車輪':'玻璃之轮','ブリザー':'冰','ボルガノン':'博尔加农','リザイア':'吸血','エンジェル':'炽天使','ドーラΔ':'多拉Δ','デスｒ':'死神r','バンシーΘ':'女妖Θ','ダークスパイクΤ':'暗刺Τ'};
 const USES_FACTOR=u=>Math.min(1,0.7+0.03*(u||10)); // 使用次数少的强力魔法打折：10 次 1.0，7 次 0.91，5 次 0.85，3 次 0.79
-const spellMode=(n,v)=>({mt:v.mt,hit:v.hit,crit:v.crit||0,wt:v.wt||0,magic:true,skill:v.kind==='白魔法'?'whiteMagic':'blackMagic',range:v.range,uses:v.uses,effective:v.effective||[],vsDef:!!v.vsDef,spell:n});
+const spellMode=(n,v)=>({mt:v.mt,hit:v.hit??80,crit:v.crit||0,wt:v.wt||0,magic:true,skill:/白魔/.test(v.kind)?'whiteMagic':'blackMagic',range:v.range,uses:v.uses,effective:v.effective||[],vsDef:!!v.vsDef,brave:!!v.brave,ignoreRes:!!v.ignoreRes,spell:n});
 const SPELLS_OF={};
-for(const [n,v] of Object.entries(MAGIC.spells))if(v.mt!=null)for(const id of v.learners)(SPELLS_OF[id]=SPELLS_OF[id]||{})['sp:'+n]=spellMode(n,v);
+for(const [n,v] of Object.entries(MAGIC.spells))if(v.mt!=null&&!v.heal)for(const id of v.learners)(SPELLS_OF[id]=SPELLS_OF[id]||{})['sp:'+n]=spellMode(n,v);
 const FIRE=spellMode('ファイアー',MAGIC.spells['ファイアー']);
 /* 带特效的个人战技：对应敌人按武器威力 ×2 计，战技消耗耐久，按 70% 的战斗使用计 */
 const ARTS_OF={};const ART_SKILL={'剣術':'sword','槍術':'spear','斧術':'axe','弓術':'bow','格闘術':'gauntlet'};for(const [n,v] of Object.entries(MAGIC.arts))for(const id of v.learners)(ARTS_OF[id]=ARTS_OF[id]||[]).push({name:n,skill:ART_SKILL[v.weapon],tags:v.effective});
@@ -115,6 +115,7 @@ const PERSONAL_BONUS={
 };
 /* 治疗相关个人技能：回复量加成与治疗射程加成 */
 const HEAL_SKILL={sofia:()=>({amt:10,range:2}),fianna:st=>({amt:30*st.luck/100,range:0})};
+const PHYSIC_REACH=2; // 远程治愈（射程 1–10）：能救到前线任何人、自己不必上前，按回复量 ×2 计
 const HEAL_RANGE_VALUE=0.15; // 治疗射程每 +1，治疗价值 +15%（能覆盖更多队友、站位更安全）
 /* 焰技（ブレイズアーツ）：4 位副主角与 4 位主角专属。威力与发动频率未公开，按效果类型给输出倍率（均为估算）：
    再行动 ×1.25（觉醒后本回合可再攻击，约每 3 回合 1 次）；范围攻击 ×1.2（约每 3 回合多打 1–2 个敌人）；
@@ -271,13 +272,21 @@ function projectStats(c,g,finalK,opts){
   for(const m of mast)for(const [s,v] of Object.entries(MASTERY_STAT[m]||{}))st[s]+=v;
   return{st,plan,masteries:[...mast],riding};
 }
+/* 体格：Fire Emblem Wiki 有值的用真实值；没有的按体型估：法系（擅长黑 / 白魔术且魔力成长 ≥ 力量）1.5，大个子（5 年后身高 ≥185cm 或擅长重装术）5，其余 3 */
+function buildOf(c){
+  const sc=SIM.chars[c.id];if(sc?.build!=null)return sc.build;
+  const p=profsOf(c),g=growthOf(c).g;
+  if((p.includes('blackMagic')||p.includes('whiteMagic'))&&g.magic>=g.strength)return 1.5;
+  if((sc?.height||0)>=185||p.includes('heavyArmor'))return 5;
+  return 3;
+}
 function statsFor(g,k,opts){
   const mounted=k.traits.some(t=>/騎兵|飛行/.test(t)),armor=k.traits.some(t=>/重装/.test(t));
   const pr=projectStats(opts.c,g,k,opts),st=pr.st;
   const mult=k.name==='戦車兵'?MOUNT.chariotMultiplier:1,riding=opts.cai&&mounted;
   const keys=opts.magic?['magic','speed','dexterity']:['strength','speed','dexterity'],split=[0.4,0.4,0.2];
   if(riding)keys.forEach((s,i)=>st[s]+=MOUNT.flat*mult*split[i]); // 骑乘中的能力加值
-  st.build=(SIM.chars[opts.c.id]?.build??BUILD.base)+(armor?BUILD.armor:0)+(mounted?BUILD.mounted:0);
+  st.build=buildOf(opts.c)+(armor?BUILD.armor:0)+(mounted?BUILD.mounted:0);
   const mc={};for(const m of pr.masteries)for(const [key,v] of Object.entries(MASTERY_COMBAT[m]||{}))mc[key]=key.endsWith('Taken')||key==='dmgMul'?(mc[key]??1)*v:(mc[key]||0)+v;
   return{st,mounted,armor,mountBonus:riding||pr.riding?true:null,masteries:pr.masteries,mc,plan:pr.plan};
 }
@@ -286,8 +295,8 @@ function combatant(st,w,extra={}){
   return{hp:st.hp,atk:(w.magic?st.magic:st.strength)+w.mt,hit:st.dexterity+w.hit+(extra.hit||0),crit:(st.dexterity+st.luck)/2+(w.crit||0)+(extra.crit||0),as,avo:as+(extra.avo||0),def:st.defense+(extra.def||0),res:st.resistance,lck:st.luck,magic:!!w.magic,sword:!!w.sword};
 }
 function strike(a,d){
-  const hit=clamp((a.hit-d.avo)/100),dmg=Math.max(0,a.atk-(a.magic&&!a.vsDef?d.res:d.def))                  ,crit=clamp((a.crit-d.lck)/100);
-  const n=a.as-d.as>=4?(a.sword?2.2:2):1;
+  const hit=clamp((a.hit-d.avo)/100),dmg=Math.max(0,a.atk-(a.ignoreRes?0:a.magic&&!a.vsDef?d.res:d.def)),crit=clamp((a.crit-d.lck)/100);
+  const n=(a.as-d.as>=4?(a.sword?2.2:2):1)*(a.brave?2:1);
   return{exp:hit*(dmg*(1+2*crit)+crit*(a.critDmg||0))*n,hit,dmg,crit,doubles:n>1};
 }
 /* 标准敌人：58 名非主角成长率的中位数，基础职业，物理敌人持枪、魔法敌人持博尔加农 */
@@ -343,7 +352,7 @@ function simulate(c,g,k,route,forced,override,opts={}){
     if(pb.build||pb.wtMul){const me2=combatant({...st,build:st.build+(pb.build||0)},{...w,wt:w.wt*(pb.wtMul||1)},extra);if(!w.magic)me2.hit+=ARTS_HIT;Object.assign(me,me2)}
     me.hit+=pb.hit||0;me.atk+=pb.atk||0;me.crit+=pb.crit||0;me.avo+=pb.avo||0;me.def+=pb.def||0;if(pb.as){me.as+=pb.as;me.avo+=pb.as}
     /* 专精（战斗类） */
-    me.hit+=(mc.hit||0)+(!w.magic?mc.physHit||0:0)+(skill==='bow'?mc.bowHit||0:0);me.avo+=mc.avo||0;me.def+=mc.def||0;me.atk+=mc.atk||0;me.critDmg=mc.critDmg||0;if(w.vsDef)me.vsDef=true;
+    me.hit+=(mc.hit||0)+(!w.magic?mc.physHit||0:0)+(skill==='bow'?mc.bowHit||0:0);me.avo+=mc.avo||0;me.def+=mc.def||0;me.atk+=mc.atk||0;me.critDmg=mc.critDmg||0;if(w.vsDef)me.vsDef=true;if(w.brave)me.brave=true;if(w.ignoreRes)me.ignoreRes=true;
     /* 期望伤害占敌方生命的比例；一回合内能打死（伤害 × 次数 ≥ 生命）时按命中率额外加分 */
     const per=ENEMY_LIST.map(E=>{
       const em=effMult(wc,w,skill,E.tags,c.id),a=em>1?{...me,atk:me.atk+w.mt*(em-1)}:me;
@@ -375,11 +384,19 @@ function simulate(c,g,k,route,forced,override,opts={}){
   const durability=(Math.log(Math.min(12,tank.hp/Math.max(1,taken[0].exp)))+Math.log(Math.min(12,tank.hp/Math.max(1,taken[1].exp))))/2; // 能承受的敌方攻击次数（对数，封顶 12 次）
   const healer=(k.weapons||[]).includes('白魔術')&&(p.includes('whiteMagic')||parseReq(k.main).some(r=>r.code==='whiteMagic'))&&!bane.includes('whiteMagic');
   const hs=healer&&HEAL_SKILL[c.id]?HEAL_SKILL[c.id](best.st):{amt:0,range:0};
-  const healAmount=healer?HEAL_MT+Math.floor(best.st.magic/3)+classBonus(k,/魔法回復\+(\d+)/g)+hs.amt:0;
-  const healing=healAmount*(1+HEAL_RANGE_VALUE*hs.range);
+  /* 治疗：按本人法表的回复魔法算。相邻回复取 回复 / 痊愈 中较大者（射程技能加成）；远程治愈射程 1–10，按 ×PHYSIC_REACH 计；
+     范围回复按 ×1.5；取最高的一种，次一种按 25% 加上 */
+  const known=Object.entries(MAGIC.spells).filter(([n,v])=>v.heal&&v.learners.includes(c.id)).map(([n,v])=>[n,v]);
+  const amt=v=>v.mt+Math.floor(best.st.magic/3)+classBonus(k,/魔法回復\+(\d+)/g)+hs.amt;
+  const adj=Math.max(HEAL_MT+Math.floor(best.st.magic/3)+classBonus(k,/魔法回復\+(\d+)/g)+hs.amt,...known.filter(([,v])=>v.range==='1').map(([,v])=>amt(v)))*(1+HEAL_RANGE_VALUE*hs.range);
+  const phys=known.find(([n])=>n==='リブロー'),area=known.find(([,v])=>v.area);
+  const opts3=[adj,phys?amt(phys[1])*PHYSIC_REACH:0,area?amt(area[1])*1.5:0].sort((a,b)=>b-a);
+  const healAmount=healer?Math.round(Math.max(HEAL_MT+Math.floor(best.st.magic/3),...known.filter(([,v])=>v.range==='1').map(([,v])=>amt(v)))):0;
+  const healing=healer?opts3[0]+0.25*opts3[1]:0;
+  const healSpells=healer?known.map(([n])=>SPELL_ZH[n]||n):[];
   const move=parseInt(k.move)||0,flying=k.traits.some(t=>/飛行/.test(t));
   const mobility=move+(flying?1:0)+(cai&&best.mounted?2:0);
-  return{...best,durability,taken,healing,healAmount,healRange:hs.range,mobility,modes,use,reach};
+  return{...best,durability,taken,healing,healAmount,healRange:hs.range,healSpells,physic:healer&&!!phys,mobility,modes,use,reach};
 }
 
 /* ---------- 特征、标定与合成 ---------- */
@@ -485,7 +502,7 @@ const rows=chars.map(c=>{
       mounted:s.mounted,mountBonus:!!s.mountBonus,stats:Object.fromEntries([...G,'build'].map(k=>[k,round(s.st[k])])),
       vsPhysical:{hit:Math.round((s.off[0].hit||0)*100),dmg:round(s.off[0].dmg||0),doubles:!!s.off[0].doubles,taken:round(s.taken[0].exp),takenHit:Math.round(s.taken[0].hit*100),avo:round(s.me.avo)},
       vsMagic:{hit:Math.round((s.off[1].hit||0)*100),dmg:round(s.off[1].dmg||0),doubles:!!s.off[1].doubles,taken:round(s.taken[1].exp),takenHit:Math.round(s.taken[1].hit*100)},
-      healing:s.healing,mobility:s.mobility,costPenalty:round(costPenalty(x.route.cond)),availability:round(availability(x.route)*100),
+      healing:round(s.healing),healSpells:s.healSpells||[],physic:!!s.physic,build:round(buildOf(c)),buildKnown:SIM.chars[c.id]?.build!=null,mobility:s.mobility,costPenalty:round(costPenalty(x.route.cond)),availability:round(availability(x.route)*100),
       parts:Object.fromEntries(FEATURES.map(f=>[f,round(nf(x,f)*100)])),offenseScore:round(nf0(x,'offense')*100),healingScore:x.f.healing>0?round(nf0(x,'healing')*100):0,
       tankScore:round(tankValue(x)*100),masteries:(s.masteries||[]).map(m=>MASTERY_ZH[m]||m),join:SIM.chars[c.id]?{lv:SIM.chars[c.id].initLv,cls:CLASS_ZH[SIM.chars[c.id].initClass]||SIM.chars[c.id].initClass}:null,healAmount:s.healAmount?round(s.healAmount):0,healRange:s.healRange||0}:null,
     means:s&&s.use.length?{use:s.use.map(u=>({enemy:u.enemy,mode:WEAPON_ZH[u.mode]||u.mode,hit:Math.round(u.hit*100),dmg:round(u.dmg),doubles:!!u.doubles})),modes:[...new Set(s.use.map(u=>WEAPON_ZH[u.mode]||u.mode))],reach:s.reach,single:round(nf0({f:{offense:s.single}},'offense')*100)}:null,
@@ -504,7 +521,7 @@ const agreement=(()=>{const R=ranked.filter(r=>r.external!=null),er=[...R].sort(
 const out={
   version:'3.2',agreement,checked,generated:new Date().toISOString().slice(0,10),
   weights,prior:PRIOR,fitted:Object.fromEntries(Object.entries(fitted).map(([k,v])=>[k,round(v)])),priorShare:PRIOR_SHARE,featureNames:FEATURE_NAMES,blend:BLEND,tiers:TIERS,fit:{correlation:+fitCorr.toFixed(2),n:fitIds.length,healFactor:HEAL_FACTOR,tankFactor:TANK_FACTOR,scan:fitScan},
-  assumptions:{targetLv:TARGET_LV,part1EndLv:PART1_END_LV,buildKnown:Object.values(SIM.chars).filter(x=>x.build!=null).length,hybridShare:HYBRID_SHARE,blaze:Object.fromEntries(Object.entries(BLAZE).map(([k,v])=>[k,v.mult])),enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
+  assumptions:{physicReach:PHYSIC_REACH,targetLv:TARGET_LV,part1EndLv:PART1_END_LV,buildKnown:Object.values(SIM.chars).filter(x=>x.build!=null).length,hybridShare:HYBRID_SHARE,blaze:Object.fromEntries(Object.entries(BLAZE).map(([k,v])=>[k,v.mult])),enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
   sources:sources.map(({tiers,...s})=>({...s,count:Object.values(tiers).flat().length})),excluded,rows
 };
 fs.writeFileSync(path.join(root,'strength-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.STRENGTH_DATA='+JSON.stringify(out)+';\n');
