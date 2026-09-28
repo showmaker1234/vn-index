@@ -12,6 +12,8 @@ const SD=window.STRENGTH_DATA,BG=window.BUILD_GUIDES,MD=window.TACTICAL_DATA;
 const gwRoster=require(path.join(site,'tools','gamewith-routes.json')).roster;
 const portraits=require('./gw-portraits.json'),ages=require('./gw-ages.json');
 const {classes}=require(path.join(site,'tools','gamewith-classes.json'));
+const MAGIC=require(path.join(site,'tools','gamewith-magic.json'));
+const SPELL_ZH={'ダークスパイクΤ':'暗刺Τ','スライムΒ':'史莱姆Β','デスΓ':'死神Γ','シェイバー':'风刃','アロー':'魔箭','トロン':'雷霆','オーラ':'光环','アイスブレード':'冰刃','裁きの剣':'裁决之剑','大地の顎':'大地之颚','ルナΛ':'月光Λ','スターライト':'星光','ファイアー':'火焰','ウィンド':'风','スライムB':'史莱姆B','サンダー':'雷','硝子の車輪':'玻璃之轮','ブリザー':'冰','ボルガノン':'博尔加农','リザイア':'吸血','エンジェル':'炽天使','ドーラΔ':'多拉Δ','デスｒ':'死神r'};
 const G=['hp','strength','magic','speed','dexterity','defense','resistance','luck','charm'];
 
 /* ---------- 关键装备规则 ---------- */
@@ -45,8 +47,18 @@ const MOUNT_REC={
 const classOf=jp=>classes.find(k=>k.name===jp);
 function equipmentFor(g,b){
   const thunder=/雷之剑/.test(b.name)||/雷之剑/.test(b.weapon||'');
-  const wType=thunder?'雷之剑':(b.sim?.weapon||(g.roleKey==='healer'?'治疗':'剑'));
-  const weapons=(WEAPON_KEYS[wType]||[]).slice();
+  let wType=thunder?'雷之剑':g.roleKey==='healer'?'治疗':(b.sim?.weapon||'剑');
+  let weapons=(WEAPON_KEYS[wType]||[]).slice();
+  if(wType==='治疗'){ // 奶妈：列出本人实际会的回复魔法
+    const HEAL_ORDER=[['リブロー','远程治愈','射程 1–10，回复量 8 + 魔力 ÷ 3，远距离抬血'],['リカバー','痊愈','回复量 30 + 魔力 ÷ 3，大量回复'],['リザーブ','范围回复','射程 1–5 范围内全体回复'],['ライブ','回复','回复量 10 + 魔力 ÷ 3']];
+    const known=HEAL_ORDER.filter(([n])=>MAGIC.spells[n]?.learners.includes(g.id)).map(([,zh,note])=>W(zh,note));
+    if(known.length)weapons=known.slice(0,2);
+  }
+  if(!weapons.length){ // 法系：按本人法表列出最强的攻击魔法
+    const mine=Object.entries(MAGIC.spells).filter(([,v])=>v.mt!=null&&!v.heal&&v.learners.includes(g.id)).sort((a,b)=>b[1].mt-a[1].mt).slice(0,2);
+    weapons=mine.length?mine.map(([n,v])=>W(SPELL_ZH[n]||n,'威力 '+v.mt+'、命中 '+v.hit+'、重量 '+v.wt+'、'+v.uses+' 次'+(v.effective.includes('flying')?'，对飞行有效':'')+(v.effective.includes('infernal')?'，对冥魔有效':'')+(v.vsDef?'，按敌人守备结算':''))):[W('火焰','法表未收录其他攻击魔法，按火焰（威力 3）计')];
+    wType='黑魔法';
+  }
   const role=g.roleKey==='magic'||thunder?'magic':g.roleKey;
   let acc;
   if(role==='tank')acc=ACC.tank;
@@ -70,7 +82,7 @@ const cards=[];
 for(const [id,g] of Object.entries(BG.chars)){
   const c=MD.characters.find(x=>x.id===id),r=rowOf[id],p=portraits[id]||{},jp=gwRoster[id]?.jp;
   const b=g.builds[0];
-  const eq=equipmentFor(g,b);
+  const eq=equipmentFor({...g,id},b);
   const atk=['magic','healer'].includes(g.roleKey)||eq.weaponType==='雷之剑'?'magic':'strength';
   const a=ages[jp];
   const img=fs.existsSync(path.join(root,'img',id+'.webp')),img5=fs.existsSync(path.join(root,'img',id+'-5y.webp'));

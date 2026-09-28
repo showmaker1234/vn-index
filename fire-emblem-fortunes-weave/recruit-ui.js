@@ -49,7 +49,7 @@ function recruitPage(){
     +'<div class="rc-group" role="group" aria-label="主角路线">'+seg('route','all','四条路线')+lords.map(l=>seg('route',l.id,esc(l.name))).join('')+'</div></div>'
     +'<div class="rc-legend"><span><i class="rc-key story"></i>剧情加入</span><span><i class="rc-key scout"></i>交涉招募（显示名声 / 支援要求）</span><span><i class="rc-star">★</i>本站模拟的最优路线</span><span><i class="rc-key est"></i>出场时间未收录，按名声估算</span><span>“3月”等为出场月份</span></div>'
     +'<div class="rc-wrap'+(cols.length===1?' single':'')+'"><table class="rc-table"><thead>'+head+'</thead><tbody>'+body+'</tbody></table></div>'
-    +'<div class="db-footnote rc-foot"><p>章节是角色<strong>出场、可以交涉的时间</strong>；交涉招募还需要达到格内的名声等级和支援等级，名声不够时要晚几章再来。第一部只能在对应主角的路线里招募，同一角色在不同路线的出场章节和条件不同。第一部入队越早，能参与的战斗越多，综合梯队对第一部晚入队有扣分；第二、三部剧情加入的角色不扣分。</p>'
+    +'<div class="db-footnote rc-foot"><p>章节是角色<strong>出场、可以交涉的时间</strong>；交涉招募还需要达到格内的名声等级和支援等级，名声不够时要晚几章再来。第一部只能在对应主角的路线里招募，同一角色在不同路线的出场章节和条件不同。入队早晚不影响综合梯队：晚入队的角色加入时等级和能力更高，已体现在数值里。</p>'
     +'<p>数据：出场时间与招募条件来自 <a href="'+esc(RD.source)+'" target="_blank" rel="noopener">GameWith</a>（'+esc(RD.checked)+' 核对），梯队来自本站综合梯队 3.0。'+esc(RD.renownRule)+'。</p></div>';
 }
 

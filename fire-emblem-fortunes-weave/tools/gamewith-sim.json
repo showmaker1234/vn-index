@@ -1,0 +1,2253 @@
+{
+"source": "https://gamewith.jp/fefw/578084",
+"checked": "2026-09-28",
+"note": "GameWith 成长率模拟器内嵌数据：入队等级、初始职业、初始能力值、成长率；体格取自 Fire Emblem Wiki（有数据的角色）",
+"chars": {
+"eshmel": {
+"jp": "救世主",
+"initLv": 1,
+"initClass": "ガーディアン",
+"base": {
+"hp": 30,
+"strength": 13,
+"magic": 8,
+"speed": 10,
+"dexterity": 9,
+"defense": 10,
+"resistance": 8,
+"luck": 8,
+"charm": 8
+},
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 45,
+"speed": 45,
+"dexterity": 45,
+"defense": 35,
+"resistance": 35,
+"luck": 40,
+"charm": 50
+},
+"build": 5,
+"buildSource": "Fire Emblem Wiki"
+},
+"cai": {
+"jp": "カイ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 27,
+"strength": 10,
+"magic": 7,
+"speed": 8,
+"dexterity": 8,
+"defense": 6,
+"resistance": 5,
+"luck": 6,
+"charm": 5
+},
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 40,
+"speed": 45,
+"dexterity": 45,
+"defense": 35,
+"resistance": 35,
+"luck": 40,
+"charm": 40
+},
+"build": 2,
+"buildSource": "Fire Emblem Wiki"
+},
+"dietrich": {
+"jp": "ディートリヒ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 27,
+"strength": 11,
+"magic": 6,
+"speed": 10,
+"dexterity": 11,
+"defense": 6,
+"resistance": 4,
+"luck": 9,
+"charm": 10
+},
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 30,
+"speed": 50,
+"dexterity": 60,
+"defense": 40,
+"resistance": 30,
+"luck": 50,
+"charm": 60
+},
+"build": 2,
+"buildSource": "Fire Emblem Wiki",
+"height": 192
+},
+"theodora": {
+"jp": "セオドラ",
+"initLv": 1,
+"initClass": "貴族",
+"base": {
+"hp": 30,
+"strength": 6,
+"magic": 6,
+"speed": 6,
+"dexterity": 6,
+"defense": 7,
+"resistance": 5,
+"luck": 6,
+"charm": 8
+},
+"growth": {
+"hp": 70,
+"strength": 50,
+"magic": 30,
+"speed": 40,
+"dexterity": 50,
+"defense": 40,
+"resistance": 30,
+"luck": 30,
+"charm": 50
+},
+"build": 5,
+"buildSource": "Fire Emblem Wiki",
+"height": 177
+},
+"leda": {
+"jp": "レダ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 25,
+"strength": 8,
+"magic": 6,
+"speed": 12,
+"dexterity": 8,
+"defense": 6,
+"resistance": 6,
+"luck": 5,
+"charm": 10
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 35,
+"speed": 65,
+"dexterity": 50,
+"defense": 30,
+"resistance": 35,
+"luck": 25,
+"charm": 55
+},
+"build": 4,
+"buildSource": "Fire Emblem Wiki",
+"height": 167
+},
+"recruit-6": {
+"jp": "ティアラ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 24,
+"strength": 5,
+"magic": 8,
+"speed": 6,
+"dexterity": 6,
+"defense": 4,
+"resistance": 6,
+"luck": 7,
+"charm": 5
+},
+"growth": {
+"hp": 35,
+"strength": 25,
+"magic": 45,
+"speed": 35,
+"dexterity": 40,
+"defense": 20,
+"resistance": 40,
+"luck": 50,
+"charm": 45
+},
+"build": 1,
+"buildSource": "Fire Emblem Wiki",
+"height": 162
+},
+"peter": {
+"jp": "ピーテル",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 25,
+"strength": 9,
+"magic": 3,
+"speed": 6,
+"dexterity": 10,
+"defense": 5,
+"resistance": 4,
+"luck": 5,
+"charm": 4
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 20,
+"speed": 45,
+"dexterity": 60,
+"defense": 30,
+"resistance": 25,
+"luck": 35,
+"charm": 30
+},
+"build": 1,
+"buildSource": "Fire Emblem Wiki",
+"height": 176
+},
+"recruit-8": {
+"jp": "ウルタンド",
+"initLv": 4,
+"initClass": "呪い師",
+"base": {
+"hp": 25,
+"strength": 8,
+"magic": 10,
+"speed": 6,
+"dexterity": 5,
+"defense": 6,
+"resistance": 6,
+"luck": 9,
+"charm": 10
+},
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 40,
+"speed": 35,
+"dexterity": 40,
+"defense": 35,
+"resistance": 45,
+"luck": 55,
+"charm": 50
+},
+"build": 1,
+"buildSource": "Fire Emblem Wiki",
+"height": 170
+},
+"fabio": {
+"jp": "ファビオ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 25,
+"strength": 6,
+"magic": 10,
+"speed": 7,
+"dexterity": 6,
+"defense": 4,
+"resistance": 8,
+"luck": 6,
+"charm": 5
+},
+"growth": {
+"hp": 40,
+"strength": 25,
+"magic": 50,
+"speed": 35,
+"dexterity": 40,
+"defense": 30,
+"resistance": 45,
+"luck": 35,
+"charm": 30
+},
+"build": 1,
+"buildSource": "Fire Emblem Wiki",
+"height": 200
+},
+"esmeralda": {
+"jp": "エスメラルダ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 28,
+"strength": 12,
+"magic": 4,
+"speed": 6,
+"dexterity": 5,
+"defense": 7,
+"resistance": 4,
+"luck": 7,
+"charm": 6
+},
+"growth": {
+"hp": 55,
+"strength": 55,
+"magic": 20,
+"speed": 35,
+"dexterity": 35,
+"defense": 45,
+"resistance": 25,
+"luck": 35,
+"charm": 30
+},
+"height": 172
+},
+"recruit-11": {
+"jp": "ミカエラ",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 27,
+"strength": 11,
+"magic": 3,
+"speed": 7,
+"dexterity": 8,
+"defense": 7,
+"resistance": 4,
+"luck": 6,
+"charm": 9
+},
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 30,
+"speed": 40,
+"dexterity": 35,
+"defense": 40,
+"resistance": 25,
+"luck": 30,
+"charm": 40
+},
+"height": 175
+},
+"bonaventure": {
+"jp": "ボナパルテ",
+"initLv": 1,
+"initClass": "貴族",
+"base": {
+"hp": 25,
+"strength": 7,
+"magic": 10,
+"speed": 7,
+"dexterity": 8,
+"defense": 6,
+"resistance": 8,
+"luck": 5,
+"charm": 7
+},
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 45,
+"speed": 40,
+"dexterity": 50,
+"defense": 30,
+"resistance": 40,
+"luck": 35,
+"charm": 40
+},
+"height": 187
+},
+"tobias": {
+"jp": "トビヤス",
+"initLv": 1,
+"initClass": "貴族",
+"base": {
+"hp": 28,
+"strength": 14,
+"magic": 4,
+"speed": 5,
+"dexterity": 5,
+"defense": 8,
+"resistance": 3,
+"luck": 6,
+"charm": 5
+},
+"growth": {
+"hp": 55,
+"strength": 60,
+"magic": 15,
+"speed": 25,
+"dexterity": 30,
+"defense": 45,
+"resistance": 20,
+"luck": 40,
+"charm": 35
+},
+"height": 165
+},
+"recruit-14": {
+"jp": "リリアン",
+"initLv": 4,
+"initClass": "猟兵",
+"base": {
+"hp": 25,
+"strength": 8,
+"magic": 5,
+"speed": 9,
+"dexterity": 10,
+"defense": 5,
+"resistance": 4,
+"luck": 6,
+"charm": 5
+},
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 30,
+"speed": 40,
+"dexterity": 55,
+"defense": 30,
+"resistance": 35,
+"luck": 50,
+"charm": 25
+},
+"height": 174
+},
+"recruit-15": {
+"jp": "ライサンダー",
+"initLv": 4,
+"initClass": "飛駝兵",
+"base": {
+"hp": 27,
+"strength": 9,
+"magic": 5,
+"speed": 8,
+"dexterity": 8,
+"defense": 8,
+"resistance": 5,
+"luck": 7,
+"charm": 6
+},
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 25,
+"speed": 50,
+"dexterity": 35,
+"defense": 40,
+"resistance": 30,
+"luck": 35,
+"charm": 30
+},
+"height": 181
+},
+"recruit-16": {
+"jp": "バッカニア",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 29,
+"strength": 12,
+"magic": 4,
+"speed": 5,
+"dexterity": 6,
+"defense": 8,
+"resistance": 3,
+"luck": 6,
+"charm": 6
+},
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 20,
+"speed": 25,
+"dexterity": 40,
+"defense": 45,
+"resistance": 20,
+"luck": 30,
+"charm": 35
+},
+"build": 2,
+"buildSource": "Fire Emblem Wiki",
+"height": 190
+},
+"recruit-17": {
+"jp": "シロッコ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 26,
+"strength": 8,
+"magic": 8,
+"speed": 9,
+"dexterity": 8,
+"defense": 6,
+"resistance": 7,
+"luck": 8,
+"charm": 8
+},
+"growth": {
+"hp": 40,
+"strength": 40,
+"magic": 40,
+"speed": 45,
+"dexterity": 50,
+"defense": 35,
+"resistance": 35,
+"luck": 50,
+"charm": 45
+},
+"height": 187
+},
+"recruit-18": {
+"jp": "オリンピア",
+"initLv": 5,
+"initClass": "呪い師",
+"base": {
+"hp": 25,
+"strength": 6,
+"magic": 13,
+"speed": 8,
+"dexterity": 7,
+"defense": 6,
+"resistance": 7,
+"luck": 8,
+"charm": 9
+},
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 50,
+"speed": 35,
+"dexterity": 35,
+"defense": 30,
+"resistance": 40,
+"luck": 40,
+"charm": 40
+},
+"height": 160
+},
+"recruit-19": {
+"jp": "ムウ",
+"initLv": 1,
+"initClass": "平民",
+"base": {
+"hp": 23,
+"strength": 7,
+"magic": 3,
+"speed": 7,
+"dexterity": 8,
+"defense": 5,
+"resistance": 5,
+"luck": 4,
+"charm": 4
+},
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 25,
+"speed": 50,
+"dexterity": 50,
+"defense": 40,
+"resistance": 30,
+"luck": 30,
+"charm": 40
+},
+"height": 157
+},
+"bertrand": {
+"jp": "ベルトラン",
+"initLv": 40,
+"initClass": "ウォーリアー",
+"base": {
+"hp": 47,
+"strength": 31,
+"magic": 7,
+"speed": 21,
+"dexterity": 25,
+"defense": 21,
+"resistance": 8,
+"luck": 12,
+"charm": 25
+},
+"growth": {
+"hp": 50,
+"strength": 55,
+"magic": 15,
+"speed": 45,
+"dexterity": 50,
+"defense": 45,
+"resistance": 20,
+"luck": 30,
+"charm": 50
+},
+"height": 185
+},
+"talimun": {
+"jp": "タリムーン",
+"initLv": 40,
+"initClass": "呪い師",
+"base": {
+"hp": 42,
+"strength": 19,
+"magic": 29,
+"speed": 22,
+"dexterity": 24,
+"defense": 14,
+"resistance": 22,
+"luck": 31,
+"charm": 24
+},
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 45,
+"speed": 40,
+"dexterity": 45,
+"defense": 35,
+"resistance": 40,
+"luck": 60,
+"charm": 50
+},
+"height": 178
+},
+"orchel": {
+"jp": "オルヘル",
+"initLv": 40,
+"initClass": "呪い師",
+"base": {
+"hp": 32,
+"strength": 31,
+"magic": 26,
+"speed": 7,
+"dexterity": 10,
+"defense": 28,
+"resistance": 34,
+"luck": 13,
+"charm": 29
+},
+"growth": {
+"hp": 30,
+"strength": 60,
+"magic": 45,
+"speed": 10,
+"dexterity": 20,
+"defense": 60,
+"resistance": 60,
+"luck": 20,
+"charm": 60
+},
+"height": 158
+},
+"anatolia": {
+"jp": "アナトリア",
+"initLv": 40,
+"initClass": "呪い師",
+"base": {
+"hp": 38,
+"strength": 15,
+"magic": 30,
+"speed": 26,
+"dexterity": 24,
+"defense": 14,
+"resistance": 21,
+"luck": 19,
+"charm": 23
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 50,
+"speed": 50,
+"dexterity": 45,
+"defense": 35,
+"resistance": 40,
+"luck": 40,
+"charm": 50
+},
+"height": 162
+},
+"centurio": {
+"jp": "セントリオン",
+"initLv": 45,
+"initClass": "重装歩兵",
+"base": {
+"hp": 51,
+"strength": 33,
+"magic": 12,
+"speed": 22,
+"dexterity": 31,
+"defense": 40,
+"resistance": 15,
+"luck": 19,
+"charm": 22
+},
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 25,
+"speed": 40,
+"dexterity": 50,
+"defense": 50,
+"resistance": 30,
+"luck": 30,
+"charm": 30
+},
+"height": 172
+},
+"troy": {
+"jp": "トロイア",
+"initLv": 45,
+"initClass": "バトルモンク",
+"base": {
+"hp": 52,
+"strength": 31,
+"magic": 32,
+"speed": 33,
+"dexterity": 28,
+"defense": 23,
+"resistance": 28,
+"luck": 24,
+"charm": 21
+},
+"growth": {
+"hp": 40,
+"strength": 45,
+"magic": 45,
+"speed": 50,
+"dexterity": 40,
+"defense": 30,
+"resistance": 30,
+"luck": 30,
+"charm": 30
+},
+"build": 5,
+"buildSource": "Fire Emblem Wiki",
+"height": 173
+},
+"hong-hua": {
+"jp": "コウカ",
+"initLv": 40,
+"initClass": "ウァテス",
+"base": {
+"hp": 46,
+"strength": 15,
+"magic": 34,
+"speed": 26,
+"dexterity": 30,
+"defense": 21,
+"resistance": 30,
+"luck": 18,
+"charm": 22
+},
+"growth": {
+"hp": 40,
+"strength": 30,
+"magic": 45,
+"speed": 45,
+"dexterity": 45,
+"defense": 30,
+"resistance": 45,
+"luck": 30,
+"charm": 40
+},
+"build": 3,
+"buildSource": "Fire Emblem Wiki",
+"height": 160
+},
+"gaitz": {
+"jp": "ゲイツ",
+"initLv": 4,
+"initClass": "兵士",
+"base": {
+"hp": 28,
+"strength": 11,
+"magic": 3,
+"speed": 8,
+"dexterity": 8,
+"defense": 7,
+"resistance": 3,
+"luck": 5,
+"charm": 8
+},
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 20,
+"speed": 35,
+"dexterity": 45,
+"defense": 45,
+"resistance": 25,
+"luck": 40,
+"charm": 45
+},
+"height": 177
+},
+"recruit-24": {
+"jp": "ウーシュラ",
+"initLv": 4,
+"initClass": "猟兵",
+"base": {
+"hp": 25,
+"strength": 9,
+"magic": 7,
+"speed": 9,
+"dexterity": 11,
+"defense": 5,
+"resistance": 5,
+"luck": 8,
+"charm": 9
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 35,
+"speed": 50,
+"dexterity": 50,
+"defense": 35,
+"resistance": 30,
+"luck": 40,
+"charm": 45
+},
+"height": 164
+},
+"diego": {
+"jp": "ディエゴ",
+"initLv": 4,
+"initClass": "猟兵",
+"base": {
+"hp": 26,
+"strength": 10,
+"magic": 4,
+"speed": 9,
+"dexterity": 11,
+"defense": 5,
+"resistance": 3,
+"luck": 8,
+"charm": 5
+},
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 20,
+"speed": 45,
+"dexterity": 60,
+"defense": 35,
+"resistance": 20,
+"luck": 35,
+"charm": 30
+},
+"height": 179
+},
+"sha-lan": {
+"jp": "サラン",
+"initLv": 4,
+"initClass": "呪い師",
+"base": {
+"hp": 24,
+"strength": 6,
+"magic": 10,
+"speed": 6,
+"dexterity": 7,
+"defense": 6,
+"resistance": 9,
+"luck": 8,
+"charm": 8
+},
+"growth": {
+"hp": 35,
+"strength": 30,
+"magic": 45,
+"speed": 35,
+"dexterity": 50,
+"defense": 30,
+"resistance": 45,
+"luck": 35,
+"charm": 40
+},
+"height": 180
+},
+"dante": {
+"jp": "ダンテ",
+"initLv": 4,
+"initClass": "呪い師",
+"base": {
+"hp": 25,
+"strength": 5,
+"magic": 11,
+"speed": 10,
+"dexterity": 7,
+"defense": 5,
+"resistance": 9,
+"luck": 8,
+"charm": 5
+},
+"growth": {
+"hp": 30,
+"strength": 30,
+"magic": 45,
+"speed": 40,
+"dexterity": 40,
+"defense": 20,
+"resistance": 40,
+"luck": 45,
+"charm": 30
+},
+"height": 152
+},
+"recruit-28": {
+"jp": "シモン",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 29,
+"strength": 12,
+"magic": 4,
+"speed": 7,
+"dexterity": 8,
+"defense": 8,
+"resistance": 3,
+"luck": 11,
+"charm": 4
+},
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 20,
+"speed": 35,
+"dexterity": 40,
+"defense": 40,
+"resistance": 25,
+"luck": 50,
+"charm": 35
+},
+"height": 183
+},
+"recruit-29": {
+"jp": "ニネ",
+"initLv": 4,
+"initClass": "兵士",
+"base": {
+"hp": 29,
+"strength": 9,
+"magic": 5,
+"speed": 6,
+"dexterity": 9,
+"defense": 6,
+"resistance": 10,
+"luck": 8,
+"charm": 7
+},
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 35,
+"speed": 35,
+"dexterity": 45,
+"defense": 35,
+"resistance": 45,
+"luck": 50,
+"charm": 40
+},
+"height": 160
+},
+"recruit-30": {
+"jp": "ナジャ",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 27,
+"strength": 9,
+"magic": 5,
+"speed": 13,
+"dexterity": 8,
+"defense": 8,
+"resistance": 5,
+"luck": 7,
+"charm": 5
+},
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 25,
+"speed": 45,
+"dexterity": 50,
+"defense": 35,
+"resistance": 25,
+"luck": 30,
+"charm": 25
+},
+"height": 159
+},
+"recruit-31": {
+"jp": "グザラン",
+"initLv": 5,
+"initClass": "闘士",
+"base": {
+"hp": 29,
+"strength": 13,
+"magic": 4,
+"speed": 11,
+"dexterity": 8,
+"defense": 7,
+"resistance": 3,
+"luck": 10,
+"charm": 6
+},
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 20,
+"speed": 50,
+"dexterity": 45,
+"defense": 35,
+"resistance": 20,
+"luck": 45,
+"charm": 30
+},
+"build": 2,
+"buildSource": "Fire Emblem Wiki",
+"height": 188
+},
+"nydine": {
+"jp": "ヌディーヌ",
+"initLv": 3,
+"initClass": "飛駝兵",
+"base": {
+"hp": 27,
+"strength": 9,
+"magic": 7,
+"speed": 10,
+"dexterity": 8,
+"defense": 5,
+"resistance": 6,
+"luck": 6,
+"charm": 6
+},
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 30,
+"speed": 45,
+"dexterity": 40,
+"defense": 30,
+"resistance": 25,
+"luck": 35,
+"charm": 35
+},
+"height": 172
+},
+"recruit-33": {
+"jp": "イオ",
+"initLv": 20,
+"initClass": "軽騎兵",
+"base": {
+"hp": 36,
+"strength": 16,
+"magic": 7,
+"speed": 10,
+"dexterity": 14,
+"defense": 14,
+"resistance": 8,
+"luck": 13,
+"charm": 11
+},
+"growth": {
+"hp": 45,
+"strength": 40,
+"magic": 25,
+"speed": 35,
+"dexterity": 45,
+"defense": 40,
+"resistance": 25,
+"luck": 35,
+"charm": 35
+},
+"height": 174
+},
+"recruit-34": {
+"jp": "カターニャ",
+"initLv": 3,
+"initClass": "兵士",
+"base": {
+"hp": 25,
+"strength": 8,
+"magic": 6,
+"speed": 10,
+"dexterity": 10,
+"defense": 5,
+"resistance": 7,
+"luck": 7,
+"charm": 9
+},
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 35,
+"speed": 55,
+"dexterity": 50,
+"defense": 30,
+"resistance": 35,
+"luck": 40,
+"charm": 45
+},
+"height": 166
+},
+"benditz": {
+"jp": "ベンディッツ",
+"initLv": 20,
+"initClass": "戦車兵",
+"base": {
+"hp": 36,
+"strength": 15,
+"magic": 6,
+"speed": 10,
+"dexterity": 17,
+"defense": 12,
+"resistance": 7,
+"luck": 10,
+"charm": 9
+},
+"growth": {
+"hp": 50,
+"strength": 35,
+"magic": 20,
+"speed": 35,
+"dexterity": 50,
+"defense": 35,
+"resistance": 25,
+"luck": 30,
+"charm": 35
+},
+"height": 180
+},
+"alexandra": {
+"jp": "アレキサンドラ",
+"initLv": 20,
+"initClass": "天翼兵",
+"base": {
+"hp": 29,
+"strength": 12,
+"magic": 10,
+"speed": 19,
+"dexterity": 15,
+"defense": 10,
+"resistance": 14,
+"luck": 17,
+"charm": 18
+},
+"growth": {
+"hp": 30,
+"strength": 35,
+"magic": 35,
+"speed": 55,
+"dexterity": 45,
+"defense": 35,
+"resistance": 40,
+"luck": 50,
+"charm": 50
+},
+"height": 164
+},
+"noctula": {
+"jp": "ノクチュラ",
+"initLv": 3,
+"initClass": "闘士",
+"base": {
+"hp": 28,
+"strength": 10,
+"magic": 3,
+"speed": 9,
+"dexterity": 7,
+"defense": 7,
+"resistance": 4,
+"luck": 6,
+"charm": 5
+},
+"growth": {
+"hp": 50,
+"strength": 45,
+"magic": 20,
+"speed": 45,
+"dexterity": 40,
+"defense": 40,
+"resistance": 20,
+"luck": 35,
+"charm": 30
+},
+"height": 174
+},
+"yang-jie": {
+"jp": "ヨーカイ",
+"initLv": 5,
+"initClass": "呪い師",
+"base": {
+"hp": 26,
+"strength": 7,
+"magic": 11,
+"speed": 6,
+"dexterity": 7,
+"defense": 5,
+"resistance": 8,
+"luck": 7,
+"charm": 5
+},
+"growth": {
+"hp": 50,
+"strength": 35,
+"magic": 40,
+"speed": 35,
+"dexterity": 35,
+"defense": 30,
+"resistance": 40,
+"luck": 40,
+"charm": 25
+},
+"height": 163
+},
+"sofia": {
+"jp": "ソフィア",
+"initLv": 3,
+"initClass": "呪い師",
+"base": {
+"hp": 23,
+"strength": 5,
+"magic": 12,
+"speed": 5,
+"dexterity": 7,
+"defense": 5,
+"resistance": 10,
+"luck": 6,
+"charm": 6
+},
+"growth": {
+"hp": 35,
+"strength": 30,
+"magic": 45,
+"speed": 30,
+"dexterity": 40,
+"defense": 20,
+"resistance": 40,
+"luck": 30,
+"charm": 40
+},
+"height": 150
+},
+"nuzzuo": {
+"jp": "ヌッツォ",
+"initLv": 20,
+"initClass": "ローグ",
+"base": {
+"hp": 35,
+"strength": 16,
+"magic": 5,
+"speed": 21,
+"dexterity": 16,
+"defense": 8,
+"resistance": 7,
+"luck": 9,
+"charm": 10
+},
+"growth": {
+"hp": 50,
+"strength": 50,
+"magic": 15,
+"speed": 55,
+"dexterity": 45,
+"defense": 20,
+"resistance": 15,
+"luck": 25,
+"charm": 35
+},
+"height": 193
+},
+"majide": {
+"jp": "マジーデ",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 32,
+"strength": 14,
+"magic": 3,
+"speed": 6,
+"dexterity": 6,
+"defense": 8,
+"resistance": 3,
+"luck": 5,
+"charm": 3
+},
+"growth": {
+"hp": 65,
+"strength": 50,
+"magic": 15,
+"speed": 20,
+"dexterity": 30,
+"defense": 40,
+"resistance": 10,
+"luck": 25,
+"charm": 5
+},
+"height": 203
+},
+"zarcone": {
+"jp": "ザーコネ",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 27,
+"strength": 8,
+"magic": 3,
+"speed": 9,
+"dexterity": 12,
+"defense": 5,
+"resistance": 4,
+"luck": 7,
+"charm": 4
+},
+"growth": {
+"hp": 40,
+"strength": 30,
+"magic": 20,
+"speed": 35,
+"dexterity": 60,
+"defense": 30,
+"resistance": 25,
+"luck": 30,
+"charm": 15
+},
+"height": 175
+},
+"recruit-43": {
+"jp": "ゴライアス",
+"initLv": 4,
+"initClass": "兵士",
+"base": {
+"hp": 34,
+"strength": 16,
+"magic": 2,
+"speed": 5,
+"dexterity": 4,
+"defense": 9,
+"resistance": 2,
+"luck": 6,
+"charm": 4
+},
+"growth": {
+"hp": 55,
+"strength": 60,
+"magic": 5,
+"speed": 15,
+"dexterity": 30,
+"defense": 70,
+"resistance": 15,
+"luck": 35,
+"charm": 25
+},
+"build": 3,
+"buildSource": "Fire Emblem Wiki",
+"height": 250
+},
+"jester": {
+"jp": "ジェスター",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 26,
+"strength": 8,
+"magic": 5,
+"speed": 12,
+"dexterity": 10,
+"defense": 4,
+"resistance": 4,
+"luck": 7,
+"charm": 9
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 15,
+"speed": 60,
+"dexterity": 45,
+"defense": 35,
+"resistance": 25,
+"luck": 40,
+"charm": 40
+},
+"height": 177
+},
+"ludia": {
+"jp": "ルルディヤー",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 26,
+"strength": 8,
+"magic": 4,
+"speed": 14,
+"dexterity": 9,
+"defense": 6,
+"resistance": 3,
+"luck": 5,
+"charm": 5
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 20,
+"speed": 55,
+"dexterity": 45,
+"defense": 30,
+"resistance": 20,
+"luck": 30,
+"charm": 30
+},
+"height": 161
+},
+"fianna": {
+"jp": "フィアナ",
+"initLv": 4,
+"initClass": "呪い師",
+"base": {
+"hp": 22,
+"strength": 5,
+"magic": 13,
+"speed": 5,
+"dexterity": 7,
+"defense": 4,
+"resistance": 9,
+"luck": 4,
+"charm": 8
+},
+"growth": {
+"hp": 30,
+"strength": 35,
+"magic": 55,
+"speed": 30,
+"dexterity": 40,
+"defense": 20,
+"resistance": 45,
+"luck": 25,
+"charm": 40
+},
+"height": 155
+},
+"dadao": {
+"jp": "ダイトウ",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 30,
+"strength": 15,
+"magic": 4,
+"speed": 5,
+"dexterity": 6,
+"defense": 10,
+"resistance": 4,
+"luck": 8,
+"charm": 5
+},
+"growth": {
+"hp": 50,
+"strength": 55,
+"magic": 20,
+"speed": 30,
+"dexterity": 35,
+"defense": 45,
+"resistance": 20,
+"luck": 25,
+"charm": 30
+},
+"height": 175
+},
+"halvin": {
+"jp": "ハルヴィン",
+"initLv": 4,
+"initClass": "猟兵",
+"base": {
+"hp": 25,
+"strength": 8,
+"magic": 5,
+"speed": 9,
+"dexterity": 11,
+"defense": 5,
+"resistance": 5,
+"luck": 8,
+"charm": 6
+},
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 30,
+"speed": 45,
+"dexterity": 60,
+"defense": 30,
+"resistance": 25,
+"luck": 40,
+"charm": 35
+},
+"height": 158
+},
+"seteth": {
+"jp": "セテス",
+"initLv": 4,
+"initClass": "兵士",
+"base": {
+"hp": 27,
+"strength": 11,
+"magic": 7,
+"speed": 9,
+"dexterity": 8,
+"defense": 7,
+"resistance": 6,
+"luck": 6,
+"charm": 9
+},
+"growth": {
+"hp": 45,
+"strength": 45,
+"magic": 30,
+"speed": 40,
+"dexterity": 45,
+"defense": 40,
+"resistance": 35,
+"luck": 30,
+"charm": 50
+},
+"build": 2,
+"buildSource": "Fire Emblem Wiki",
+"height": 182
+},
+"recruit-50": {
+"jp": "ロレッタ",
+"initLv": 4,
+"initClass": "闘士",
+"base": {
+"hp": 24,
+"strength": 8,
+"magic": 6,
+"speed": 11,
+"dexterity": 7,
+"defense": 5,
+"resistance": 5,
+"luck": 6,
+"charm": 4
+},
+"growth": {
+"hp": 35,
+"strength": 35,
+"magic": 35,
+"speed": 55,
+"dexterity": 40,
+"defense": 30,
+"resistance": 40,
+"luck": 30,
+"charm": 30
+},
+"height": 169
+},
+"nathan": {
+"jp": "ネイサン",
+"initLv": 40,
+"initClass": "バーディンガー",
+"base": {
+"hp": 50,
+"strength": 35,
+"magic": 8,
+"speed": 15,
+"dexterity": 34,
+"defense": 28,
+"resistance": 10,
+"luck": 16,
+"charm": 18
+},
+"growth": {
+"hp": 55,
+"strength": 60,
+"magic": 15,
+"speed": 25,
+"dexterity": 60,
+"defense": 45,
+"resistance": 15,
+"luck": 25,
+"charm": 30
+},
+"height": 182
+},
+"creek": {
+"jp": "キリーク",
+"initLv": 40,
+"initClass": "バーディンガー",
+"base": {
+"hp": 46,
+"strength": 30,
+"magic": 7,
+"speed": 33,
+"dexterity": 26,
+"defense": 22,
+"resistance": 15,
+"luck": 18,
+"charm": 22
+},
+"growth": {
+"hp": 45,
+"strength": 50,
+"magic": 15,
+"speed": 60,
+"dexterity": 50,
+"defense": 35,
+"resistance": 20,
+"luck": 30,
+"charm": 35
+},
+"height": 180
+},
+"jasmine": {
+"jp": "ジャスミン",
+"initLv": 11,
+"initClass": "兵士",
+"base": {
+"hp": 32,
+"strength": 12,
+"magic": 5,
+"speed": 7,
+"dexterity": 11,
+"defense": 12,
+"resistance": 4,
+"luck": 10,
+"charm": 10
+},
+"growth": {
+"hp": 50,
+"strength": 40,
+"magic": 20,
+"speed": 30,
+"dexterity": 45,
+"defense": 45,
+"resistance": 25,
+"luck": 40,
+"charm": 45
+},
+"height": 163
+},
+"kiroc": {
+"jp": "キロイカ",
+"initLv": 11,
+"initClass": "猟兵",
+"base": {
+"hp": 31,
+"strength": 11,
+"magic": 4,
+"speed": 15,
+"dexterity": 14,
+"defense": 8,
+"resistance": 5,
+"luck": 9,
+"charm": 5
+},
+"growth": {
+"hp": 55,
+"strength": 40,
+"magic": 15,
+"speed": 55,
+"dexterity": 50,
+"defense": 30,
+"resistance": 15,
+"luck": 30,
+"charm": 25
+},
+"height": 190
+},
+"inyoni": {
+"jp": "イニオニ",
+"initLv": 23,
+"initClass": "アーチャー",
+"base": {
+"hp": 35,
+"strength": 21,
+"magic": 9,
+"speed": 13,
+"dexterity": 13,
+"defense": 13,
+"resistance": 9,
+"luck": 13,
+"charm": 10
+},
+"growth": {
+"hp": 40,
+"strength": 50,
+"magic": 20,
+"speed": 35,
+"dexterity": 40,
+"defense": 40,
+"resistance": 30,
+"luck": 40,
+"charm": 30
+},
+"height": 171
+},
+"recruit-53": {
+"jp": "ペペ",
+"initLv": 3,
+"initClass": "猟兵",
+"base": {
+"hp": 23,
+"strength": 6,
+"magic": 5,
+"speed": 12,
+"dexterity": 9,
+"defense": 5,
+"resistance": 5,
+"luck": 8,
+"charm": 4
+},
+"growth": {
+"hp": 30,
+"strength": 30,
+"magic": 25,
+"speed": 60,
+"dexterity": 45,
+"defense": 30,
+"resistance": 30,
+"luck": 45,
+"charm": 30
+},
+"height": 178
+},
+"aswan": {
+"jp": "アスワン",
+"initLv": 55,
+"initClass": "スナイパー",
+"base": {
+"hp": 50,
+"strength": 29,
+"magic": 7,
+"speed": 33,
+"dexterity": 44,
+"defense": 23,
+"resistance": 12,
+"luck": 22,
+"charm": 18
+},
+"growth": {
+"hp": 40,
+"strength": 35,
+"magic": 10,
+"speed": 40,
+"dexterity": 50,
+"defense": 30,
+"resistance": 15,
+"luck": 30,
+"charm": 20
+}
+},
+"tahonia": {
+"jp": "タホウニア",
+"initLv": 55,
+"initClass": "バトルマスター",
+"base": {
+"hp": 69,
+"strength": 43,
+"magic": 1,
+"speed": 18,
+"dexterity": 28,
+"defense": 33,
+"resistance": 20,
+"luck": 14,
+"charm": 27
+},
+"growth": {
+"hp": 65,
+"strength": 50,
+"magic": 5,
+"speed": 20,
+"dexterity": 40,
+"defense": 45,
+"resistance": 35,
+"luck": 20,
+"charm": 40
+}
+},
+"klapka": {
+"jp": "クラプカ",
+"initLv": 63,
+"initClass": "ガーディアン",
+"base": {
+"hp": 57,
+"strength": 37,
+"magic": 6,
+"speed": 18,
+"dexterity": 35,
+"defense": 47,
+"resistance": 16,
+"luck": 19,
+"charm": 25
+},
+"growth": {
+"hp": 40,
+"strength": 40,
+"magic": 10,
+"speed": 25,
+"dexterity": 45,
+"defense": 50,
+"resistance": 15,
+"luck": 25,
+"charm": 35
+},
+"build": 7,
+"buildSource": "Fire Emblem Wiki"
+}
+},
+"classMasters": {
+"平民": {
+"tier": "基本職",
+"skill": "戦闘の基本",
+"art": null
+},
+"貴族": {
+"tier": "基本職",
+"skill": "戦闘の基本",
+"art": null
+},
+"闘士": {
+"tier": "初級職",
+"skill": "攻撃の基本",
+"art": null
+},
+"猟兵": {
+"tier": "初級職",
+"skill": "狩猟の基本",
+"art": null
+},
+"兵士": {
+"tier": "初級職",
+"skill": "防衛の基本",
+"art": null
+},
+"飛駝兵": {
+"tier": "初級職",
+"skill": "攻勢の基本",
+"art": null
+},
+"呪い師": {
+"tier": "初級職",
+"skill": "魔道の基本",
+"art": null
+},
+"剣士": {
+"tier": "中級職",
+"skill": "技の冴え",
+"art": null
+},
+"ブリガンド": {
+"tier": "中級職",
+"skill": "立て直し",
+"art": null
+},
+"セスタス": {
+"tier": "中級職",
+"skill": "ヒット＆アウェイ",
+"art": null
+},
+"アーチャー": {
+"tier": "中級職",
+"skill": "好調",
+"art": null
+},
+"ローグ": {
+"tier": "中級職",
+"skill": "影晦まし",
+"art": null
+},
+"重装歩兵": {
+"tier": "中級職",
+"skill": "大反撃",
+"art": null
+},
+"軽騎兵": {
+"tier": "中級職",
+"skill": "体力の強化",
+"art": null
+},
+"戦車兵": {
+"tier": "中級職",
+"skill": "突進大勢",
+"art": null
+},
+"騎甲駝兵": {
+"tier": "中級職",
+"skill": "脅威の察知",
+"art": null
+},
+"シャーマン": {
+"tier": "中級職",
+"skill": "技の呪縛",
+"art": null
+},
+"プリースト": {
+"tier": "中級職",
+"skill": "信仰心",
+"art": null
+},
+"シドー": {
+"tier": "上級職",
+"skill": "残心",
+"art": null
+},
+"ウォーリアー": {
+"tier": "上級職",
+"skill": "熟練の技",
+"art": null
+},
+"スナイパー": {
+"tier": "上級職",
+"skill": "射撃の達人",
+"art": null
+},
+"フォレストナイト": {
+"tier": "上級職",
+"skill": "狩人の目",
+"art": null
+},
+"ヘヴィアーマー": {
+"tier": "上級職",
+"skill": "集中反撃",
+"art": null
+},
+"バーディンガー": {
+"tier": "上級職",
+"skill": "聖盾",
+"art": null
+},
+"ウァテス": {
+"tier": "上級職",
+"skill": "速さの呪縛",
+"art": null
+},
+"ビショップ": {
+"tier": "上級職",
+"skill": "結界",
+"art": null
+},
+"カラドリオス": {
+"tier": "上級職",
+"skill": "駆け抜け",
+"art": null
+},
+"天翼兵": {
+"tier": "中級職",
+"skill": "天馬の護翼",
+"art": null
+},
+"ガーディアン": {
+"tier": "上級職",
+"skill": "引き締め",
+"art": null
+},
+"踊り子": {
+"tier": "上級職",
+"skill": "特別な踊り",
+"art": null
+},
+"ドラグーン": {
+"tier": "上級職",
+"skill": "籠城崩し",
+"art": null
+},
+"トルバドール": {
+"tier": "上級職",
+"skill": null,
+"art": "勇気の呪歌"
+},
+"カタフラクト": {
+"tier": "上級職",
+"skill": "大盾",
+"art": null
+},
+"レンジャー": {
+"tier": "上級職",
+"skill": "反撃射撃",
+"art": null
+},
+"バトルマスター": {
+"tier": "最上級職",
+"skill": null,
+"art": "戦鬼の一撃"
+},
+"マスターアーチ": {
+"tier": "最上級職",
+"skill": null,
+"art": "スカイハンター"
+},
+"シャドーシーカー": {
+"tier": "最上級職",
+"skill": null,
+"art": "落影の刃"
+},
+"ホーリーランサー": {
+"tier": "最上級職",
+"skill": "不退の構え",
+"art": null
+},
+"フォートレス": {
+"tier": "最上級職",
+"skill": "遮断",
+"art": null
+},
+"オリハルディア": {
+"tier": "最上級職",
+"skill": null,
+"art": "騎士烈槍"
+},
+"ドラゴンマスター": {
+"tier": "最上級職",
+"skill": "襲撃",
+"art": null
+},
+"ドルイド": {
+"tier": "最上級職",
+"skill": "魔防の呪縛",
+"art": null
+},
+"ワイズマン": {
+"tier": "最上級職",
+"skill": "魔力掌握",
+"art": null
+},
+"バトルモンク": {
+"tier": "最上級職",
+"skill": null,
+"art": "ブロー＆ヒール"
+},
+"聖天翼兵": {
+"tier": "最上級職",
+"skill": "迅雷風烈",
+"art": null
+},
+"ザ・ブレイド": {
+"tier": "神将職",
+"skill": "戦神",
+"art": null
+},
+"ジ・アプサラス": {
+"tier": "神将職",
+"skill": "神舞",
+"art": null
+},
+"ジ・エターナル": {
+"tier": "神将職",
+"skill": "戦神",
+"art": null
+},
+"ザ・ゴッドハンド": {
+"tier": "神将職",
+"skill": "神装",
+"art": null
+},
+"ザ・カラミティ": {
+"tier": "神将職",
+"skill": "神命",
+"art": null
+},
+"ザ・トライデント": {
+"tier": "神将職",
+"skill": "神壁",
+"art": null
+},
+"ザ・キャバリアー": {
+"tier": "神将職",
+"skill": "神技",
+"art": null
+},
+"ジ・アヴァタール": {
+"tier": "神将職",
+"skill": "神法",
+"art": null
+},
+"グレートナイト": {
+"tier": "最上級職",
+"skill": "猛盾",
+"art": null
+},
+"ソードマスター": {
+"tier": "最上級職",
+"skill": null,
+"art": "流星"
+},
+"ハイエピタフ": {
+"tier": "最上級職",
+"skill": "暗月",
+"art": null
+},
+"ボウナイト": {
+"tier": "最上級職",
+"skill": null,
+"art": "ハンタークロス"
+},
+"ヴァルキュリウム": {
+"tier": "最上級職",
+"skill": null,
+"art": "静心の呪歌"
+},
+"戦象兵": {
+"tier": "上級職",
+"skill": "戦象の旗手",
+"art": null
+}
+},
+"presets": [
+{
+"steps": [
+"闘士",
+"ブリガンド",
+"ウォーリアー",
+"バトルマスター"
+],
+"goal": "35"
+},
+{
+"steps": [
+"猟兵",
+"剣士",
+"シドー",
+"ソードマスター"
+],
+"goal": "55"
+},
+{
+"steps": [
+"飛駝兵",
+"軽騎兵",
+"バーディンガー",
+"オリハルディア"
+],
+"goal": "40"
+},
+{
+"steps": [
+"飛駝兵",
+"騎甲駝兵",
+"ドラグーン",
+"ドラゴンマスター"
+],
+"goal": "41",
+"sex": "男性"
+},
+{
+"steps": [
+"飛駝兵",
+"天翼兵",
+"ドラグーン",
+"ドラゴンマスター"
+],
+"goal": "41",
+"sex": "女性"
+},
+{
+"steps": [
+"飛駝兵",
+"天翼兵",
+"ドラグーン",
+"聖天翼兵"
+],
+"goal": "45",
+"sex": "女性"
+},
+{
+"steps": [
+"猟兵",
+"アーチャー",
+"スナイパー",
+"マスターアーチ"
+],
+"goal": "36"
+},
+{
+"steps": [
+"猟兵",
+"ローグ",
+"レンジャー",
+"シャドウシーカー"
+],
+"goal": "37"
+},
+{
+"steps": [
+"猟兵",
+"ローグ",
+"フォレストナイト",
+"ボウナイト"
+],
+"goal": "57"
+},
+{
+"steps": [
+"兵士",
+"重装歩兵",
+"ヘヴィアーマー",
+"フォートレス"
+],
+"goal": "39"
+},
+{
+"steps": [
+"兵士",
+"重装歩兵",
+"ヘヴィアーマー",
+"グレートナイト"
+],
+"goal": "54"
+},
+{
+"steps": [
+"呪い師",
+"シャーマン",
+"ウァテス",
+"ハイエピタフ"
+],
+"goal": "56"
+},
+{
+"steps": [
+"呪い師",
+"シャーマン",
+"ウァテス",
+"ドルイド"
+],
+"goal": "42"
+},
+{
+"steps": [
+"呪い師",
+"プリースト",
+"ビショップ",
+"ヴァルキュリウム"
+],
+"goal": "58"
+},
+{
+"steps": [
+"呪い師",
+"プリースト",
+"ビショップ",
+"ワイズマン"
+],
+"goal": "43"
+},
+{
+"steps": [
+"呪い師",
+"プリースト",
+"ガーディアン",
+"ホーリーランサー"
+],
+"goal": "38"
+},
+{
+"steps": [
+"闘士",
+"ブリガンド",
+"ウォーリアー",
+"バトルモンク"
+],
+"goal": "44"
+}
+]
+}
