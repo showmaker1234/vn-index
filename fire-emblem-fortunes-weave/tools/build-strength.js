@@ -55,8 +55,20 @@ const PERSONAL_BONUS={
 /* 治疗相关个人技能：回复量加成与治疗射程加成 */
 const HEAL_SKILL={sofia:()=>({amt:10,range:2}),fianna:st=>({amt:30*st.luck/100,range:0})};
 const HEAL_RANGE_VALUE=0.15; // 治疗射程每 +1，治疗价值 +15%（能覆盖更多队友、站位更安全）
-/* 有攻击型焰技（ブレイズアーツ）的角色：多一种打法（远程 / 范围 / 再行动） */
-const BLAZE_ATTACK={orchel:'焰技「兰策」远程光枪、「修特拉尔」大范围攻击',anatolia:'焰技「龙破」系列范围攻击',bertrand:'焰技「觉醒」系列：强化后再行动',talimun:'焰技「冥咒」系列：削弱敌人命中、攻速、幸运'};
+/* 焰技（ブレイズアーツ）：4 位副主角与 4 位主角专属。威力与发动频率未公开，按效果类型给输出倍率（均为估算）：
+   再行动 ×1.25（觉醒后本回合可再攻击，约每 3 回合 1 次）；范围攻击 ×1.2（约每 3 回合多打 1–2 个敌人）；
+   削弱 / 支援 ×1.15（让敌人命中、攻速减半或强化队友，按团队增益计）；远程攻击另记为有 1–2 格手段 */
+const BLAZE={
+  bertrand:{mult:1.25,type:'再行动',note:'焰技「觉醒」系列：命中 +50 / 耐物 +10 / 耐魔 +10 / 回避 +30，并可再攻击一次'},
+  anatolia:{mult:1.2,type:'范围攻击',note:'焰技「龙破」系列：范围攻击，可破坏障碍物'},
+  orchel:{mult:1.2,reach:true,type:'范围 + 远程',note:'焰技「修特拉尔」大范围攻击、「兰策」远程光枪（冥魔有效）'},
+  talimun:{mult:1.15,type:'削弱',note:'焰技「冥咒」系列：让敌人命中减半、攻速减半、幸运减半，或互换力魔 / 守魔'},
+  cai:{mult:1.2,reach:true,type:'范围 + 远程',note:'焰技「冥炎弹」远程、「黑炎涡流」「落星冥焰狱」范围攻击'},
+  dietrich:{mult:1.2,type:'突进 + 范围',note:'焰技「影渡」转移 3 格后再攻击、「影灭」转移 5 格并范围伤害'},
+  theodora:{mult:1.15,reach:true,type:'远程',note:'焰技「轰」「大轰土」远距离投掷、「彗星煌弹」必中贯穿'},
+  leda:{mult:1.15,type:'支援',note:'焰技歌曲：范围内队友力魔或守魔 +4/+7、「天女之歌」让范围内队友再行动'},
+  eshmel:{mult:1.2,type:'必中 + 冥魔特攻',note:'焰技「破邪闪击」「九天神击」等：冥魔有效或特攻，改良后必中'}
+};
 const BUILD={base:6,armor:3,mounted:2}; // 体格未公开，按兵种特性假设
 const MOUNT={bonus:25,chariotMultiplier:2,flat:5};
 
@@ -65,7 +77,7 @@ const SKILL_CODE={'剣術':'sword','槍術':'spear','斧術':'axe','弓術':'bow
 const RANK={S:6,A:5,B:4,C:3,D:2,E:1,F:0};
 const ROUTE_NAME={cai:'凯伊篇',dietrich:'迪托利希篇',theodora:'赛奥朵拉篇',leda:'蕾达篇',savior:'救世主篇'};
 const CLASS_ZH={'平民':'平民','貴族':'贵族','闘士':'斗士','猟兵':'猎兵','兵士':'士兵','飛駝兵':'飞驼兵','呪い師':'咒术师','剣士':'剑士','ブリガンド':'山贼','セスタス':'拳斗士','アーチャー':'弓兵','ローグ':'盗贼','重装歩兵':'重装步兵','軽騎兵':'轻骑兵','戦車兵':'战车兵','騎甲駝兵':'甲驼骑兵','シャーマン':'萨满','プリースト':'祭司','天翼兵':'天翼兵','シドー':'士道','ウォーリアー':'勇士','スナイパー':'狙击手','フォレストナイト':'森林骑士','ヘヴィアーマー':'重甲兵','バーディンガー':'巴丁格骑士','ウァテス':'先知','ビショップ':'主教','カラドリオス':'卡拉德里奥斯','ガーディアン':'守护者','踊り子':'舞娘','ドラグーン':'龙骑兵','トルバドール':'游吟骑士','カタフラクト':'铁甲骑兵','レンジャー':'游侠','戦象兵':'战象兵','バトルマスター':'战斗大师','マスターアーチ':'弓圣','シャドーシーカー':'影猎者','ホーリーランサー':'圣枪兵','フォートレス':'要塞','オリハルディア':'奥里哈尔骑士','ドラゴンマスター':'龙主','ドルイド':'德鲁伊','ワイズマン':'贤者','バトルモンク':'武僧','聖天翼兵':'圣天翼兵','グレートナイト':'巨骑士','ソードマスター':'剑圣','ハイエピタフ':'碑文骑士','ボウナイト':'弓骑士','ヴァルキュリウム':'女武神'};
-const WEAPON_ZH={blaze:'焰技',thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
+const WEAPON_ZH={thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
 
 const mid=r=>Array.isArray(r)?(r[0]+r[1])/2:r;
 const timeZh=t=>String(t||'').replace(/【(.+?)編】/,(_,n)=>({'カイ':'凯伊','ディートリヒ':'迪托利希','セオドラ':'赛奥朵拉','レダ':'蕾达','救世主':'救世主'}[n]||n)+'篇 ').replace(/1部(\d+)章/,'第一部第$1章').replace(/2部(\d+)章/,'第二部第$1章').replace(/3部(\d+)区分/,'第三部第$1节').replace(/序幕(\d+)章/,'序幕第$1章').replace(/(\d+)月$/,' $1月').trim();
@@ -203,21 +215,19 @@ const ENEMY_LIST=ENEMY_TYPES.map(t=>{
 const ENEMIES={physical:ENEMY_LIST[0].c,magic:combatant(enemyStats,WEAPONS.blackMagic)}; // 承伤仍按原来的两类标准敌人
 const NEUTRAL_LAG=0.9; // 非得意武器的输出折扣
 const REACH_BONUS=0.08; // 有 1–2 格攻击手段（魔法、雷之剑）且够用时，敌人回合能反击远程敌人
-/* 攻击型焰技当作一种不受职业限制的输出手段。威力未公开：按魔法攻击、威力与博尔加农相同估算，消耗 HP 用不了太多次，输出 × 0.8 */
-const BLAZE_MODES={orchel:{mt:10,wt:0,hit:80,magic:true,factor:0.8,note:'焰技「兰策」：远程光枪（威力按博尔加农估算）'}};
-const RANGE_OF=wc=>wc==='blaze'?'1-2':['blackMagic','thunderSword'].includes(wc)?'1-2':wc==='bow'?'2':'1';
+const RANGE_OF=wc=>['blackMagic','thunderSword'].includes(wc)?'1-2':wc==='bow'?'2':'1';
 
 const HIT_RE={sword:/剣命中\+(\d+)/g,spear:/槍命中\+(\d+)/g,axe:/斧命中\+(\d+)/g,bow:/弓命中\+(\d+)/g,gauntlet:/格闘命中\+(\d+)/g,blackMagic:/魔法命中\+(\d+)/g};
 function simulate(c,g,k,route,forced,override,opts={}){
   const p=profsOf(c),bane=banesOf(c),usable=(k.weapons||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
   const cai=route==='cai';
   let best=null;const modes={};
-  const cands=forced?[forced]:[...Object.keys(WEAPONS),...(BLAZE_MODES[c.id]?['blaze']:[])]; // 雷之剑没有商店出售，只在培养方案里按指定打法模拟
+  const cands=forced?[forced]:Object.keys(WEAPONS); // 雷之剑没有商店出售，只在培养方案里按指定打法模拟
   for(const wc of cands){
-    const base=wc==='blaze'?BLAZE_MODES[c.id]:WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
-    const skill=wc==='blaze'?'blaze':base.skill||wc;
-    if(wc!=='blaze'&&(!usable.includes(skill)||((bane.includes(skill)||(!ALLOW_NEUTRAL&&!p.includes(skill)))&&!forced&&!opts.anyProf)))continue;
-    const lag=wc==='blaze'?BLAZE_MODES[c.id].factor:p.includes(skill)||forced||opts.anyProf?1:NEUTRAL_LAG; // 中性武器：技能等级落后，输出打折
+    const base=WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
+    const skill=base.skill||wc;
+    if(!usable.includes(skill)||((bane.includes(skill)||(!ALLOW_NEUTRAL&&!p.includes(skill)))&&!forced&&!opts.anyProf))continue;
+    const lag=p.includes(skill)||forced||opts.anyProf?1:NEUTRAL_LAG; // 中性武器：技能等级落后，输出打折
     const w={...base,sword:wc==='sword'||!!base.sword};
     const sf=statsFor(g,k,{cai,magic:!!w.magic});const {mounted,armor,mountBonus}=sf;const st=override?override(sf.st.build):sf.st;
     const hre=HIT_RE[skill]||HIT_RE[wc];const extra={hit:(hre?classBonus(k,hre):0)+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:skill==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:skill==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
@@ -229,14 +239,15 @@ function simulate(c,g,k,route,forced,override,opts={}){
     const per=ENEMY_LIST.map(E=>{const s=strike(me,E.c),n=s.doubles?(me.sword?2.2:2):1;return{...s,kill:lag*clamp(s.exp/E.c.hp+(s.dmg*n>=E.c.hp?0.15*s.hit:0),0,1.5)}});
     const single=per.reduce((a,x)=>a+x.kill,0)/per.length;
     modes[wc]={single,per,range:RANGE_OF(wc)};
-    if(wc!=='blaze'&&(!best||single>best.single))best={weapon:wc,st,me,off:[per[0],per[2]],per,single,mounted,armor,mountBonus};
+    if(!best||single>best.single)best={weapon:wc,st,me,off:[per[0],per[2]],per,single,mounted,armor,mountBonus};
   }
   /* 输出 = 对每类敌人挑最有效的手段后取平均；有够用的 1–2 格手段再加成 */
   let offense=0,use=[],reach=false;
   if(best){
     use=ENEMY_LIST.map((E,i)=>{let m=best.weapon;for(const [wc,v] of Object.entries(modes))if(v.per[i].kill>modes[m].per[i].kill+1e-9)m=wc;return{enemy:E.name,mode:m,hit:modes[m].per[i].hit,dmg:modes[m].per[i].dmg,doubles:modes[m].per[i].doubles,kill:modes[m].per[i].kill}});
-    reach=Object.entries(modes).some(([wc,v])=>v.range==='1-2'&&v.single>=0.75*best.single);
-    offense=use.reduce((a,x)=>a+x.kill,0)/use.length*(reach?1+REACH_BONUS:1);
+    const bz=forced?null:BLAZE[c.id];
+    reach=Object.entries(modes).some(([wc,v])=>v.range==='1-2'&&v.single>=0.75*best.single)||!!bz?.reach;
+    offense=use.reduce((a,x)=>a+x.kill,0)/use.length*(reach?1+REACH_BONUS:1)*(bz?bz.mult:1);
     best.offense=offense;
   }
   if(!best){ // 纯治疗职业：无攻击武器，只算承伤与治疗
@@ -359,7 +370,7 @@ const rows=chars.map(c=>{
       parts:Object.fromEntries(FEATURES.map(f=>[f,round(nf(x,f)*100)])),offenseScore:round(nf0(x,'offense')*100),healingScore:x.f.healing>0?round(nf0(x,'healing')*100):0,
       tankScore:round(tankValue(x)*100),healAmount:s.healAmount?round(s.healAmount):0,healRange:s.healRange||0}:null,
     means:s&&s.use.length?{use:s.use.map(u=>({enemy:u.enemy,mode:WEAPON_ZH[u.mode]||u.mode,hit:Math.round(u.hit*100),dmg:round(u.dmg),doubles:!!u.doubles})),modes:[...new Set(s.use.map(u=>WEAPON_ZH[u.mode]||u.mode))],reach:s.reach,single:round(nf0({f:{offense:s.single}},'offense')*100)}:null,
-    blaze:BLAZE_ATTACK[c.id]||null,
+    blaze:BLAZE[c.id]?{type:BLAZE[c.id].type,mult:BLAZE[c.id].mult,note:BLAZE[c.id].note}:null,
     routeCount:new Set(combos.filter(y=>y.id===c.id).map(y=>y.route.route)).size,
     classCount:new Set(combos.filter(y=>y.id===c.id).map(y=>y.cls.name)).size,
     ...detail[c.id],skillMissing:detail[c.id].personalRaw==null,role:x?(()=>{const v=roleValues(x);if(v.dance)return'舞蹈';const k=Object.entries(v).sort((a,b)=>b[1]-a[1])[0][0];return{offense:'输出',healing:'治疗',tank:'坦克'}[k]||'输出'})():'输出'
@@ -374,7 +385,7 @@ const agreement=(()=>{const R=ranked.filter(r=>r.external!=null),er=[...R].sort(
 const out={
   version:'3.1',agreement,checked,generated:new Date().toISOString().slice(0,10),
   weights,prior:PRIOR,fitted:Object.fromEntries(Object.entries(fitted).map(([k,v])=>[k,round(v)])),priorShare:PRIOR_SHARE,featureNames:FEATURE_NAMES,blend:BLEND,tiers:TIERS,fit:{correlation:+fitCorr.toFixed(2),n:fitIds.length,healFactor:HEAL_FACTOR,tankFactor:TANK_FACTOR,scan:fitScan},
-  assumptions:{enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
+  assumptions:{blaze:Object.fromEntries(Object.entries(BLAZE).map(([k,v])=>[k,v.mult])),enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
   sources:sources.map(({tiers,...s})=>({...s,count:Object.values(tiers).flat().length})),excluded,rows
 };
 fs.writeFileSync(path.join(root,'strength-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.STRENGTH_DATA='+JSON.stringify(out)+';\n');

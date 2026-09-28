@@ -34,7 +34,7 @@ function tierCard(r){
 function tierLordCard(r){
   const pic=D.characters.find(x=>x.id===r.id);
   const note=r.lordAvgRank!=null?'各榜平均第 '+tierFmt(r.lordAvgRank)+' 位':'第三部主角，各榜未与领主比较';
-  return '<button class="tier-card tier-lord-card" data-strength-character="'+r.id+'">'+(pic?'<img src="assets/'+pic.portrait+'" alt="" loading="lazy">':'')+'<span><span class="tier-card-top"><strong>'+esc(r.name)+'</strong>'+(r.lordAvgRank!=null?'<span class="tier-flag lord">第 '+r.rank+' 位</span>':'')+'</span><span class="tier-card-tags">'+esc(note)+'</span><span class="tier-card-foot"><span class="tier-card-split">本站模拟 '+Math.round(r.own)+'（未计焰技）</span></span></span></button>';
+  return '<button class="tier-card tier-lord-card" data-strength-character="'+r.id+'">'+(pic?'<img src="assets/'+pic.portrait+'" alt="" loading="lazy">':'')+'<span><span class="tier-card-top"><strong>'+esc(r.name)+'</strong>'+(r.lordAvgRank!=null?'<span class="tier-flag lord">第 '+r.rank+' 位</span>':'')+'</span><span class="tier-card-tags">'+esc(note)+'</span><span class="tier-card-foot"><span class="tier-card-split">本站模拟 '+Math.round(r.own)+'（参考）</span></span></span></button>';
 }
 function tierSection(band,cards,extra){
   return '<section class="tier-row tier-'+band.id.toLowerCase()+(extra?' '+extra:'')+'"><header class="tier-label"><b>'+band.label+'</b><div><strong>'+band.name+'</strong><span>'+band.hint+' · '+cards.length+' 人</span></div></header><div class="tier-cards">'+cards.join('')+'</div></section>';
@@ -55,11 +55,12 @@ function tierMethod(){
     +'<li><b>凯伊线骑乘加成</b>：只有凯伊线能捕获和饲养骑乘动物。骑兵、飞行职业配备动物后成长率 +'+a.mount.bonus+'（战车兵翻倍），按定位加在 力/魔 · 速度 · 技巧 上（4:4:2），只作用于第一部的 '+a.part1Levels+' 次升级；另有骑乘中的能力加值 +'+a.mount.flat+'，以及移动 +2。</li>'
     +'<li><b>战斗公式</b>（アルゲスト 与 Game8 整理的游戏公式）：攻击 = 力量或魔力 + 武器威力；命中 = 技巧 + 武器命中；必杀 = (技巧 + 幸运) ÷ 2；攻速 = 速度 − max(0, 武器重量 − 体格)；回避 = 攻速；伤害 = 攻击 − 防守或魔防；攻速高 4 以上追击，剑的追击伤害 ×1.2；必杀 ×3。职业技能里的命中、必杀、后攻防守和治疗加成会计入；物理攻击按使用战技计命中 +'+a.artsHit+'（达米纳系列武器效果）；个人技能里能量化的命中、攻击、攻速加成也计入（如欧露赫露「动体预测」魔法命中 +20、卡塔妮雅「疾风」命中 +20），条件触发的按期望计。一回合内能打倒敌人时按命中率额外加分。</li>'
     +'<li><b>标准武器</b>：各类型取站内武器库 C 级的达米纳系列；治疗 = （治愈威力 '+a.healMt+' + 魔力 ÷ 3 + 职业与个人技能的回复加成）×（1 + '+a.healRangeValue+' × 治疗射程加成），例如索绯雅回复 +10、射程 +2。<b>标准敌人</b>：58 人成长中位数加上级职业修正中位数，一个持枪、一个持博尔加农。</li>'
-    +'<li><b>输出手段</b>：标准敌人分 4 类（'+a.enemies.map(e=>esc(e.name)+'：'+esc(e.cls)+'，防守 '+tierFmt(e.def)+' / 魔防 '+tierFmt(e.res)).join('；')+'）。角色在当前职业里能用的每种手段（各类擅长武器、黑魔法，以及欧露赫露的攻击型焰技）都模拟一遍，<b>对每类敌人挑最有效的手段</b>再取平均。物理、魔法都能打的角色可以用魔法打重甲、用武器打法师，输出直接变高；有够用的 1–2 格手段（达到主手段 75%）再加 '+Math.round(a.reachBonus*100)+'%，因为敌人回合也能反击远程敌人。焰技威力未公开，按博尔加农估算并打 8 折；雷之剑没有商店出售，只在培养方案里模拟。</li>'
+    +'<li><b>输出手段</b>：标准敌人分 4 类（'+a.enemies.map(e=>esc(e.name)+'：'+esc(e.cls)+'，防守 '+tierFmt(e.def)+' / 魔防 '+tierFmt(e.res)).join('；')+'）。角色在当前职业里能用的每种手段（各类擅长武器、黑魔法）都模拟一遍，<b>对每类敌人挑最有效的手段</b>再取平均。物理、魔法都能打的角色可以用魔法打重甲、用武器打法师，输出直接变高；有够用的 1–2 格手段（达到主手段 75%）再加 '+Math.round(a.reachBonus*100)+'%，因为敌人回合也能反击远程敌人。雷之剑没有商店出售，只在培养方案里模拟。</li>'
+    +'<li><b>焰技</b>：4 位副主角（贝特兰、爱娜特莉亚、欧露赫露、谭利穆恩）与主角都有专属焰技。威力与发动频率未公开，按效果类型给输出倍率：再行动 ×1.25（觉醒后可再攻击）；范围攻击 ×1.2；削弱或支援 ×1.15（敌人命中、攻速减半或强化队友）；远程焰技另记为有 1–2 格手段。都是估算，详情里逐人写明。</li>'
     +'<li><b>六项指标</b>：主要贡献 = 输出、治疗、坦克三种定位取最高（同一职业只担一个定位；舞娘的「跳舞」按满额计）。输出 = 上面按敌人挑手段后的期望伤害占敌方生命的比例；治疗 = 治疗值 × '+f.healFactor+'；坦克 = 承伤 ×（0.6 + 0.4 × 反击输出）× '+f.tankFactor+'。承伤 = 能承受的敌方攻击次数（对数）；个人与团队技能 = 站内七维模型的技能评分；机动 = 职业移动加成 + 飞行 + 凯伊线骑乘，按边际递减换算（移动 +0 记 55 分、+1 约 74、+2 约 85、+3 约 91）；可用场次 = <b>只看第一部</b>：第一部可招募的角色按入队章节扣分，(10 − 入队章 + 1) ÷ 10（实际入队章 = 出场章与「3 + 0.5 × 所需名声」章取较晚者）；第二、三部剧情加入属于正常进度，记满分；招募成本 = 支援、名声、金钱、道具、外传、委托要求折算的扣分。</li></ul>'
     +'<p><strong>权重标定</strong>：六项权重用外部共识做非负最小二乘拟合，再与先验各占一半，避免被少数样本带偏。当前权重：'+wl+'。治疗系数在 0.6–1.0、坦克系数在 0.5–0.9 间扫描，取与外部共识最吻合的组合（治疗 '+f.healFactor+'、坦克 '+f.tankFactor+'）。外部榜单几乎不体现机动，这一项的权重主要来自先验。职业只走角色的得意技能：试过放开中性技能，与外部共识的吻合度从 0.68 降到 0.65，暂不采用。</p>'
     +'<p><strong>吻合度</strong>：本站模拟分与外部共识的相关系数为 <b>'+f.correlation+'</b>（'+f.n+' 人）；作为对照，单个外部榜单与其余榜单的相关系数在 0.31–0.78 之间。综合分与外部共识的相关系数为 <b>'+(SD.agreement?.correlation??'—')+'</b>，平均名次相差 '+(SD.agreement?.meanRankDiff??'—')+' 名。</p>'
-    +'<p><strong>局限</strong>：体格、职业基础值、敌人实际数值、战技和焰技没有公开的威力数据：战技只计命中加成，焰技按博尔加农估算；成长率是期望值；各榜单都在发售后 8 天内发布。主角另按各榜的主角排名排序，本站模拟分只供参考（未计焰技）。</p>'
+    +'<p><strong>局限</strong>：体格、职业基础值、敌人实际数值、战技和焰技没有公开的威力数据：战技只计命中加成，焰技按效果类型给倍率估算；成长率是期望值；各榜单都在发售后 8 天内发布。主角另按各榜的主角排名排序，本站模拟分只供参考。</p>'
     +'<p>数据与脚本：<code>tools/build-strength.js</code>、<code>tools/strength-sources.json</code>、<code>tools/gamewith-roster.json</code>、<code>tools/gamewith-routes.json</code>、<code>tools/gamewith-classes.json</code>。</p></div></details>';
 }
 function tierPage(){
@@ -94,10 +95,10 @@ function showStrengthCharacter(id){
   const statLine=b?Object.entries(growthNames).map(([k,label])=>label+' '+tierFmt(b.stats[k])).join(' · ')+' · 体格 '+tierFmt(b.stats.build):'';
   const vs=(label,v)=>'<tr><th scope="row">'+label+'</th><td class="numeric">'+v.hit+'%</td><td class="numeric">'+tierFmt(v.dmg)+'</td><td>'+(v.doubles?'能':'否')+'</td><td class="numeric">'+tierFmt(v.taken)+'</td></tr>';
   const head=r.lord
-    ?'<p>主角不进字母梯队。'+(r.lordAvgRank!=null?'各榜主角排名平均第 '+tierFmt(r.lordAvgRank)+' 位，本站排第 '+r.rank+' 位。':'第三部主角，各榜未与领主比较。')+'本站模拟未计焰技，仅供参考。</p>'
+    ?'<p>主角不进字母梯队。'+(r.lordAvgRank!=null?'各榜主角排名平均第 '+tierFmt(r.lordAvgRank)+' 位，本站排第 '+r.rank+' 位。':'第三部主角，各榜未与领主比较。')+'本站模拟分仅供参考。</p>'
     :'<p>综合第 <b>'+r.rank+'</b> 名（共 58 人）· '+r.tier+' · 来源可信度 '+r.confidence+(r.disputed?' · <span class="tier-flag dispute">来源分歧大</span>':'')+'</p>';
   const barNote=b?{
-    contribution:r.role==='舞蹈'?'舞娘可以让队友再行动一次，按满额计。':'输出 '+tierFmt(b.offenseScore)+' 分（'+esc(b.weaponZh||'—')+'）；治疗 '+(b.healing?'回复 '+b.healAmount+(b.healRange?'、射程 +'+b.healRange:'')+'，折算 '+tierFmt(b.healingScore*SD.fit.healFactor)+' 分':'—')+(r.means&&r.means.modes.length>1?'；输出手段：'+esc(r.means.modes.join(' + '))+'（按敌人挑选）':'')+(r.means&&r.means.reach?'；有 1–2 格手段':'')+'；坦克 '+tierFmt(b.tankScore)+' × '+SD.fit.tankFactor+' = '+tierFmt(b.tankScore*SD.fit.tankFactor)+' 分。取最高者，当前按「'+esc(r.role)+'」计。',
+    contribution:r.role==='舞蹈'?'舞娘可以让队友再行动一次，按满额计。':'输出 '+tierFmt(b.offenseScore)+' 分（'+esc(b.weaponZh||'—')+'）；治疗 '+(b.healing?'回复 '+b.healAmount+(b.healRange?'、射程 +'+b.healRange:'')+'，折算 '+tierFmt(b.healingScore*SD.fit.healFactor)+' 分':'—')+(r.means&&r.means.modes.length>1?'；输出手段：'+esc(r.means.modes.join(' + '))+'（按敌人挑选）':'')+(r.means&&r.means.reach?'；有 1–2 格手段':'')+(r.blaze?'；焰技'+esc(r.blaze.type)+' ×'+r.blaze.mult:'')+'；坦克 '+tierFmt(b.tankScore)+' × '+SD.fit.tankFactor+' = '+tierFmt(b.tankScore*SD.fit.tankFactor)+' 分。取最高者，当前按「'+esc(r.role)+'」计。',
     durability:'对持枪敌人每次受伤约 '+tierFmt(b.vsPhysical.taken)+'，对魔法敌人约 '+tierFmt(b.vsMagic.taken)+'（生命 '+tierFmt(b.stats.hp)+'）。',
     skills:r.skillMissing?'缺少技能资料，按中位数计。':'个人 '+tierFmt(r.personalRaw)+' + 团队 '+tierFmt(r.teamRaw)+'。'+esc(r.skillNote||''),
     mobility:'机动值 '+b.mobility+(b.mountBonus?'（含凯伊线骑乘移动 +2）':'')+'，按边际递减换算。',
@@ -110,7 +111,7 @@ function showStrengthCharacter(id){
     +(b?'<h3>本站模拟 '+tierFmt(r.own)+'：最优组合</h3><div class="tier-best"><div><span>路线</span><b>'+esc(b.routeName)+'</b></div><div><span>职业</span><b>'+esc(b.clsZh)+'</b><small>'+esc(b.cls)+'</small></div><div><span>定位</span><b>'+esc(r.role||'输出')+(b.weapon?' · '+esc(b.weaponZh):'')+'</b></div><div><span>凯伊线骑乘</span><b>'+(b.mountBonus?'有':'无')+'</b></div></div>'
       +'<p class="field-help">共比较了 '+r.routeCount+' 条可招募路线 × '+r.classCount+' 个可走通的职业。出场：'+esc(b.appear||'—')+'。</p>'
       +'<p class="field-help">推算后期能力：'+statLine+'</p>'
-      +(r.means?'<div class="data-table-wrap"><table class="data-table tier-source-table"><thead><tr><th>对标准敌人</th><th>所用手段</th><th>命中</th><th>单次伤害</th><th>追击</th></tr></thead><tbody>'+r.means.use.map(u=>'<tr><th scope="row">'+esc(u.enemy)+'</th><td>'+esc(u.mode)+'</td><td class="numeric">'+u.hit+'%</td><td class="numeric">'+tierFmt(u.dmg)+'</td><td>'+(u.doubles?'能':'否')+'</td></tr>').join('')+'</tbody></table></div><p class="field-help">每次受伤：持枪敌人约 '+tierFmt(b.vsPhysical.taken)+'，魔法敌人约 '+tierFmt(b.vsMagic.taken)+'。'+(r.blaze?esc(r.blaze)+'。':'')+'</p>':'')
+      +(r.means?'<div class="data-table-wrap"><table class="data-table tier-source-table"><thead><tr><th>对标准敌人</th><th>所用手段</th><th>命中</th><th>单次伤害</th><th>追击</th></tr></thead><tbody>'+r.means.use.map(u=>'<tr><th scope="row">'+esc(u.enemy)+'</th><td>'+esc(u.mode)+'</td><td class="numeric">'+u.hit+'%</td><td class="numeric">'+tierFmt(u.dmg)+'</td><td>'+(u.doubles?'能':'否')+'</td></tr>').join('')+'</tbody></table></div><p class="field-help">每次受伤：持枪敌人约 '+tierFmt(b.vsPhysical.taken)+'，魔法敌人约 '+tierFmt(b.vsMagic.taken)+'。'+(r.blaze?esc(r.blaze.note)+'（'+esc(r.blaze.type)+'，输出 ×'+r.blaze.mult+'，估算）。':'')+'</p>':'')
       +'<div class="model-dimension-list">'+Object.keys(w).map(k=>tierBar(esc(fn[k])+' · '+tierFmt(w[k])+'%',b.parts[k],barNote[k])).join('')+'</div>':'')
     +'<p class="field-help">角色成长率：'+growthLine+(r.growthSource==='gamewith'?'（站内缺失，取自 GameWith）':r.growthConflicts?.length?'（'+r.growthConflicts.map(k=>growthNames[k]).join('、')+' 两源不同，取中值）':'')+'</p>'
     +'<button class="button" data-model-character="'+id+'">查看七维模型拆解 ↗</button>');
