@@ -1,0 +1,695 @@
+{
+"eshmel": {
+"jp": "救世主",
+"init": "https://img.gamewith.jp/img/3b6553b4fd006b1cf09dde37a3ff5e6b.png",
+"after": null,
+"alts": [
+"万紫千紅の救世主",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧",
+"ファイアーエムブレム万紫千紅の最強キャラ"
+]
+},
+"cai": {
+"jp": "カイ",
+"init": "https://img.gamewith.jp/img/cf073c75b1c11557c8f5169d6e910e41.png",
+"after": "https://img.gamewith.jp/img/10bd239336f54ede3b4f14a1ab4f4c23.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のストーリー",
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のカイ",
+"万紫千紅のカイ(5年後)"
+]
+},
+"dietrich": {
+"jp": "ディートリヒ",
+"init": "https://img.gamewith.jp/img/f178cd9e715ac733301d8637cf303def.png",
+"after": "https://img.gamewith.jp/img/47dc7a23e2e18b3d27949e01dda22be9.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のストーリー",
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のディートリヒ",
+"万紫千紅のディートリヒ(5年後)"
+]
+},
+"theodora": {
+"jp": "セオドラ",
+"init": "https://img.gamewith.jp/img/bd21bd4a8c9d76e47545f81afb3ccdde.png",
+"after": "https://img.gamewith.jp/img/d6644bcce41d7c57186d419c1ddbe9ae.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のストーリー",
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のセオドラ",
+"万紫千紅のセオドラ(5年後)"
+]
+},
+"leda": {
+"jp": "レダ",
+"init": "https://img.gamewith.jp/img/9354f71eadc7ebcc27005e16c1842ccc.png",
+"after": "https://img.gamewith.jp/img/6dbfb7b2f239e928e3f4aeb3d84eacbf.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のストーリー",
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のレダ",
+"万紫千紅のレダ(5年後)"
+]
+},
+"recruit-6": {
+"jp": "ティアラ",
+"init": "https://img.gamewith.jp/img/1af23b11597b7b41c2a559cd797c9c7c.png",
+"after": "https://img.gamewith.jp/img/d7ef966ed83da0cde1ff29d5c961f64c.png",
+"alts": [
+"万紫千紅のティアラ",
+"万紫千紅のティアラ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"peter": {
+"jp": "ピーテル",
+"init": "https://img.gamewith.jp/img/3a8f41518051d1190f771d72239f0d9e.png",
+"after": "https://img.gamewith.jp/img/1f6f6b2bf2d88d49b4881557238645a2.png",
+"alts": [
+"万紫千紅のピーテル",
+"万紫千紅のピーテル(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-8": {
+"jp": "ウルタンド",
+"init": "https://img.gamewith.jp/img/f731de229dff6b39831aa9136fe22d9f.png",
+"after": "https://img.gamewith.jp/img/b0a6c49acad78003e3fbf102be494a11.png",
+"alts": [
+"万紫千紅のウルタンド",
+"万紫千紅のウルタンド(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"fabio": {
+"jp": "ファビオ",
+"init": "https://img.gamewith.jp/img/53cef72f229bea8d02518aa5ab2822b8.png",
+"after": "https://img.gamewith.jp/img/94335c4168ad6a4006a0eb5d33e06383.png",
+"alts": [
+"万紫千紅のファビオ",
+"万紫千紅のファビオ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"esmeralda": {
+"jp": "エスメラルダ",
+"init": "https://img.gamewith.jp/img/8305cdc4da26dde2d942d20b91dfcddf.png",
+"after": "https://img.gamewith.jp/img/31e88b41461bde72d616f735eea3aad8.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のクエスト一覧",
+"万紫千紅のエスメラルダ",
+"万紫千紅のエスメラルダ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"recruit-11": {
+"jp": "ミカエラ",
+"init": "https://img.gamewith.jp/img/f1631aff1c3d46980ac4a3ee2a38a126.png",
+"after": "https://img.gamewith.jp/img/e15017177a17d2ff6e577a7e44574e9a.png",
+"alts": [
+"万紫千紅のミカエラ",
+"万紫千紅のミカエラ(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"bonaventure": {
+"jp": "ボナパルテ",
+"init": "https://img.gamewith.jp/img/0346fb2805edd0ca4d0073db8bc20568.png",
+"after": "https://img.gamewith.jp/img/562856f6e6be407b85127b7da97a7e10.png",
+"alts": [
+"万紫千紅のボナパルテ",
+"万紫千紅のボナパルテ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"tobias": {
+"jp": "トビヤス",
+"init": "https://img.gamewith.jp/img/b470ccef7b59662ee87809e4be2d68fd.png",
+"after": "https://img.gamewith.jp/img/0963f263991b50b83ef761fb2a886fa7.png",
+"alts": [
+"万紫千紅のトビヤス",
+"万紫千紅のトビヤス(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-14": {
+"jp": "リリアン",
+"init": "https://img.gamewith.jp/img/1ca6fdfc8c3e234ddf0e1ce0aae127a6.png",
+"after": "https://img.gamewith.jp/img/98610ddecd1a72a17bef2ad45e3be2d1.png",
+"alts": [
+"万紫千紅のリリアン",
+"万紫千紅のリリアン(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"recruit-15": {
+"jp": "ライサンダー",
+"init": "https://img.gamewith.jp/img/57b1306e8c5197004aadf3fd97e88c5a.png",
+"after": "https://img.gamewith.jp/img/7fbd549ca52984a2240a8a1019d8bbe6.png",
+"alts": [
+"万紫千紅のライサンダー",
+"万紫千紅のライサンダー(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-16": {
+"jp": "バッカニア",
+"init": "https://img.gamewith.jp/img/0e066a493247a3d4ef59725cc08b50d7.png",
+"after": "https://img.gamewith.jp/img/001bf437d140d3558707959796e88b95.png",
+"alts": [
+"万紫千紅のバッカニア",
+"万紫千紅のバッカニア(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-17": {
+"jp": "シロッコ",
+"init": "https://img.gamewith.jp/img/a94e4672e7443635b46526f5d3edbe10.png",
+"after": "https://img.gamewith.jp/img/3abef7dcba92fca7cf642442c9febee1.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のクエスト一覧",
+"万紫千紅のシロッコ",
+"万紫千紅のシロッコ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"recruit-18": {
+"jp": "オリンピア",
+"init": "https://img.gamewith.jp/img/eaab4e612c866e2d2076602603f2f2be.png",
+"after": "https://img.gamewith.jp/img/957a77b11239f6cea86b3a435f989b08.png",
+"alts": [
+"万紫千紅のオリンピア",
+"万紫千紅のオリンピア(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-19": {
+"jp": "ムウ",
+"init": "https://img.gamewith.jp/img/0ec41ec19a43319cdd518a6e46e27d53.png",
+"after": "https://img.gamewith.jp/img/d5582228ee6ce198eb70a5d54f032c22.png",
+"alts": [
+"万紫千紅のムウ",
+"万紫千紅のムウ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"bertrand": {
+"jp": "ベルトラン",
+"init": "https://img.gamewith.jp/img/a8a6250d2434b30d2599afd288124717.png",
+"after": "https://img.gamewith.jp/img/2440445fe97e0fbc77f169a72478deda.png",
+"alts": [
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のベルトラン",
+"万紫千紅のベルトラン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"talimun": {
+"jp": "タリムーン",
+"init": "https://img.gamewith.jp/img/010c4182793c9f45a02ebfd0f10251d7.png",
+"after": "https://img.gamewith.jp/img/be3b32b290b9a58746fb391f9a076069.png",
+"alts": [
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のタリムーン",
+"万紫千紅のタリムーン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"orchel": {
+"jp": "オルヘル",
+"init": "https://img.gamewith.jp/img/1f9f577a5b22a05fdcf05025dc8ddb5e.png",
+"after": "https://img.gamewith.jp/img/6076c5156557835c9b8d595c95ef97b4.png",
+"alts": [
+"ファイアーエムブレム万紫千紅の外伝",
+"万紫千紅のオルヘル",
+"万紫千紅のオルヘル(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"anatolia": {
+"jp": "アナトリア",
+"init": "https://img.gamewith.jp/img/8027e87cd96d652f93a35ee0983a5515.png",
+"after": "https://img.gamewith.jp/img/77f98f26f742efcd361fee20c9e01ebc.png",
+"alts": [
+"ファイアーエムブレム万紫千紅のアナトリア外伝",
+"万紫千紅のアナトリア",
+"万紫千紅のアナトリア(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"centurio": {
+"jp": "セントリオン",
+"init": "https://img.gamewith.jp/img/454e22f7f045e83f352ec25702e95924.png",
+"after": "https://img.gamewith.jp/img/7360833e82c0d7e40541d3398f91d1fc.png",
+"alts": [
+"万紫千紅のセントリオン",
+"万紫千紅のセントリオン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"troy": {
+"jp": "トロイア",
+"init": "https://img.gamewith.jp/img/55cca18e94ddd7710c98dd679490406c.png",
+"after": "https://img.gamewith.jp/img/7ffd5c555711fa440631adea310aa441.png",
+"alts": [
+"万紫千紅のトロイア",
+"万紫千紅のトロイア(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"hong-hua": {
+"jp": "コウカ",
+"init": "https://img.gamewith.jp/img/5ccdf47b599c2cba001eab93f34f465f.png",
+"after": "https://img.gamewith.jp/img/2c2812ad5362cd5f8adf84a9bd8ef645.png",
+"alts": [
+"万紫千紅のコウカ",
+"万紫千紅のコウカ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"gaitz": {
+"jp": "ゲイツ",
+"init": "https://img.gamewith.jp/img/939c72e2731f139608f8ead2b6ad74c2.png",
+"after": "https://img.gamewith.jp/img/c97411996548196d8b3d746569dda8d3.png",
+"alts": [
+"万紫千紅のゲイツ",
+"万紫千紅のゲイツ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-24": {
+"jp": "ウーシュラ",
+"init": "https://img.gamewith.jp/img/e32433a59aea92856c928e1a2651127d.png",
+"after": "https://img.gamewith.jp/img/a8309a895676cd0ebc7fa38c457d1331.png",
+"alts": [
+"万紫千紅のウーシュラ",
+"万紫千紅のウーシュラ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"diego": {
+"jp": "ディエゴ",
+"init": "https://img.gamewith.jp/img/9c0aac225df5988c47dfcecb6e5c07b6.png",
+"after": "https://img.gamewith.jp/img/bbdb7b34da321e1ca4f7c58ce6cf6ebd.png",
+"alts": [
+"万紫千紅のディエゴ",
+"万紫千紅のディエゴ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"sha-lan": {
+"jp": "サラン",
+"init": "https://img.gamewith.jp/img/bbf5ab23a9e8cb16bcd92d34947a452f.png",
+"after": "https://img.gamewith.jp/img/3ea53eb3551a77b4ac92aa6480190791.png",
+"alts": [
+"万紫千紅のサラン",
+"万紫千紅のサラン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"dante": {
+"jp": "ダンテ",
+"init": "https://img.gamewith.jp/img/dead4bb60e793e02fffc567d71ffbe51.png",
+"after": "https://img.gamewith.jp/img/ba65b1fd6f8230738b4927be09ae5104.png",
+"alts": [
+"万紫千紅のダンテ",
+"万紫千紅のダンテ(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"recruit-28": {
+"jp": "シモン",
+"init": "https://img.gamewith.jp/img/f25de1249abc86a4541ae56f4baf7fcc.png",
+"after": "https://img.gamewith.jp/img/048f0470c7ebc6ccb3d42477e56bfe81.png",
+"alts": [
+"万紫千紅のシモン",
+"万紫千紅のシモン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-29": {
+"jp": "ニネ",
+"init": "https://img.gamewith.jp/img/8cd97772d41d45800c59beb0ff7be5db.png",
+"after": "https://img.gamewith.jp/img/e017c23ec7fd9f9026ea820b51e336c3.png",
+"alts": [
+"万紫千紅のニネ",
+"万紫千紅のニネ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-30": {
+"jp": "ナジャ",
+"init": "https://img.gamewith.jp/img/4d56aa5b51e2b4d55392267c5a505388.png",
+"after": "https://img.gamewith.jp/img/575e675535b57e94a87df96e806a9c2f.png",
+"alts": [
+"万紫千紅のナジャ",
+"万紫千紅のナジャ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-31": {
+"jp": "グザラン",
+"init": "https://img.gamewith.jp/img/cf7707a3fdbf40f89e98770ace239ec2.png",
+"after": "https://img.gamewith.jp/img/c5b060917d173078aa095b6c769d1223.png",
+"alts": [
+"万紫千紅のグザラン",
+"万紫千紅のグザラン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"nydine": {
+"jp": "ヌディーヌ",
+"init": "https://img.gamewith.jp/img/e64f8da67f8c21c3a6ba906c0b246011.png",
+"after": "https://img.gamewith.jp/img/a7ee07e894590feb3bdeca8272599b8e.png",
+"alts": [
+"万紫千紅のヌディーヌ",
+"万紫千紅のヌディーヌ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-33": {
+"jp": "イオ",
+"init": "https://img.gamewith.jp/img/fdeadb27a3d49e238ac97d9f54ad9615.png",
+"after": "https://img.gamewith.jp/img/95f9b1586101d061cb4ebca5edf04ef4.png",
+"alts": [
+"万紫千紅のイオ",
+"万紫千紅のイオ(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"recruit-34": {
+"jp": "カターニャ",
+"init": "https://img.gamewith.jp/img/d99078429c05a085b2f99e81f5c5e638.png",
+"after": "https://img.gamewith.jp/img/99fa4a057b80425eb34afbcecb6d26b8.png",
+"alts": [
+"万紫千紅のカターニャ",
+"万紫千紅のカターニャ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"benditz": {
+"jp": "ベンディッツ",
+"init": "https://img.gamewith.jp/img/1df99883063967012870474904540ddb.png",
+"after": "https://img.gamewith.jp/img/800360571259c6d5bb31cea5eed1df89.png",
+"alts": [
+"万紫千紅のベンディッツ",
+"万紫千紅のベンディッツ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"alexandra": {
+"jp": "アレキサンドラ",
+"init": "https://img.gamewith.jp/img/ba97c9c41912f991757af65fcfdb4d17.png",
+"after": "https://img.gamewith.jp/img/ab31ebae93e9954eb3d16c076c7936fd.png",
+"alts": [
+"万紫千紅のアレキサンドラ",
+"万紫千紅のアレキサンドラ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"noctula": {
+"jp": "ノクチュラ",
+"init": "https://img.gamewith.jp/img/c21fc352e1f1eb5168ba40a64f455ca3.png",
+"after": "https://img.gamewith.jp/img/60f8b2376f3e6ced67be82cf1b2439ac.png",
+"alts": [
+"万紫千紅のノクチュラ",
+"万紫千紅のノクチュラ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"yang-jie": {
+"jp": "ヨーカイ",
+"init": "https://img.gamewith.jp/img/09b2c0cb48dba043a28f15141d4173b0.png",
+"after": "https://img.gamewith.jp/img/edd89800f9d5d601b1943f751c6007f6.png",
+"alts": [
+"万紫千紅のヨーカイ",
+"万紫千紅のヨーカイ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"sofia": {
+"jp": "ソフィア",
+"init": "https://img.gamewith.jp/img/fb9db449cdd110a3474a38bbb1fa809c.png",
+"after": "https://img.gamewith.jp/img/2a3d4b9fab70bc3ffecca954512bfc4f.png",
+"alts": [
+"万紫千紅のソフィア",
+"万紫千紅のソフィア(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"nuzzuo": {
+"jp": "ヌッツォ",
+"init": "https://img.gamewith.jp/img/4e683d66a492c64beba38e5bab8e0df8.png",
+"after": "https://img.gamewith.jp/img/64ce1db743b7129e53528f6b25ae860a.png",
+"alts": [
+"万紫千紅のヌッツォ",
+"万紫千紅のヌッツォ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"majide": {
+"jp": "マジーデ",
+"init": "https://img.gamewith.jp/img/4e90ef2bf6c24d20f20982fa89816cdb.png",
+"after": "https://img.gamewith.jp/img/64873fd2bc73b11f557830765d00a8f4.png",
+"alts": [
+"万紫千紅のマジーデ",
+"万紫千紅のマジーデ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"zarcone": {
+"jp": "ザーコネ",
+"init": "https://img.gamewith.jp/img/c6c247569ef3868a7c170f1631f0815f.png",
+"after": "https://img.gamewith.jp/img/f97904645af827eb09ba250111b350c0.png",
+"alts": [
+"万紫千紅のザーコネ",
+"万紫千紅のザーコネ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-43": {
+"jp": "ゴライアス",
+"init": "https://img.gamewith.jp/img/6bba026d79af78c5d2a94502492bcf8f.png",
+"after": "https://img.gamewith.jp/img/f64a57735353908e521e0b107e54817a.png",
+"alts": [
+"万紫千紅のゴライアス",
+"万紫千紅のゴライアス(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"jester": {
+"jp": "ジェスター",
+"init": "https://img.gamewith.jp/img/2289a9b04db29e57068483778820ed1a.png",
+"after": "https://img.gamewith.jp/img/e42542ff5ff8d6e4271b9fb4db9c39e9.png",
+"alts": [
+"万紫千紅のジェスター",
+"万紫千紅のジェスター(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"ludia": {
+"jp": "ルルディヤー",
+"init": "https://img.gamewith.jp/img/96e06c9d82bbbfb196631e445cef01ff.png",
+"after": "https://img.gamewith.jp/img/3de155fbb20c792f4d4a840a278f18d7.png",
+"alts": [
+"万紫千紅のルルディヤー",
+"万紫千紅のルルディヤー(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"fianna": {
+"jp": "フィアナ",
+"init": "https://img.gamewith.jp/img/cb2159d106b13b0c0146a7a4ee0453b5.png",
+"after": "https://img.gamewith.jp/img/8f9ccb9f017ba315b068533e024c3864.png",
+"alts": [
+"万紫千紅のフィアナ",
+"万紫千紅のフィアナ(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"dadao": {
+"jp": "ダイトウ",
+"init": "https://img.gamewith.jp/img/98320ab835b7d8388ef815997a66810f.png",
+"after": "https://img.gamewith.jp/img/4129ad159b12a065e3f4b517e1e2fec7.png",
+"alts": [
+"万紫千紅のダイトウ",
+"万紫千紅のダイトウ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"halvin": {
+"jp": "ハルヴィン",
+"init": "https://img.gamewith.jp/img/a58b5777f7943b4213b969ddd0101f69.png",
+"after": "https://img.gamewith.jp/img/268c141a540559bfecf86bdcdba0e9ef.png",
+"alts": [
+"万紫千紅のハルヴィン",
+"万紫千紅のハルヴィン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"seteth": {
+"jp": "セテス",
+"init": "https://img.gamewith.jp/img/c9be847d56e5830aff606b6dbdf2c93f.png",
+"after": "https://img.gamewith.jp/img/1a309845f5d06c0a5c5c57cd9dfd884d.png",
+"alts": [
+"万紫千紅のセテス",
+"万紫千紅のセテス(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"recruit-50": {
+"jp": "ロレッタ",
+"init": "https://img.gamewith.jp/img/7efd107792db0ad4c8e3938a3e4c0722.png",
+"after": "https://img.gamewith.jp/img/dc22ac9a382d6a999ef44967bb10a66d.png",
+"alts": [
+"万紫千紅のロレッタ",
+"万紫千紅のロレッタ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"nathan": {
+"jp": "ネイサン",
+"init": "https://img.gamewith.jp/img/8ea50c99662ff29c2499f24998cb15cd.png",
+"after": "https://img.gamewith.jp/img/8ea50c99662ff29c2499f24998cb15cd.png",
+"alts": [
+"万紫千紅のネイサン",
+"万紫千紅のネイサン(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"creek": {
+"jp": "キリーク",
+"init": "https://img.gamewith.jp/img/7e7eaca99116f4bfc0955134d6e84109.png",
+"after": "https://img.gamewith.jp/img/7e7eaca99116f4bfc0955134d6e84109.png",
+"alts": [
+"万紫千紅のキリーク",
+"万紫千紅のキリーク(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"jasmine": {
+"jp": "ジャスミン",
+"init": "https://img.gamewith.jp/img/78b8af53f3d531815e7f1dad3be1a3ba.png",
+"after": "https://img.gamewith.jp/img/78b8af53f3d531815e7f1dad3be1a3ba.png",
+"alts": [
+"万紫千紅のジャスミン",
+"万紫千紅のジャスミン(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"kiroc": {
+"jp": "キロイカ",
+"init": "https://img.gamewith.jp/img/af8bb206d81951474ee89ff548d58428.png",
+"after": "https://img.gamewith.jp/img/6959b4a2f9f84f4e5dcb06b44dcda610.png",
+"alts": [
+"万紫千紅のキロイカ",
+"万紫千紅のキロイカ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"inyoni": {
+"jp": "イニオニ",
+"init": "https://img.gamewith.jp/img/9bcacd3b8200abd7cf4a1918d6f863f6.png",
+"after": "https://img.gamewith.jp/img/8d65036626d437a2c19067dd60df9718.png",
+"alts": [
+"万紫千紅のイニオニ",
+"万紫千紅のイニオニ(5年後)",
+"万紫千紅のお金",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン"
+]
+},
+"recruit-53": {
+"jp": "ペペ",
+"init": "https://img.gamewith.jp/img/6df03b112d3a74d02b1a2ea50ad69d6c.png",
+"after": "https://img.gamewith.jp/img/0a585c6c467575e37d52ce3bef99909e.png",
+"alts": [
+"万紫千紅のペペ",
+"万紫千紅のペペ(5年後)",
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧"
+]
+},
+"aswan": {
+"jp": "アスワン",
+"init": null,
+"after": null,
+"alts": [
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧",
+"ファイアーエムブレム万紫千紅の最強キャラ",
+"ファイアーエムブレム万紫千紅のスカウトおすすめ"
+]
+},
+"tahonia": {
+"jp": "タホウニア",
+"init": null,
+"after": null,
+"alts": [
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧",
+"ファイアーエムブレム万紫千紅の最強キャラ",
+"ファイアーエムブレム万紫千紅のスカウトおすすめ"
+]
+},
+"klapka": {
+"jp": "クラプカ",
+"init": null,
+"after": null,
+"alts": [
+"ファイアーエムブレム万紫千紅の攻略トップページへ戻るボタン",
+"ファイアーエムブレム万紫千紅のキャラ一覧",
+"ファイアーエムブレム万紫千紅の最強キャラ",
+"ファイアーエムブレム万紫千紅のスカウトおすすめ"
+]
+}
+}
