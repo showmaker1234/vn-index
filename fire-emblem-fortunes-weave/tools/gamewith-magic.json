@@ -1,0 +1,429 @@
+{
+"source": [
+"https://gamewith.jp/fefw/574424",
+"https://gamewith.jp/fefw/573032",
+"https://game8.co/games/Fire-Emblem-Fortunes-Weave/archives/620393"
+],
+"checked": "2026-09-28",
+"effective": {
+"x": 2,
+"plus": 3
+},
+"spells": {
+"ファイアー": {
+"kind": "黒魔法",
+"mt": 3,
+"hit": 90,
+"crit": 0,
+"wt": 5,
+"range": "1-2",
+"uses": 10,
+"effect": "火球で攻撃する炎の初級魔法",
+"learners": [
+"cai",
+"recruit-6",
+"recruit-8",
+"talimun",
+"orchel",
+"anatolia",
+"sofia",
+"fianna"
+],
+"effective": [],
+"vsDef": false
+},
+"ウィンド": {
+"kind": "黒魔法",
+"mt": 3,
+"hit": 100,
+"crit": 0,
+"wt": 3,
+"range": "1-2",
+"uses": 10,
+"effect": "真空の刃で攻撃する風の初級魔法。 飛行有効",
+"learners": [
+"recruit-6",
+"bonaventure",
+"recruit-17",
+"dante",
+"yang-jie"
+],
+"effective": [
+"flying"
+],
+"vsDef": false
+},
+"スライムB": {
+"kind": "黒魔法",
+"mt": 3,
+"hit": 70,
+"crit": 0,
+"wt": 15,
+"range": "1-3",
+"uses": 5,
+"effect": "疑似生命体の消化液を用いた攻撃",
+"learners": [
+"fabio",
+"recruit-17"
+],
+"effective": [],
+"vsDef": false
+},
+"サンダー": {
+"kind": "黒魔法",
+"mt": 5,
+"hit": 76,
+"crit": 0,
+"wt": 7,
+"range": "1-2",
+"uses": 8,
+"effect": "局地的な落雷を起こす雷の初級魔法",
+"learners": [
+"recruit-17",
+"yang-jie"
+],
+"effective": [],
+"vsDef": false
+},
+"硝子の車輪": {
+"kind": "黒魔法",
+"mt": 12,
+"hit": 90,
+"crit": 0,
+"wt": 7,
+"range": "1-2",
+"uses": 7,
+"effect": "超硬質な硝子の矢で敵を攻撃する 敵の耐物でダメージ計算する 飛行有効",
+"learners": [
+"anatolia"
+],
+"effective": [
+"flying"
+],
+"vsDef": true
+},
+"ブリザー": {
+"kind": "黒魔法",
+"mt": 4,
+"hit": 80,
+"crit": 5,
+"wt": 6,
+"range": "1-2",
+"uses": 7,
+"effect": "対象を氷結させる氷の初級魔法",
+"learners": [
+"bonaventure",
+"sofia"
+],
+"effective": [],
+"vsDef": false
+},
+"ボルガノン": {
+"kind": "黒魔法",
+"mt": 10,
+"hit": 85,
+"crit": 0,
+"wt": 8,
+"range": "1-2",
+"uses": 10,
+"effect": "付近を焼き尽くす炎の上級魔法",
+"learners": [
+"hong-hua"
+],
+"effective": [],
+"vsDef": false
+},
+"ライブ": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "傷を少し癒す回復魔法 味方のHPを回復する",
+"learners": [
+"cai",
+"recruit-6",
+"recruit-8",
+"fabio",
+"bonaventure",
+"recruit-17",
+"recruit-18",
+"recruit-19",
+"talimun",
+"orchel",
+"anatolia",
+"troy"
+],
+"effective": [],
+"vsDef": false
+},
+"リザイア": {
+"kind": "白魔法",
+"mt": 1,
+"hit": 80,
+"crit": 0,
+"wt": 8,
+"range": "1-2",
+"uses": 8,
+"effect": "対象の生命力を吸収する神聖魔法 与えたダメージの半分HP回復する",
+"learners": [
+"recruit-18"
+],
+"effective": [],
+"vsDef": false
+},
+"エマージス": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "致命的な一撃から守護する神聖魔法 味方の必避+30 (次の自分のフェイズまで)",
+"learners": [
+"recruit-18"
+],
+"effective": [],
+"vsDef": false
+},
+"彷徨える壁": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "任意の場所に壁を生み出す",
+"learners": [
+"anatolia"
+],
+"effective": [],
+"vsDef": false
+},
+"エンジェル": {
+"kind": "白魔法",
+"mt": 10,
+"hit": 75,
+"crit": 0,
+"wt": 10,
+"range": "1-2",
+"uses": 3,
+"effect": "清浄なる光で攻撃する神聖魔法 冥魔有効",
+"learners": [
+"orchel"
+],
+"effective": [
+"infernal"
+],
+"vsDef": false
+},
+"レスト": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "身体を正常な状態に戻す神聖魔法。 味方の状態異常を解除する",
+"learners": [
+"recruit-17"
+],
+"effective": [],
+"vsDef": false
+},
+"ライア": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "味方のHPを少し回復する 稀に、回復量+100",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"リブロー": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "遠くの味方のHPを回復する",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"リカバー": {
+"kind": "白魔法",
+"mt": null,
+"hit": null,
+"crit": null,
+"wt": null,
+"range": null,
+"uses": null,
+"effect": "味方のHPを大きく回復する ファイアーエムブレム万紫千紅の関連記事 [img:ファイアーエムブレム万紫千紅の攻略トップペ",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"ドーラΔ": {
+"kind": "闇魔法",
+"mt": 5,
+"hit": 80,
+"crit": 0,
+"wt": 5,
+"range": "1-2",
+"uses": 10,
+"effect": "凝縮した暗黒物質で敵を攻撃する",
+"learners": [
+"fabio"
+],
+"effective": [],
+"vsDef": false
+},
+"デスｒ": {
+"kind": "闇魔法",
+"mt": 15,
+"hit": 75,
+"crit": 20,
+"wt": 13,
+"range": "1-2",
+"uses": 5,
+"effect": "人工の死神が対象を死に誘う。 必殺が高い",
+"learners": [
+"recruit-17"
+],
+"effective": [],
+"vsDef": false
+},
+"バンシーΘ": {
+"kind": "闇魔法",
+"mt": 8,
+"hit": 50,
+"crit": 0,
+"wt": 23,
+"range": "1-3",
+"uses": 2,
+"effect": "命中させた時、敵を移動不能状態にする",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"ダークスパイクΤ": {
+"kind": "闇魔法",
+"mt": 20,
+"hit": 60,
+"crit": 0,
+"wt": 20,
+"range": "1-2",
+"uses": 2,
+"effect": "対騎兵に特化した性能を誇る魔法。 騎兵特効 ファイアーエムブレム万紫千紅の関連記事 [img:ファイアーエムブレム万紫千",
+"learners": [],
+"effective": [
+"cavalry+"
+],
+"vsDef": false
+},
+"オーラ": {
+"kind": "白魔法",
+"mt": 22,
+"hit": 70,
+"crit": 0,
+"wt": 18,
+"range": "1-2",
+"uses": 3,
+"effect": "足元からの光で敵を焼き尽くす神聖魔法",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"アロー": {
+"kind": "黒魔法",
+"mt": 13,
+"hit": 100,
+"crit": 0,
+"wt": 12,
+"range": "1-2",
+"uses": 3,
+"effect": "鋭い威力の矢が敵を襲う魔法",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"トロン": {
+"kind": "黒魔法",
+"mt": 20,
+"hit": 55,
+"crit": 5,
+"wt": 25,
+"range": "1-3",
+"uses": 4,
+"effect": "強力な電撃が敵を貫く雷の上級魔法",
+"learners": [],
+"effective": [],
+"vsDef": false
+},
+"アイスブレード": {
+"kind": "黒魔法",
+"mt": 12,
+"hit": 75,
+"crit": 5,
+"wt": 10,
+"range": "1-2",
+"uses": 6,
+"effect": "氷結の刃が敵を襲う氷の上級魔法",
+"learners": [],
+"effective": [],
+"vsDef": false
+}
+},
+"arts": {
+"燕返し": {
+"weapon": "剣術",
+"effective": [
+"flying"
+],
+"learners": [
+"recruit-17",
+"recruit-31",
+"nuzzuo"
+]
+},
+"鎧通し": {
+"weapon": "剣術",
+"effective": [
+"armor"
+],
+"learners": [
+"alexandra"
+]
+},
+"虎切り": {
+"weapon": "剣術",
+"effective": [
+"cavalry"
+],
+"learners": [
+"bertrand"
+]
+},
+"兜割り": {
+"weapon": "斧術",
+"effective": [
+"armor"
+],
+"learners": [
+"centurio"
+]
+}
+}
+}
