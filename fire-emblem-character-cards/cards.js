@@ -131,7 +131,7 @@ document.addEventListener('change',e=>{if(e.target.id==='sort'){state.sort=e.tar
 let timer;document.addEventListener('input',e=>{if(e.target.id!=='q')return;state.q=e.target.value;clearTimeout(timer);timer=setTimeout(()=>{const pos=e.target.selectionStart;render();const f=$('#q');f.focus();try{f.setSelectionRange(pos,pos)}catch{}},160)});
 
 render();
-$('#foot').innerHTML='<p>梯队、成长率与培养路线来自本站<a href="'+SITE+'#rankings">综合梯队 3.0</a>与<a href="'+SITE+'#builds">培养方案</a>（'+esc(D.generated)+' 核对）。立绘、年龄身高来自 <a href="'+D.sources.portraits+'" target="_blank" rel="noopener">GameWith 5 年后外观一览</a>；关键装备按定位与武器类型套用规则推荐，参考 GameWith <a href="'+D.sources.weapons+'" target="_blank" rel="noopener">武器</a>、<a href="'+D.sources.equipment+'" target="_blank" rel="noopener">装备</a>、<a href="'+D.sources.mounts+'" target="_blank" rel="noopener">骑乘动物</a>一览，部分道具名为暂译。</p><p>游戏图像版权归 Nintendo / Intelligent Systems 所有，本页为非官方攻略整理。</p>';
+$('#foot').innerHTML='<p>梯队、成长率与培养路线来自本站<a href="'+SITE+'#rankings">综合梯队 3.1</a>与<a href="'+SITE+'#builds">培养方案</a>（'+esc(D.generated)+' 核对）。立绘、年龄身高来自 <a href="'+D.sources.portraits+'" target="_blank" rel="noopener">GameWith 5 年后外观一览</a>；关键装备按定位与武器类型套用规则推荐，参考 GameWith <a href="'+D.sources.weapons+'" target="_blank" rel="noopener">武器</a>、<a href="'+D.sources.equipment+'" target="_blank" rel="noopener">装备</a>、<a href="'+D.sources.mounts+'" target="_blank" rel="noopener">骑乘动物</a>一览，部分道具名为暂译。</p><p>游戏图像版权归 Nintendo / Intelligent Systems 所有，本页为非官方攻略整理。</p>';
 addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(id&&cards.some(c=>c.id===id))detail(id);else closeDetail()});
 if(location.hash.length>1)detail(decodeURIComponent(location.hash.slice(1)));
 })();
