@@ -25,9 +25,9 @@ const renownChapter=r=>3+0.5*r;            // 所需名声等级大约在第几�
 const BLEND={external:0.6,own:0.4};
 const TIERS=[['T0',0.08],['T1',0.25],['T2',0.5],['T3',0.75],['T4',1]];
 const LORD_RANKS={keengamer:{dietrich:1,theodora:2,leda:3,cai:4},gamewith:{dietrich:1,theodora:3,leda:3,cai:3},algest:{leda:1,dietrich:3,theodora:3,cai:3}};
-const PRIOR={contribution:31,durability:15,skills:16,mobility:8,availability:15,cost:5,adaptability:10};
+const PRIOR={contribution:35,durability:15,skills:20,mobility:10,availability:15,cost:5};
 const FEATURES=Object.keys(PRIOR);
-const FEATURE_NAMES={contribution:'主要贡献（输出、治疗、坦克取高）',durability:'承伤能力',skills:'个人与团队技能',mobility:'机动',availability:'可用场次',cost:'招募成本',adaptability:'适配性（可用打法数）'};
+const FEATURE_NAMES={contribution:'主要贡献（输出、治疗、坦克取高）',durability:'承伤能力',skills:'个人与团队技能',mobility:'机动',availability:'可用场次',cost:'招募成本'};
 const HEAL_SCAN=[0.6,0.7,0.8,0.9,1];
 const PRIOR_SHARE=0.5; // 最终权重 = 50% 先验 + 50% 外部共识拟合，避免权重被少数样本带偏
 /* 标准武器：取站内武器库中各类型 C 级的达米纳系列（黑魔法用博尔加农，命中未收录按 80 计） */
@@ -65,7 +65,7 @@ const SKILL_CODE={'剣術':'sword','槍術':'spear','斧術':'axe','弓術':'bow
 const RANK={S:6,A:5,B:4,C:3,D:2,E:1,F:0};
 const ROUTE_NAME={cai:'凯伊篇',dietrich:'迪托利希篇',theodora:'赛奥朵拉篇',leda:'蕾达篇',savior:'救世主篇'};
 const CLASS_ZH={'平民':'平民','貴族':'贵族','闘士':'斗士','猟兵':'猎兵','兵士':'士兵','飛駝兵':'飞驼兵','呪い師':'咒术师','剣士':'剑士','ブリガンド':'山贼','セスタス':'拳斗士','アーチャー':'弓兵','ローグ':'盗贼','重装歩兵':'重装步兵','軽騎兵':'轻骑兵','戦車兵':'战车兵','騎甲駝兵':'甲驼骑兵','シャーマン':'萨满','プリースト':'祭司','天翼兵':'天翼兵','シドー':'士道','ウォーリアー':'勇士','スナイパー':'狙击手','フォレストナイト':'森林骑士','ヘヴィアーマー':'重甲兵','バーディンガー':'巴丁格骑士','ウァテス':'先知','ビショップ':'主教','カラドリオス':'卡拉德里奥斯','ガーディアン':'守护者','踊り子':'舞娘','ドラグーン':'龙骑兵','トルバドール':'游吟骑士','カタフラクト':'铁甲骑兵','レンジャー':'游侠','戦象兵':'战象兵','バトルマスター':'战斗大师','マスターアーチ':'弓圣','シャドーシーカー':'影猎者','ホーリーランサー':'圣枪兵','フォートレス':'要塞','オリハルディア':'奥里哈尔骑士','ドラゴンマスター':'龙主','ドルイド':'德鲁伊','ワイズマン':'贤者','バトルモンク':'武僧','聖天翼兵':'圣天翼兵','グレートナイト':'巨骑士','ソードマスター':'剑圣','ハイエピタフ':'碑文骑士','ボウナイト':'弓骑士','ヴァルキュリウム':'女武神'};
-const WEAPON_ZH={thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
+const WEAPON_ZH={blaze:'焰技',thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
 
 const mid=r=>Array.isArray(r)?(r[0]+r[1])/2:r;
 const timeZh=t=>String(t||'').replace(/【(.+?)編】/,(_,n)=>({'カイ':'凯伊','ディートリヒ':'迪托利希','セオドラ':'赛奥朵拉','レダ':'蕾达','救世主':'救世主'}[n]||n)+'篇 ').replace(/1部(\d+)章/,'第一部第$1章').replace(/2部(\d+)章/,'第二部第$1章').replace(/3部(\d+)区分/,'第三部第$1节').replace(/序幕(\d+)章/,'序幕第$1章').replace(/(\d+)月$/,' $1月').trim();
@@ -80,6 +80,7 @@ function growthOf(c){
     if(s==null)g[k]=a;else if(a!=null&&a!==s&&!c.effectiveGrowthRates){g[k]=(s+a)/2;conflicts.push(k)}else g[k]=s}
   return{g,source:site?(conflicts.length?'mixed':'site'):'gamewith',conflicts};
 }
+const gwChars0=fs.existsSync(path.join(__dirname,'gamewith-chars.json'))?require('./gamewith-chars.json'):{};
 const profsOf=c=>[...new Set([...(c.proficienciesKnown?c.proficiencyCodes:[]),...(gwRoster[c.id]?.proficiencies||[])])];
 const noMount=c=>['Goliath','Orchel'].includes(c.originalName);
 
@@ -126,21 +127,33 @@ function costPenalty(q){
 /* ---------- 职业可行性 ---------- */
 const parseReq=list=>(list||[]).filter(x=>x&&x!=='-').join('、').split('、').map(s=>s.trim()).filter(Boolean).map(s=>({code:SKILL_CODE[s.slice(0,-1)],rank:RANK[s.slice(-1)]}));
 const finalClasses=classes.filter(k=>['上級職','最上級職'].includes(k.tier)||k.name==='戦車兵');
-function classOk(c,k){
-  const p=profsOf(c),w=k.weapons||[];
-  if(w.includes('性別限定')&&w.includes('女')&&gwRoutes[c.id]?.gender!=='female')return false;
-  if(k.name==='踊り子'&&c.id!=='leda')return false;
+/* 职业可行性：苦手技能不能当主修要求；非得意也非苦手的「中性」技能可以练，按要求等级计培养成本 */
+const banesOf=c=>(gwChars0[c.id]?.bane||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
+/* 试过放开中性技能：与外部共识的吻合度从 0.68 降到 0.65，暂不采用，强度评分仍只走得意技能；培养方案可指定任意职业 */
+const ALLOW_NEUTRAL=false;
+const TRAIN_COST=3; // 每练一个中性技能到 D 级记 3 分招募/培养扣分，C 级 6，B 级 9，A 级 12
+function classTrain(c,k){
+  const p=profsOf(c),bane=banesOf(c),w=k.weapons||[];
+  if(w.includes('性別限定')&&w.includes('女')&&gwRoutes[c.id]?.gender!=='female')return null;
+  if(k.name==='踊り子'&&c.id!=='leda')return null;
   const mounted=k.traits.some(t=>/騎兵|飛行/.test(t));
-  if(mounted&&noMount(c))return false;
+  if(mounted&&noMount(c))return null;
+  let train=0;
   for(const r of parseReq(k.main)){
     if(!r.code)continue;
     const weaponish=['sword','spear','axe','bow','gauntlet','blackMagic','whiteMagic'].includes(r.code);
-    if((weaponish||r.rank>=RANK.C)&&!p.includes(r.code))return false;
+    if(!(weaponish||r.rank>=RANK.C)||p.includes(r.code))continue;
+    if(bane.includes(r.code)||!ALLOW_NEUTRAL)return null;
+    train+=Math.max(1,r.rank-RANK.E);
   }
   const sel=parseReq(k.select).filter(r=>r.code);
-  if(sel.length&&!sel.some(r=>p.includes(r.code)))return false;
-  return true;
+  if(sel.length&&!sel.some(r=>p.includes(r.code))){
+    const ok=sel.filter(r=>!bane.includes(r.code));if(!ok.length||!ALLOW_NEUTRAL)return null;
+    train+=Math.min(...ok.map(r=>Math.max(1,r.rank-RANK.E)));
+  }
+  return train;
 }
+const classOk=(c,k)=>classTrain(c,k)!==null;
 function classBonus(k,re){let s=0;for(const t of k.classSkills||[]){for(const m of t.matchAll(re))s+=+m[1]}return s}
 
 /* ---------- 能力推算与战斗模拟 ---------- */
@@ -173,30 +186,58 @@ const medG=Object.fromEntries(G.map(s=>[s,median(pool.map(c=>growthOf(c).g[s]))]
 /* 敌人也套用后期职业：成长 = 角色中位数 + 上级/最上级职业修正的中位数 */
 const medClass=Object.fromEntries(G.map((s,i)=>[s,median(classes.filter(k=>['上級職','最上級職'].includes(k.tier)).map(k=>k.growth[i]))]));
 const enemyStats=Object.fromEntries(G.map(s=>[s,(s==='hp'?BASE.hp:BASE.other)+(medG[s]+medClass[s])*LEVELS/100]));enemyStats.build=BUILD.base+1;
-const ENEMIES={physical:combatant(enemyStats,WEAPONS.spear),magic:combatant(enemyStats,WEAPONS.blackMagic)};
+/* 四类标准敌人：能力 = 角色成长中位数 + 对应上级职业的成长修正。防守、魔防各有高低，
+   物理、魔法都能打的角色可以对每类敌人挑最有效的手段 */
+const ENEMY_TYPES=[
+  {id:'infantry',name:'持枪步兵',cls:null,weapon:'spear'},
+  {id:'armor',name:'重甲',cls:'ヘヴィアーマー',weapon:'spear'},
+  {id:'mage',name:'法师',cls:'ウァテス',weapon:'blackMagic'},
+  {id:'cavalry',name:'骑兵',cls:'バーディンガー',weapon:'spear'}
+];
+const ENEMY_LIST=ENEMY_TYPES.map(t=>{
+  const k=t.cls?classes.find(x=>x.name===t.cls):null;
+  const st=Object.fromEntries(G.map((s,i)=>[s,(s==='hp'?BASE.hp:BASE.other)+(medG[s]+(k?k.growth[i]:medClass[s]))*LEVELS/100]));
+  st.build=BUILD.base+1+(k&&k.traits.some(x=>/重装/.test(x))?BUILD.armor:0)+(k&&k.traits.some(x=>/騎兵|飛行/.test(x))?BUILD.mounted:0);
+  return{...t,st,c:combatant(st,WEAPONS[t.weapon])};
+});
+const ENEMIES={physical:ENEMY_LIST[0].c,magic:combatant(enemyStats,WEAPONS.blackMagic)}; // 承伤仍按原来的两类标准敌人
+const NEUTRAL_LAG=0.9; // 非得意武器的输出折扣
+const REACH_BONUS=0.08; // 有 1–2 格攻击手段（魔法、雷之剑）且够用时，敌人回合能反击远程敌人
+/* 攻击型焰技当作一种不受职业限制的输出手段。威力未公开：按魔法攻击、威力与博尔加农相同估算，消耗 HP 用不了太多次，输出 × 0.8 */
+const BLAZE_MODES={orchel:{mt:10,wt:0,hit:80,magic:true,factor:0.8,note:'焰技「兰策」：远程光枪（威力按博尔加农估算）'}};
+const RANGE_OF=wc=>wc==='blaze'?'1-2':['blackMagic','thunderSword'].includes(wc)?'1-2':wc==='bow'?'2':'1';
 
 const HIT_RE={sword:/剣命中\+(\d+)/g,spear:/槍命中\+(\d+)/g,axe:/斧命中\+(\d+)/g,bow:/弓命中\+(\d+)/g,gauntlet:/格闘命中\+(\d+)/g,blackMagic:/魔法命中\+(\d+)/g};
 function simulate(c,g,k,route,forced,override,opts={}){
-  const p=profsOf(c),usable=(k.weapons||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
+  const p=profsOf(c),bane=banesOf(c),usable=(k.weapons||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
   const cai=route==='cai';
   let best=null;const modes={};
-  const cands=forced?[forced]:Object.keys(WEAPONS);
+  const cands=forced?[forced]:[...Object.keys(WEAPONS),...(BLAZE_MODES[c.id]?['blaze']:[])]; // 雷之剑没有商店出售，只在培养方案里按指定打法模拟
   for(const wc of cands){
-    const base=WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
-    const skill=base.skill||wc;
-    if(!usable.includes(skill)||(!p.includes(skill)&&!forced&&!opts.anyProf))continue;
+    const base=wc==='blaze'?BLAZE_MODES[c.id]:WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
+    const skill=wc==='blaze'?'blaze':base.skill||wc;
+    if(wc!=='blaze'&&(!usable.includes(skill)||((bane.includes(skill)||(!ALLOW_NEUTRAL&&!p.includes(skill)))&&!forced&&!opts.anyProf)))continue;
+    const lag=wc==='blaze'?BLAZE_MODES[c.id].factor:p.includes(skill)||forced||opts.anyProf?1:NEUTRAL_LAG; // 中性武器：技能等级落后，输出打折
     const w={...base,sword:wc==='sword'||!!base.sword};
     const sf=statsFor(g,k,{cai,magic:!!w.magic});const {mounted,armor,mountBonus}=sf;const st=override?override(sf.st.build):sf.st;
-    const extra={hit:classBonus(k,HIT_RE[skill]||HIT_RE[wc])+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:skill==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:skill==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
+    const hre=HIT_RE[skill]||HIT_RE[wc];const extra={hit:(hre?classBonus(k,hre):0)+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:skill==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:skill==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
     const me=combatant(st,w,extra);
     if(!w.magic)me.hit+=ARTS_HIT;
     const pb=(PERSONAL_BONUS[c.id]||(()=>({})))({w,skill,me,st,mounted});
     me.hit+=pb.hit||0;me.atk+=pb.atk||0;if(pb.as){me.as+=pb.as;me.avo+=pb.as}
     /* 期望伤害占敌方生命的比例；一回合内能打死（伤害 × 次数 ≥ 生命）时按命中率额外加分 */
-    const off=['physical','magic'].map(e=>{const s=strike(me,ENEMIES[e]),n=s.doubles?(me.sword?2.2:2):1;return{...s,kill:clamp(s.exp/ENEMIES[e].hp+(s.dmg*n>=ENEMIES[e].hp?0.15*s.hit:0),0,1.5)}});
-    const offense=(off[0].kill+off[1].kill)/2;
-    modes[wc]=offense;
-    if(!best||offense>best.offense)best={weapon:wc,st,me,off,offense,mounted,armor,mountBonus};
+    const per=ENEMY_LIST.map(E=>{const s=strike(me,E.c),n=s.doubles?(me.sword?2.2:2):1;return{...s,kill:lag*clamp(s.exp/E.c.hp+(s.dmg*n>=E.c.hp?0.15*s.hit:0),0,1.5)}});
+    const single=per.reduce((a,x)=>a+x.kill,0)/per.length;
+    modes[wc]={single,per,range:RANGE_OF(wc)};
+    if(wc!=='blaze'&&(!best||single>best.single))best={weapon:wc,st,me,off:[per[0],per[2]],per,single,mounted,armor,mountBonus};
+  }
+  /* 输出 = 对每类敌人挑最有效的手段后取平均；有够用的 1–2 格手段再加成 */
+  let offense=0,use=[],reach=false;
+  if(best){
+    use=ENEMY_LIST.map((E,i)=>{let m=best.weapon;for(const [wc,v] of Object.entries(modes))if(v.per[i].kill>modes[m].per[i].kill+1e-9)m=wc;return{enemy:E.name,mode:m,hit:modes[m].per[i].hit,dmg:modes[m].per[i].dmg,doubles:modes[m].per[i].doubles,kill:modes[m].per[i].kill}});
+    reach=Object.entries(modes).some(([wc,v])=>v.range==='1-2'&&v.single>=0.75*best.single);
+    offense=use.reduce((a,x)=>a+x.kill,0)/use.length*(reach?1+REACH_BONUS:1);
+    best.offense=offense;
   }
   if(!best){ // 纯治疗职业：无攻击武器，只算承伤与治疗
     const sf=statsFor(g,k,{cai,magic:true});const {mounted,armor,mountBonus}=sf;const st=override?override(sf.st.build):sf.st;
@@ -205,13 +246,13 @@ function simulate(c,g,k,route,forced,override,opts={}){
   const tank={...best.me,def:best.me.def+classBonus(k,/後攻守備\+(\d+)/g)};
   const taken=['physical','magic'].map(e=>strike(ENEMIES[e],tank));
   const durability=(Math.log(Math.min(12,tank.hp/Math.max(1,taken[0].exp)))+Math.log(Math.min(12,tank.hp/Math.max(1,taken[1].exp))))/2; // 能承受的敌方攻击次数（对数，封顶 12 次）
-  const healer=(k.weapons||[]).includes('白魔術')&&p.includes('whiteMagic');
+  const healer=(k.weapons||[]).includes('白魔術')&&(p.includes('whiteMagic')||parseReq(k.main).some(r=>r.code==='whiteMagic'))&&!bane.includes('whiteMagic');
   const hs=healer&&HEAL_SKILL[c.id]?HEAL_SKILL[c.id](best.st):{amt:0,range:0};
   const healAmount=healer?HEAL_MT+Math.floor(best.st.magic/3)+classBonus(k,/魔法回復\+(\d+)/g)+hs.amt:0;
   const healing=healAmount*(1+HEAL_RANGE_VALUE*hs.range);
   const move=parseInt(k.move)||0,flying=k.traits.some(t=>/飛行/.test(t));
   const mobility=move+(flying?1:0)+(cai&&best.mounted?2:0);
-  return{...best,durability,taken,healing,healAmount,healRange:hs.range,mobility,modes};
+  return{...best,durability,taken,healing,healAmount,healRange:hs.range,mobility,modes,use,reach};
 }
 
 /* ---------- 特征、标定与合成 ---------- */
@@ -222,26 +263,10 @@ for(const c of chars){
   detail[c.id]={growth:g,growthSource:source,growthConflicts:conflicts,personalRaw:personal,teamRaw:team,skillNote:r?.[6]||''};
   for(const rt of routesOf(c))for(const k of finalClasses.filter(k=>classOk(c,k))){
     const sim=simulate(c,g,k,rt.route);
-    /* 雷之剑：会用剑的职业额外模拟一次魔法剑打法，只用于「适配性」 */
-    if((k.weapons||[]).includes('剣術')&&profsOf(c).includes('sword'))sim.modes.thunderSword=simulate(c,g,k,rt.route,'thunderSword').offense;
-    combos.push({id:c.id,route:rt,cls:k,sim,f:{dance:(k.classSkills||[]).some(t=>t.includes('踊る')),offense:sim.offense,healing:sim.healing,durability:sim.durability,skills:personal==null?null:Math.min(100,personal+team),mobility:sim.mobility,availability:availability(rt),cost:-costPenalty(rt.cond),adaptability:0}});
+    combos.push({id:c.id,route:rt,cls:k,sim,f:{dance:(k.classSkills||[]).some(t=>t.includes('踊る')),offense:sim.offense,healing:sim.healing,durability:sim.durability,skills:personal==null?null:Math.min(100,personal+team),mobility:sim.mobility,availability:availability(rt),cost:-costPenalty(rt.cond)-TRAIN_COST*classTrain(c,k)},train:classTrain(c,k)});
   }
 }
-/* 适配性：角色在所有可走通职业里，每种打法（剑 / 枪 / 斧 / 弓 / 拳套 / 黑魔法 / 雷之剑）的最好输出；
-   达到自身最强打法 75% 的算「可用打法」。物理 + 魔法都可用、有攻击型焰技、能治疗又能打，各多算一种。 */
-const MAGIC_MODES=['blackMagic','thunderSword'];
-const ADAPT={};
-for(const c of chars){
-  const mine=combos.filter(x=>x.id===c.id);if(!mine.length)continue;
-  const best={};for(const x of mine)for(const [m,v] of Object.entries(x.sim.modes||{}))best[m]=Math.max(best[m]??0,v);
-  const top=Math.max(0,...Object.values(best));
-  const viable=Object.keys(best).filter(m=>top>0&&best[m]>=0.75*top);
-  const phys=viable.filter(m=>!MAGIC_MODES.includes(m)),mag=viable.filter(m=>MAGIC_MODES.includes(m));
-  const canHeal=mine.some(x=>x.f.healing>0);
-  const raw=Math.max(0,viable.length-1)+(phys.length&&mag.length?1:0)+(BLAZE_ATTACK[c.id]?1:0)+(canHeal&&viable.length?0.5:0);
-  ADAPT[c.id]={raw,viable,hybrid:!!(phys.length&&mag.length),blaze:BLAZE_ATTACK[c.id]||null,canHeal};
-  for(const x of mine)x.f.adaptability=raw;
-}
+
 /* 各特征在全部组合上按 5%–95% 分位归一化到 0–1；缺技能资料的按中位数 */
 const median2=a=>median(a);
 const norm={};
@@ -251,7 +276,6 @@ for(const f of [...FEATURES.filter(f=>f!=='contribution'),'offense','healing']){
 }
 const nf0=(x,f)=>{const v=x.f[f]??norm[f].md;
   if(f==='mobility')return 1-0.45*Math.exp(-0.55*v); // 边际递减：+0 移动 55 分，+1 约 74，+2 约 85，+3 约 91
-  if(f==='adaptability')return clamp(v/3);           // 3 种以上可用打法记满分
   const {lo,hi}=norm[f];return hi>lo?clamp((v-lo)/(hi-lo)):0.5};
 /* 主要贡献：同一职业只能担任一个定位，取输出与治疗（仅统计能用治疗魔法的组合）中较高者 */
 let HEAL_FACTOR=1,TANK_FACTOR=0.7; // 治疗、坦克 → 贡献的换算系数，下方按外部共识扫描拟合
@@ -334,7 +358,8 @@ const rows=chars.map(c=>{
       healing:s.healing,mobility:s.mobility,costPenalty:round(costPenalty(x.route.cond)),availability:round(availability(x.route)*100),
       parts:Object.fromEntries(FEATURES.map(f=>[f,round(nf(x,f)*100)])),offenseScore:round(nf0(x,'offense')*100),healingScore:x.f.healing>0?round(nf0(x,'healing')*100):0,
       tankScore:round(tankValue(x)*100),healAmount:s.healAmount?round(s.healAmount):0,healRange:s.healRange||0}:null,
-    adapt:ADAPT[c.id]?{raw:ADAPT[c.id].raw,modes:ADAPT[c.id].viable.map(m=>WEAPON_ZH[m]||m),hybrid:ADAPT[c.id].hybrid,blaze:ADAPT[c.id].blaze,canHeal:ADAPT[c.id].canHeal}:null,
+    means:s&&s.use.length?{use:s.use.map(u=>({enemy:u.enemy,mode:WEAPON_ZH[u.mode]||u.mode,hit:Math.round(u.hit*100),dmg:round(u.dmg),doubles:!!u.doubles})),modes:[...new Set(s.use.map(u=>WEAPON_ZH[u.mode]||u.mode))],reach:s.reach,single:round(nf0({f:{offense:s.single}},'offense')*100)}:null,
+    blaze:BLAZE_ATTACK[c.id]||null,
     routeCount:new Set(combos.filter(y=>y.id===c.id).map(y=>y.route.route)).size,
     classCount:new Set(combos.filter(y=>y.id===c.id).map(y=>y.cls.name)).size,
     ...detail[c.id],skillMissing:detail[c.id].personalRaw==null,role:x?(()=>{const v=roleValues(x);if(v.dance)return'舞蹈';const k=Object.entries(v).sort((a,b)=>b[1]-a[1])[0][0];return{offense:'输出',healing:'治疗',tank:'坦克'}[k]||'输出'})():'输出'
@@ -349,7 +374,7 @@ const agreement=(()=>{const R=ranked.filter(r=>r.external!=null),er=[...R].sort(
 const out={
   version:'3.1',agreement,checked,generated:new Date().toISOString().slice(0,10),
   weights,prior:PRIOR,fitted:Object.fromEntries(Object.entries(fitted).map(([k,v])=>[k,round(v)])),priorShare:PRIOR_SHARE,featureNames:FEATURE_NAMES,blend:BLEND,tiers:TIERS,fit:{correlation:+fitCorr.toFixed(2),n:fitIds.length,healFactor:HEAL_FACTOR,tankFactor:TANK_FACTOR,scan:fitScan},
-  assumptions:{artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
+  assumptions:{enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
   sources:sources.map(({tiers,...s})=>({...s,count:Object.values(tiers).flat().length})),excluded,rows
 };
 fs.writeFileSync(path.join(root,'strength-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.STRENGTH_DATA='+JSON.stringify(out)+';\n');
