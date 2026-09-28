@@ -25,32 +25,69 @@ const renownChapter=r=>3+0.5*r;            // 所需名声等级大约在第几�
 const BLEND={external:0.6,own:0.4};
 const TIERS=[['T0',0.08],['T1',0.25],['T2',0.5],['T3',0.75],['T4',1]];
 const LORD_RANKS={keengamer:{dietrich:1,theodora:2,leda:3,cai:4},gamewith:{dietrich:1,theodora:3,leda:3,cai:3},algest:{leda:1,dietrich:3,theodora:3,cai:3}};
-const PRIOR={contribution:35,durability:15,skills:20,mobility:10,availability:15,cost:5};
+/* 可用场次（第一部入队早晚）不再计分：晚入队的角色加入时等级和能力更高，已体现在数值里 */
+const PRIOR={contribution:40,durability:18,skills:22,mobility:10,cost:10};
 const FEATURES=Object.keys(PRIOR);
-const FEATURE_NAMES={contribution:'主要贡献（输出、治疗、坦克取高）',durability:'承伤能力',skills:'个人与团队技能',mobility:'机动',availability:'可用场次',cost:'招募成本'};
+const FEATURE_NAMES={contribution:'主要贡献（输出、治疗、坦克取高）',durability:'承伤能力',skills:'个人与团队技能',mobility:'机动',cost:'招募成本'};
 const HEAL_SCAN=[0.6,0.7,0.8,0.9,1];
 const PRIOR_SHARE=0.5; // 最终权重 = 50% 先验 + 50% 外部共识拟合，避免权重被少数样本带偏
 /* 标准武器：取站内武器库中各类型 C 级的达米纳系列（黑魔法用博尔加农，命中未收录按 80 计） */
 const WEAPONS={sword:{mt:12,wt:4,hit:90},spear:{mt:13,wt:7,hit:80},axe:{mt:16,wt:10,hit:65},bow:{mt:12,wt:6,hit:70,range:2},gauntlet:{mt:11,wt:4,hit:90},blackMagic:{mt:10,wt:8,hit:80,magic:true}};
 /* 只在培养方案里按指定武器模拟：雷之剑按魔法攻击结算（GameWith：威力 12、命中 70、重量 8、射程 1–2） */
+/* 角色专属的攻击型白魔法（GameWith 白魔法一览「習得キャラ」）：职业能用白魔术即可施放，不看是否擅长 */
+const PERSONAL_SPELLS={
+  'recruit-18':{nosferatu:{mt:1,hit:80,wt:8,magic:true,skill:'whiteMagic'}}, // 奥琳琵娅：吸血（リザイア），伤害一半回复自身
+  orchel:{angel:{mt:10,hit:75,wt:10,magic:true,skill:'whiteMagic'}}          // 欧露赫露：炽天使（エンジェル），冥魔有效
+};
 const EXTRA_WEAPONS={thunderSword:{mt:12,wt:8,hit:70,magic:true,sword:true,skill:'sword'}};
 const HEAL_MT=10; // 治愈
 const ARTS_HIT=10; // 达米纳系列：用战技攻击时命中 +10，物理攻击统一计入
 /* 个人技能里能量化的命中 / 攻击 / 攻速加成（GameWith 个人技能与等级技能）；条件触发的按期望或一半计 */
 const PERSONAL_BONUS={
-  orchel:({w})=>w.magic?{hit:20}:{},                 // 动体预测：先攻时魔法命中 +20
-  aswan:({skill})=>skill==='bow'?{hit:20}:{},         // 弓姬
-  'hong-hua':({w})=>w.magic?{hit:10}:{},              // 朱明
-  nathan:()=>({hit:10,as:3}),                         // 猪突猛进：先攻时
-  troy:({skill})=>skill==='gauntlet'?{hit:10}:{},     // 云手
-  zarcone:({skill})=>skill==='axe'?{hit:10}:{},       // 斧包丁
-  'recruit-11':({skill,w})=>!w.magic&&skill!=='bow'?{hit:10}:{}, // 历战强者：与相邻敌人战斗
-  'recruit-33':({mounted})=>mounted?{hit:10,atk:3}:{},// 骑乘突击+：骑兵先攻
-  'recruit-34':({me})=>me.as-ENEMIES.physical.as>=3?{hit:20}:{}, // 疾风：攻速领先 3
-  halvin:()=>({hit:10}),                              // 顺应：战斗后命中累积，最多 +30，按 +10 计
-  talimun:({st})=>({hit:15*st.luck/100}),             // 胜利之风：幸运% 发动命中 +15
-  gaitz:()=>({hit:20,atk:1.4}),                       // 牙闪+：20% 攻击 +7、命中 +100
-  diego:()=>({hit:5}),alexandra:()=>({hit:5}),'recruit-31':()=>({hit:3}),peter:()=>({hit:10})
+  /* 字段：hit 命中 / atk 攻击 / as 攻速 / crit 必杀 / avo 回避 / def 守备 / build 体格 / wtMul 武器重量倍率 /
+     dmgMul 造成伤害倍率 / takenMul 受到伤害倍率。主动攻击时生效的直接计；概率触发按期望；条件较宽的按一半 */
+  orchel:({w})=>({def:5,...(w.magic?{hit:20}:{})}),        // 坚牢坚固 守备+5；动体预测 先攻魔法命中+20
+  aswan:({skill})=>skill==='bow'?{hit:20}:{},               // 弓姬
+  'hong-hua':({w})=>w.magic?{hit:10}:{},                    // 朱明
+  nathan:()=>({hit:10,as:3}),                               // 猪突猛进：先攻
+  troy:({skill})=>skill==='gauntlet'?{hit:10}:{},           // 云手
+  zarcone:({skill})=>({hit:(skill==='axe'?10:0)+10,atk:1.5}), // 斧包丁；卑劣+（敌人半血以下）按一半
+  'recruit-11':({skill,w})=>!w.magic&&skill!=='bow'?{hit:10,atk:3.9}:{},  // 历战强者；铁血+
+  'recruit-33':({mounted})=>mounted?{hit:10,atk:3,def:3}:{},// 骑乘突击+、爱马连携
+  'recruit-34':({me})=>{const d=me.as-ENEMIES.physical.as;return{...(d>=3?{hit:20}:{}),...(d>=5?{atk:3}:{})}}, // 疾风；风为我用+
+  halvin:()=>({hit:10}),                                    // 顺应：最多 +30，按 +10
+  talimun:({st})=>({hit:15*st.luck/100,crit:1.5,avo:15*st.luck/100}), // 胜利之风；幸运+3
+  gaitz:()=>({hit:20,atk:1.4}),                             // 牙闪+：20% 攻击+7、命中+100
+  diego:()=>({hit:5}),                                      // 容赦无+：追击时
+  alexandra:()=>({hit:5,avo:5}),                            // 白银少女：按相邻 1 名队友
+  'recruit-31':()=>({hit:6.7,crit:6.7,avo:6.7}),            // 气分屋 + 气分上上+：三选一 +20
+  peter:()=>({hit:10}),                                     // 误差修正+：命中≥75% 时 +20，按一半
+  'recruit-18':({w,wc})=>w.magic?{crit:10+(wc==='nosferatu'?10:0),atk:wc==='nosferatu'?5:0}:{}, // 争胜热情；热忱诺斯费拉托+
+  anatolia:()=>({avo:8}),                                   // 流气功 回避+3；身躲+ 对弓·魔法回避+10 按一半
+  bertrand:()=>({dmgMul:1.03}),                             // 铠葬流：5% 无视攻速追击
+  centurio:()=>({takenMul:0.8}),                            // 钢玉守护：敌方回合首次战斗伤害减半
+  creek:()=>({avo:10}),                                     // 冷静沉着：后攻攻速+3、回避+10
+  dadao:({st})=>({atk:2.5,dmgMul:1+0.5*st.strength/200}),   // 一发胜负：双方都不能追击时攻击+5（他速度低常被追击，按一半）；全力+：力÷2 % 伤害 ×1.5
+  dietrich:()=>({crit:6}),                                  // 杀意 先攻必杀+5；兽之冲动
+  esmeralda:()=>({wtMul:0.8}),                              // 怪力：武器、装备重量 ×0.8
+  inyoni:({skill})=>skill==='bow'?{atk:5,crit:5}:{},        // 强弓使 弓力+3；贯穿+ 弓战技攻击+4、必杀+10 按一半
+  klapka:()=>({def:5}),                                     // 银之精神：最多 +10，按 +5
+  ludia:()=>({as:3,avo:10}),                                // 隼：先攻攻速+3；见切+：能追击时回避+20 按一半
+  majide:({skill})=>({atk:(skill==='axe'?3:0)+6,avo:-30}), // 暴走斧；无畏+：先攻攻击+6、回避-30
+  noctula:()=>({avo:6}),                                    // 集中：战斗后回避+3 累积
+  'recruit-14':({skill})=>({...(skill==='bow'?{hit:10}:{}),atk:2}),     // 安全策（敌人无法反击）；感觉不错+ 命中 100% 时攻击+5 按一半弱化
+  'recruit-15':()=>({as:4,avo:7}),                          // 加速+：击杀后速度累积；疾走攻击 先攻回避+15 按一半
+  'recruit-16':()=>({takenMul:0.9}),                        // 守护骑士之责：受伤 90%
+  'recruit-17':()=>({avo:14}),                              // 随风+：回避 +1/+5/+20/+30 四选一
+  'recruit-24':({st})=>({dmgMul:1+0.5*st.luck/200}),        // 好机+：幸运÷2 % 伤害 ×1.5
+  'recruit-28':({st})=>({takenMul:1-0.3*st.luck/100}),      // 死不了：致命伤幸运% 留 1 HP
+  'recruit-30':()=>({atk:2.75}),                            // 先手必胜 50% 攻击+3；我停不下来+ 50% +5
+  'recruit-43':()=>({build:5}),                             // 重量级战士：体格+5
+  'recruit-50':()=>({atk:1.5,avo:10}),                      // 心之余裕；绝好调+ 满血攻击+3 按一半
+  'recruit-53':()=>({atk:2,crit:5}),                        // 王之威光+：敌人受伤时，按一半
+  theodora:()=>({takenMul:0.85}),                           // 不退觉悟：30% 伤害减半
+  tobias:()=>({atk:3,dmgMul:1.15}),                         // 大技：战技攻击+3；本气一发+ 30% ×1.5
+  'yang-jie':()=>({def:3})                                  // 活力结界+：按剩余 HP% 守备+5
 };
 /* 治疗相关个人技能：回复量加成与治疗射程加成 */
 const HEAL_SKILL={sofia:()=>({amt:10,range:2}),fianna:st=>({amt:30*st.luck/100,range:0})};
@@ -77,7 +114,7 @@ const SKILL_CODE={'剣術':'sword','槍術':'spear','斧術':'axe','弓術':'bow
 const RANK={S:6,A:5,B:4,C:3,D:2,E:1,F:0};
 const ROUTE_NAME={cai:'凯伊篇',dietrich:'迪托利希篇',theodora:'赛奥朵拉篇',leda:'蕾达篇',savior:'救世主篇'};
 const CLASS_ZH={'平民':'平民','貴族':'贵族','闘士':'斗士','猟兵':'猎兵','兵士':'士兵','飛駝兵':'飞驼兵','呪い師':'咒术师','剣士':'剑士','ブリガンド':'山贼','セスタス':'拳斗士','アーチャー':'弓兵','ローグ':'盗贼','重装歩兵':'重装步兵','軽騎兵':'轻骑兵','戦車兵':'战车兵','騎甲駝兵':'甲驼骑兵','シャーマン':'萨满','プリースト':'祭司','天翼兵':'天翼兵','シドー':'士道','ウォーリアー':'勇士','スナイパー':'狙击手','フォレストナイト':'森林骑士','ヘヴィアーマー':'重甲兵','バーディンガー':'巴丁格骑士','ウァテス':'先知','ビショップ':'主教','カラドリオス':'卡拉德里奥斯','ガーディアン':'守护者','踊り子':'舞娘','ドラグーン':'龙骑兵','トルバドール':'游吟骑士','カタフラクト':'铁甲骑兵','レンジャー':'游侠','戦象兵':'战象兵','バトルマスター':'战斗大师','マスターアーチ':'弓圣','シャドーシーカー':'影猎者','ホーリーランサー':'圣枪兵','フォートレス':'要塞','オリハルディア':'奥里哈尔骑士','ドラゴンマスター':'龙主','ドルイド':'德鲁伊','ワイズマン':'贤者','バトルモンク':'武僧','聖天翼兵':'圣天翼兵','グレートナイト':'巨骑士','ソードマスター':'剑圣','ハイエピタフ':'碑文骑士','ボウナイト':'弓骑士','ヴァルキュリウム':'女武神'};
-const WEAPON_ZH={thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
+const WEAPON_ZH={nosferatu:'吸血',angel:'炽天使',thunderSword:'雷之剑',sword:'剑',spear:'枪',axe:'斧',bow:'弓',gauntlet:'拳套',blackMagic:'黑魔法'};
 
 const mid=r=>Array.isArray(r)?(r[0]+r[1])/2:r;
 const timeZh=t=>String(t||'').replace(/【(.+?)編】/,(_,n)=>({'カイ':'凯伊','ディートリヒ':'迪托利希','セオドラ':'赛奥朵拉','レダ':'蕾达','救世主':'救世主'}[n]||n)+'篇 ').replace(/1部(\d+)章/,'第一部第$1章').replace(/2部(\d+)章/,'第二部第$1章').replace(/3部(\d+)区分/,'第三部第$1节').replace(/序幕(\d+)章/,'序幕第$1章').replace(/(\d+)月$/,' $1月').trim();
@@ -215,31 +252,33 @@ const ENEMY_LIST=ENEMY_TYPES.map(t=>{
 const ENEMIES={physical:ENEMY_LIST[0].c,magic:combatant(enemyStats,WEAPONS.blackMagic)}; // 承伤仍按原来的两类标准敌人
 const NEUTRAL_LAG=0.9; // 非得意武器的输出折扣
 const REACH_BONUS=0.08; // 有 1–2 格攻击手段（魔法、雷之剑）且够用时，敌人回合能反击远程敌人
-const RANGE_OF=wc=>['blackMagic','thunderSword'].includes(wc)?'1-2':wc==='bow'?'2':'1';
+const RANGE_OF=wc=>['nosferatu','angel'].includes(wc)?'1-2':['blackMagic','thunderSword'].includes(wc)?'1-2':wc==='bow'?'2':'1';
 
 const HIT_RE={sword:/剣命中\+(\d+)/g,spear:/槍命中\+(\d+)/g,axe:/斧命中\+(\d+)/g,bow:/弓命中\+(\d+)/g,gauntlet:/格闘命中\+(\d+)/g,blackMagic:/魔法命中\+(\d+)/g};
 function simulate(c,g,k,route,forced,override,opts={}){
   const p=profsOf(c),bane=banesOf(c),usable=(k.weapons||[]).map(x=>SKILL_CODE[x]).filter(Boolean);
   const cai=route==='cai';
   let best=null;const modes={};
-  const cands=forced?[forced]:Object.keys(WEAPONS); // 雷之剑没有商店出售，只在培养方案里按指定打法模拟
+  const spells=PERSONAL_SPELLS[c.id]||{};
+  const cands=forced?[forced]:[...Object.keys(WEAPONS),...Object.keys(spells)]; // 雷之剑没有商店出售，只在培养方案里按指定打法模拟
   for(const wc of cands){
-    const base=WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
+    const base=spells[wc]||WEAPONS[wc]||EXTRA_WEAPONS[wc];if(!base)continue;
     const skill=base.skill||wc;
-    if(!usable.includes(skill)||((bane.includes(skill)||(!ALLOW_NEUTRAL&&!p.includes(skill)))&&!forced&&!opts.anyProf))continue;
-    const lag=p.includes(skill)||forced||opts.anyProf?1:NEUTRAL_LAG; // 中性武器：技能等级落后，输出打折
+    if(!usable.includes(skill)||(!spells[wc]&&(bane.includes(skill)||(!ALLOW_NEUTRAL&&!p.includes(skill)))&&!forced&&!opts.anyProf))continue;
+    const lag=spells[wc]||p.includes(skill)||forced||opts.anyProf?1:NEUTRAL_LAG; // 中性武器：技能等级落后，输出打折
     const w={...base,sword:wc==='sword'||!!base.sword};
     const sf=statsFor(g,k,{cai,magic:!!w.magic});const {mounted,armor,mountBonus}=sf;const st=override?override(sf.st.build):sf.st;
     const hre=HIT_RE[skill]||HIT_RE[wc];const extra={hit:(hre?classBonus(k,hre):0)+(c.originalName==='Benditz'&&k.name==='戦車兵'?20:0),crit:skill==='sword'?classBonus(k,/剣必殺\+(\d+)/g):0,avo:skill==='gauntlet'?classBonus(k,/格闘回避\+(\d+)/g):0};
     const me=combatant(st,w,extra);
     if(!w.magic)me.hit+=ARTS_HIT;
-    const pb=(PERSONAL_BONUS[c.id]||(()=>({})))({w,skill,me,st,mounted});
-    me.hit+=pb.hit||0;me.atk+=pb.atk||0;if(pb.as){me.as+=pb.as;me.avo+=pb.as}
+    const pb=(PERSONAL_BONUS[c.id]||(()=>({})))({w,wc,skill,me,st,mounted});
+    if(pb.build||pb.wtMul){const me2=combatant({...st,build:st.build+(pb.build||0)},{...w,wt:w.wt*(pb.wtMul||1)},extra);if(!w.magic)me2.hit+=ARTS_HIT;Object.assign(me,me2)}
+    me.hit+=pb.hit||0;me.atk+=pb.atk||0;me.crit+=pb.crit||0;me.avo+=pb.avo||0;me.def+=pb.def||0;if(pb.as){me.as+=pb.as;me.avo+=pb.as}
     /* 期望伤害占敌方生命的比例；一回合内能打死（伤害 × 次数 ≥ 生命）时按命中率额外加分 */
-    const per=ENEMY_LIST.map(E=>{const s=strike(me,E.c),n=s.doubles?(me.sword?2.2:2):1;return{...s,kill:lag*clamp(s.exp/E.c.hp+(s.dmg*n>=E.c.hp?0.15*s.hit:0),0,1.5)}});
+    const per=ENEMY_LIST.map(E=>{const s=strike(me,E.c),n=s.doubles?(me.sword?2.2:2):1;s.exp*=pb.dmgMul||1;return{...s,kill:lag*clamp(s.exp/E.c.hp+(s.dmg*n>=E.c.hp?0.15*s.hit:0),0,1.5)}});
     const single=per.reduce((a,x)=>a+x.kill,0)/per.length;
     modes[wc]={single,per,range:RANGE_OF(wc)};
-    if(!best||single>best.single)best={weapon:wc,st,me,off:[per[0],per[2]],per,single,mounted,armor,mountBonus};
+    if(!best||single>best.single)best={weapon:wc,st,me,off:[per[0],per[2]],per,single,mounted,armor,mountBonus,pb};
   }
   /* 输出 = 对每类敌人挑最有效的手段后取平均；有够用的 1–2 格手段再加成 */
   let offense=0,use=[],reach=false;
@@ -255,7 +294,7 @@ function simulate(c,g,k,route,forced,override,opts={}){
     best={weapon:null,st,me:combatant(st,{mt:0,wt:0,hit:0}),off:[{kill:0,hit:0,dmg:0},{kill:0,hit:0,dmg:0}],offense:0,mounted,armor,mountBonus};
   }
   const tank={...best.me,def:best.me.def+classBonus(k,/後攻守備\+(\d+)/g)};
-  const taken=['physical','magic'].map(e=>strike(ENEMIES[e],tank));
+  const taken=['physical','magic'].map(e=>{const t=strike(ENEMIES[e],tank);t.exp*=best.pb?.takenMul||1;return t});
   const durability=(Math.log(Math.min(12,tank.hp/Math.max(1,taken[0].exp)))+Math.log(Math.min(12,tank.hp/Math.max(1,taken[1].exp))))/2; // 能承受的敌方攻击次数（对数，封顶 12 次）
   const healer=(k.weapons||[]).includes('白魔術')&&(p.includes('whiteMagic')||parseReq(k.main).some(r=>r.code==='whiteMagic'))&&!bane.includes('whiteMagic');
   const hs=healer&&HEAL_SKILL[c.id]?HEAL_SKILL[c.id](best.st):{amt:0,range:0};
@@ -290,10 +329,13 @@ const nf0=(x,f)=>{const v=x.f[f]??norm[f].md;
   const {lo,hi}=norm[f];return hi>lo?clamp((v-lo)/(hi-lo)):0.5};
 /* 主要贡献：同一职业只能担任一个定位，取输出与治疗（仅统计能用治疗魔法的组合）中较高者 */
 let HEAL_FACTOR=1,TANK_FACTOR=0.7; // 治疗、坦克 → 贡献的换算系数，下方按外部共识扫描拟合
-/* 坦克的敌人回合价值 = 承伤 ×（0.6 + 0.4 × 反击输出） */
-const tankValue=x=>nf0(x,'durability')*(0.6+0.4*nf0(x,'offense'));
+/* 坦克的敌人回合价值：承伤要进前段（归一化 ≥ 0.7）才开始计，到顶为满分；再乘（0.6 + 0.4 × 反击输出） */
+const tankValue=x=>clamp((nf0(x,'durability')-0.7)/0.3)*(0.6+0.4*nf0(x,'offense'));
 const roleValues=x=>({offense:nf0(x,'offense'),healing:x.f.healing>0?HEAL_FACTOR*nf0(x,'healing'):0,tank:TANK_FACTOR*tankValue(x),dance:x.f.dance?1:0});
-const nf=(x,f)=>f==='contribution'?Math.max(...Object.values(roleValues(x))):nf0(x,f);
+/* 主要贡献：取最高的定位；能打又能奶的角色，次一项按 25% 加上（每回合只能做一件事，但多一种选择） */
+const HYBRID_SHARE=0.25;
+const contributionOf=x=>{const v=roleValues(x),top=Math.max(...Object.values(v)),oh=[v.offense,v.healing].sort((a,b)=>b-a);return clamp(top+(Math.min(oh[0],oh[1])>0&&oh[0]===top?HYBRID_SHARE*oh[1]:0))};
+const nf=(x,f)=>f==='contribution'?contributionOf(x):nf0(x,f);
 const ownOf=(x,w)=>FEATURES.reduce((s,f)=>s+w[f]*nf(x,f),0)/FEATURES.reduce((s,f)=>s+w[f],0)*100;
 
 /* 外部共识（同 2.0：档位 → 榜内百分位中点 → 按来源权重平均） */
@@ -342,7 +384,7 @@ return corr(fitIds.map(id=>bestOf[id].score),fitIds.map(id=>EXT[id].ext));
 }
 const fitIds=pool.map(c=>c.id).filter(id=>EXT[id].ext!=null);
 let bestH=null;
-for(const h of HEAL_SCAN)for(const t of [0.5,0.6,0.7,0.8,0.9]){HEAL_FACTOR=h;TANK_FACTOR=t;weights={...PRIOR};const r=calibrate();fitScan.push({h,t,r:+r.toFixed(3)});if(!bestH||r>bestH.r+1e-9)bestH={h,t,r}}
+for(const h of HEAL_SCAN)for(const t of [0.6,0.7,0.8,0.9,1]){HEAL_FACTOR=h;TANK_FACTOR=t;weights={...PRIOR};const r=calibrate();fitScan.push({h,t,r:+r.toFixed(3)});if(!bestH||r>bestH.r+1e-9)bestH={h,t,r}}
 HEAL_FACTOR=bestH.h;TANK_FACTOR=bestH.t;weights={...PRIOR};const fitCorr=calibrate();
 
 /* 本站分换算为 58 人内的百分位，与外部共识合成 */
@@ -364,8 +406,8 @@ const rows=chars.map(c=>{
     best:x?{route:x.route.route,routeName:ROUTE_NAME[x.route.route],joinPart:x.route.part,joinChapter:round(x.route.ch),appear:timeZh(x.route.appear),
       cls:x.cls.name,clsZh:CLASS_ZH[x.cls.name]||x.cls.name,clsTier:x.cls.tier,weapon:s.weapon,weaponZh:WEAPON_ZH[s.weapon]||'治疗',
       mounted:s.mounted,mountBonus:!!s.mountBonus,stats:Object.fromEntries([...G,'build'].map(k=>[k,round(s.st[k])])),
-      vsPhysical:{hit:Math.round((s.off[0].hit||0)*100),dmg:round(s.off[0].dmg||0),doubles:!!s.off[0].doubles,taken:round(s.taken[0].exp)},
-      vsMagic:{hit:Math.round((s.off[1].hit||0)*100),dmg:round(s.off[1].dmg||0),doubles:!!s.off[1].doubles,taken:round(s.taken[1].exp)},
+      vsPhysical:{hit:Math.round((s.off[0].hit||0)*100),dmg:round(s.off[0].dmg||0),doubles:!!s.off[0].doubles,taken:round(s.taken[0].exp),takenHit:Math.round(s.taken[0].hit*100),avo:round(s.me.avo)},
+      vsMagic:{hit:Math.round((s.off[1].hit||0)*100),dmg:round(s.off[1].dmg||0),doubles:!!s.off[1].doubles,taken:round(s.taken[1].exp),takenHit:Math.round(s.taken[1].hit*100)},
       healing:s.healing,mobility:s.mobility,costPenalty:round(costPenalty(x.route.cond)),availability:round(availability(x.route)*100),
       parts:Object.fromEntries(FEATURES.map(f=>[f,round(nf(x,f)*100)])),offenseScore:round(nf0(x,'offense')*100),healingScore:x.f.healing>0?round(nf0(x,'healing')*100):0,
       tankScore:round(tankValue(x)*100),healAmount:s.healAmount?round(s.healAmount):0,healRange:s.healRange||0}:null,
@@ -385,7 +427,7 @@ const agreement=(()=>{const R=ranked.filter(r=>r.external!=null),er=[...R].sort(
 const out={
   version:'3.1',agreement,checked,generated:new Date().toISOString().slice(0,10),
   weights,prior:PRIOR,fitted:Object.fromEntries(Object.entries(fitted).map(([k,v])=>[k,round(v)])),priorShare:PRIOR_SHARE,featureNames:FEATURE_NAMES,blend:BLEND,tiers:TIERS,fit:{correlation:+fitCorr.toFixed(2),n:fitIds.length,healFactor:HEAL_FACTOR,tankFactor:TANK_FACTOR,scan:fitScan},
-  assumptions:{blaze:Object.fromEntries(Object.entries(BLAZE).map(([k,v])=>[k,v.mult])),enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
+  assumptions:{hybridShare:HYBRID_SHARE,blaze:Object.fromEntries(Object.entries(BLAZE).map(([k,v])=>[k,v.mult])),enemies:ENEMY_LIST.map(e=>({name:e.name,cls:e.cls?(CLASS_ZH[e.cls]||e.cls):'上级职业中位数',weapon:WEAPON_ZH[e.weapon],def:round(e.st.defense),res:round(e.st.resistance),hp:round(e.st.hp)})),reachBonus:REACH_BONUS,artsHit:ARTS_HIT,healRangeValue:HEAL_RANGE_VALUE,levels:LEVELS,part1Levels:PART1_LEVELS,part1Chapters:PART1_CHAPTERS,weapons:WEAPONS,healMt:HEAL_MT,build:BUILD,mount:MOUNT,enemy:Object.fromEntries(G.map(s=>[s,round(enemyStats[s])]))},
   sources:sources.map(({tiers,...s})=>({...s,count:Object.values(tiers).flat().length})),excluded,rows
 };
 fs.writeFileSync(path.join(root,'strength-data.js'),'/* 由 tools/build-strength.js 生成，请勿手工编辑。 */\nwindow.STRENGTH_DATA='+JSON.stringify(out)+';\n');
